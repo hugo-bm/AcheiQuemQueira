@@ -1,0 +1,49 @@
+@keyframes aqFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes aqSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aqPulseSoft {
+
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.02);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+
+}
+
+.aq-fade-in {
+  animation: aqFadeIn .3s ease;
+}
+
+.aq-slide-up {
+  animation: aqSlideUp .35s ease;
+}
+
+.aq-pulse-soft {
+  animation: aqPulseSoft 1.8s ease infinite;
+}
