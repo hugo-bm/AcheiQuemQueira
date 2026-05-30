@@ -3,3 +3,51 @@
 AQQ - Typography
 ==================================================
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap');
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: var(--bs-body-color);
+}
+
+.aq-display,
+.aq-h1,
+.aq-h2,
+.aq-h3,
+.aq-h4 {
+  font-family: "Poppins", sans-serif;
+}
+
+.aq-display {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.aq-h1 {
+  font-size: 2rem;
+}
+
+.aq-h2 {
+  font-size: 1.75rem;
+}
+
+.aq-h3 {
+  font-size: 1.5rem;
+}
+
+.aq-h4 {
+  font-size: 1.25rem;
+}
+
+.aq-text-lg {
+  font-size: 1.125rem;
+}
+
+.aq-text {
+  font-size: 1rem;
+}
+
+.aq-text-sm {
+  font-size: .875rem;
+}
