@@ -3,3 +3,89 @@
 AQQ - Variables
 ==================================================
 */
+
+:root {
+
+  /* Theme Colors */
+
+  --bs-primary: #6F8B72;
+  --bs-primary-rgb: 111, 139, 114;
+
+  --bs-secondary: #8D9685;
+  --bs-secondary-rgb: 141, 150, 133;
+
+  --bs-success: #72AE87;
+  --bs-success-rgb: 114, 174, 135;
+
+  --bs-info: #7C9A97;
+  --bs-info-rgb: 124, 154, 151;
+
+  --bs-warning: #F09A4A;
+  --bs-warning-rgb: 240, 154, 74;
+
+  --bs-danger: #D86A6A;
+  --bs-danger-rgb: 216, 106, 106;
+
+  --bs-light: #F5F1E8;
+  --bs-light-rgb: 245, 241, 232;
+
+  --bs-dark: #2F3237;
+  --bs-dark-rgb: 47, 50, 55;
+
+  --bs-body-bg: #F5F1E8;
+  --bs-body-color: #2F3237;
+
+  --bs-border-color: #D9D2C3;
+
+  /* AQQ */
+
+  --aq-background: #F5F1E8;
+  --aq-card: #FFFDF9;
+  --aq-surface: #F9F6F0;
+
+  --aq-border-soft: #D9D2C3;
+
+  --aq-text-soft: #6B7078;
+  --aq-text-light: #8A8F96;
+
+  --aq-hover: #ECE6DA;
+
+  --aq-shadow-sm:
+    0 3px 10px rgba(0, 0, 0, .06);
+
+  --aq-shadow-md:
+    0 8px 24px rgba(0, 0, 0, .08);
+
+  /* Quality */
+
+  --grau-1: #C44536;
+  --grau-2: #F09A4A;
+  --grau-3: #D9A63A;
+  --grau-4: #4F9D69;
+
+  /* Spacing */
+
+  --aq-space-1: 4px;
+  --aq-space-2: 8px;
+  --aq-space-3: 12px;
+  --aq-space-4: 16px;
+  --aq-space-5: 20px;
+  --aq-space-6: 24px;
+  --aq-space-7: 32px;
+  --aq-space-8: 48px;
+
+  /* Radius */
+
+  --aq-radius-sm: 10px;
+  --aq-radius-md: 16px;
+  --aq-radius-lg: 24px;
+  --aq-radius-xl: 32px;
+
+  /* Motion */
+
+  --aq-transition: 220ms ease;
+
+  /* Layout */
+
+  --aq-max-content-width: 1280px;
+}
