@@ -3,3 +3,52 @@
 AQQ - Utilities
 ==================================================
 */
+
+.aq-surface {
+  background: var(--aq-surface);
+}
+
+.aq-card-surface {
+  background: var(--aq-card);
+}
+
+.aq-shadow-sm {
+  box-shadow: var(--aq-shadow-sm);
+}
+
+.aq-shadow-md {
+  box-shadow: var(--aq-shadow-md);
+}
+
+.aq-radius-sm {
+  border-radius: var(--aq-radius-sm);
+}
+
+.aq-radius-md {
+  border-radius: var(--aq-radius-md);
+}
+
+.aq-radius-lg {
+  border-radius: var(--aq-radius-lg);
+}
+
+.aq-radius-xl {
+  border-radius: var(--aq-radius-xl);
+}
+
+.aq-text-soft {
+  color: var(--aq-text-soft);
+}
+
+.aq-text-light {
+  color: var(--aq-text-light);
+}
+
+.aq-clickable {
+  cursor: pointer;
+  transition: var(--aq-transition);
+}
+
+.aq-clickable:hover {
+  opacity: .92;
+}

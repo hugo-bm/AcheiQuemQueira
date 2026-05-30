@@ -1,3 +1,9 @@
+const App = {
+  init() {
+    console.info("AQQ initialized 🚀");
+  }
+};
+
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("AQQ initialized");
+  App.init();
 });
