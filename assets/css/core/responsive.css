@@ -3,3 +3,37 @@
 AQQ - Responsive
 ==================================================
 */
+
+.aq-container {
+  width: 100%;
+  max-width: var(--aq-max-content-width);
+  margin-inline: auto;
+  padding-inline: var(--aq-space-4);
+}
+
+.aq-mobile-only {
+  display: block;
+}
+
+.aq-tablet-up,
+.aq-desktop-up {
+  display: none;
+}
+
+@media (min-width: 768px) {
+
+  .aq-mobile-only {
+    display: none;
+  }
+
+  .aq-tablet-up {
+    display: block;
+  }
+}
+
+@media (min-width: 992px) {
+
+  .aq-desktop-up {
+    display: block;
+  }
+}
