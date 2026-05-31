@@ -1,0 +1,55 @@
+{
+  "states": [
+    {
+      "id": "RJ",
+      "name": "Rio de Janeiro",
+      "cities": [
+        {
+          "id": "rio_de_janeiro",
+          "name": "Rio de Janeiro",
+          "neighborhoods": [
+            "Campo Grande",
+            "Bangu",
+            "Santa Cruz"
+          ]
+        },
+        {
+          "id": "seropedica",
+          "name": "Seropédica",
+          "neighborhoods": [
+            "Centro",
+            "Fazenda Caxias",
+            "Campo Lindo"
+          ]
+        },
+        {
+          "id": "itaguai",
+          "name": "Itaguaí",
+          "neighborhoods": [
+            "Centro",
+            "Brisamar",
+            "Vila Margarida"
+          ]
+        },
+        {
+          "id": "nova_iguacu",
+          "name": "Nova Iguaçu",
+          "neighborhoods": [
+            "Centro",
+            "Comendador Soares",
+            "Austin"
+          ]
+        },
+        {
+          "id": "duque_de_caxias",
+          "name": "Duque de Caxias",
+          "neighborhoods": [
+            "Centro",
+            "Jardim Primavera",
+            "Saracuruna"
+          ]
+        }
+      ]
+    }
+  ]
+}
