@@ -256,7 +256,18 @@
  *
  * @typedef {"item"|"proposal"|"negotiation"|"chat"|"system"} NotificationType
  */
-
+/**
+ * Notification reference type.
+ *
+ * @typedef {
+ *   "item" |
+ *   "proposal" |
+ *   "negotiation" |
+ *   "chat" |
+ *   "user" |
+ *   "system"
+ * } NotificationReferenceType
+ */
 /**
  * User notification.
  *
@@ -268,14 +279,14 @@
  * @property {NotificationType} type
  *
  * @property {string} title
- * @property {string} description
+ * @property {string} message
  *
+ * @property {NotificationReferenceType} referenceType
  * @property {string} referenceId
  *
- * @property {boolean} read
+ * @property {string|null} readAt
  *
  * @property {string} createdAt
- * @property {string} lastLoginAt
  */
 
 /**
