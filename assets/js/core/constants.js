@@ -14,3 +14,13 @@ export const REFERENCE_TYPES = {
     USER: 'user',
     SYSTEM: 'system'
 };
+
+export const MESSAGE_TYPES = {
+    TEXT: "text",
+    SYSTEM: "system"
+}
+
+export const CHAT_STATUS = {
+  ACTIVE: 'active',
+  CLOSED: 'closed'
+}

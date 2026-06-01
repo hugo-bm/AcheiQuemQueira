@@ -307,7 +307,7 @@
  *
  * @property {string[]} participants
  *
- * @property {boolean} active
+ * @property {boolean} status
  *
  * @property {string} createdAt
  */
