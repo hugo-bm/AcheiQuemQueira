@@ -24,3 +24,19 @@ export const CHAT_STATUS = {
   ACTIVE: 'active',
   CLOSED: 'closed'
 }
+
+export const PROPOSAL_STATUS = {
+  PENDING: 'pending',
+  ACCEPTED: 'accepted',
+  REJECTED: 'rejected',
+  CANCELLED: 'cancelled',
+  COMPLETED: 'completed'
+};
+
+export const ITEM_STATUS = {
+  ACTIVE: 'active',
+  NEGOTIATED: 'negotiated',
+  EXPIRED: 'expired',
+  NO_AGREEMENT: 'no_agreement',
+  REMOVED: 'removed'
+}
