@@ -43,20 +43,6 @@
  */
 
 /**
- * User address.
- *
- * @typedef {Object} UserAddress
- *
- * @property {string} zipCode
- * @property {string} state
- * @property {string} city
- * @property {string} neighborhood
- * @property {string} street
- * @property {string} number
- * @property {string} complement
- */
-
-/**
  * User social links.
  *
  * @typedef {Object} UserSocialLinks
@@ -93,7 +79,10 @@
  *
  * @property {?string} avatar
  *
- * @property {UserAddress} address
+ * @property {string} state
+ * @property {string} city
+ * @property {string} neighborhood
+ * @property {string} address
  * @property {UserSocialLinks} socialLinks
  * @property {UserReputation} reputation
  *
@@ -114,6 +103,16 @@
  */
 
 /**
+ * Image Mock.
+ *
+ * @typedef Image
+ * @property {string} id
+ * @property {string} name
+ * @property {string} data
+ * @property {string} createdAt
+ */
+
+/**
  * Available item statuses.
  *
  * @typedef {"active"|"negotiated"|"expired"|"NO_AGREEMENT|REMOVED"} ItemStatus
@@ -129,18 +128,15 @@
  *
  * @property {string} title
  * @property {string} description
+ * @property {string} [volumeDescription]
  *
  * @property {string} categoryId
  * @property {string} subcategoryId
  *
- * @property {string[]} tags
- * @property {string[]} images
+ * @property {Image[]} [images]
  *
  * @property {ItemQuality} quality
  * @property {ItemStatus} status
- *
- * @property {number} durationDays
- * Lifetime of the advertisement.
  *
  * @property {string} expiresAt
  *
@@ -224,25 +220,26 @@
  */
 
 /**
- * Negotiation flow.
+ * Item negotiation.
  *
  * @typedef {Object} Negotiation
  *
  * @property {string} id
  *
- * @property {string} proposalId
  * @property {string} itemId
+ * @property {string} proposalId
  *
- * @property {string} sellerId
- * @property {string} buyerId
- *
- * @property {boolean} pickupEnabled
+ * @property {string} ownerId
+ * @property {string} interestedUserId
  *
  * @property {NegotiationStatus} status
  *
+ * @property {string|null} leavingAt
+ * @property {string|null} arrivedAt
+ * @property {string|null} completedAt
+ * @property {string|null} cancelledAt
+ *
  * @property {string} createdAt
- * @property {string} updatedAt
- * @property {string} closedAt
  */
 
 /**

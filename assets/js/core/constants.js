@@ -53,3 +53,11 @@ export const ITEM_TYPES = {
   SALE: 'sale',
   DISPOSAL: 'disposal'
 };
+
+export const NEGOTIATION_STATUS = {
+  OPEN: 'open',
+  LEAVING: 'leaving',
+  ARRIVED: 'arrived',
+  COMPLETED: 'completed',
+  CANCELLED: 'cancelled'
+};
