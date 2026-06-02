@@ -49,7 +49,6 @@
  *
  * @property {string} instagram
  * @property {string} facebook
- * @property {string} whatsapp
  */
 
 /**
@@ -83,6 +82,7 @@
  * @property {string} city
  * @property {string} neighborhood
  * @property {string} address
+ * @property {boolean} active
  * @property {UserSocialLinks} socialLinks
  * @property {UserReputation} reputation
  *
