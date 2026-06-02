@@ -110,13 +110,13 @@
 /**
  * Available item quality levels.
  *
- * @typedef {"defective"|"issues"|"esthetic"|"functional"} ItemQuality
+ * @typedef {"grau-1"|"grau-2"|"grau-3"|"grau-4"} ItemQuality
  */
 
 /**
  * Available item statuses.
  *
- * @typedef {"available"|"negotiating"|"completed"|"removed"} ItemStatus
+ * @typedef {"active"|"negotiated"|"expired"|"NO_AGREEMENT|REMOVED"} ItemStatus
  */
 
 /**

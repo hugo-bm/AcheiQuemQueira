@@ -40,3 +40,16 @@ export const ITEM_STATUS = {
   NO_AGREEMENT: 'no_agreement',
   REMOVED: 'removed'
 }
+
+export const ITEM_DURATIONS = {
+  DAY: 1,
+  WEEK: 7,
+  FORTNIGHT: 15,
+  MONTH: 30
+};
+
+export const ITEM_TYPES = {
+  FREE: 'free',
+  SALE: 'sale',
+  DISPOSAL: 'disposal'
+};
