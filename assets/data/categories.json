@@ -1,0 +1,243 @@
+{
+  "categories": [
+    {
+      "id": "cat_furniture",
+      "name": "Móveis",
+      "icon": "bi-house"
+    },
+    {
+      "id": "cat_electronics",
+      "name": "Eletrônicos",
+      "icon": "bi-phone"
+    },
+    {
+      "id": "cat_appliances",
+      "name": "Eletrodomésticos",
+      "icon": "bi-plug"
+    },
+    {
+      "id": "cat_clothing",
+      "name": "Roupas e Calçados",
+      "icon": "bi-bag"
+    },
+    {
+      "id": "cat_books",
+      "name": "Livros e Estudos",
+      "icon": "bi-book"
+    },
+    {
+      "id": "cat_toys",
+      "name": "Brinquedos",
+      "icon": "bi-controller"
+    },
+    {
+      "id": "cat_sports",
+      "name": "Esportes e Lazer",
+      "icon": "bi-bicycle"
+    },
+    {
+      "id": "cat_tools",
+      "name": "Ferramentas",
+      "icon": "bi-tools"
+    },
+    {
+      "id": "cat_garden",
+      "name": "Jardim e Quintal",
+      "icon": "bi-tree"
+    },
+    {
+      "id": "cat_pets",
+      "name": "Pets",
+      "icon": "bi-heart"
+    },
+    {
+      "id": "cat_kitchen",
+      "name": "Cozinha e Utilidades",
+      "icon": "bi-cup-hot"
+    },
+    {
+      "id": "cat_other",
+      "name": "Outros",
+      "icon": "bi-box"
+    },
+    {
+      "id": "cat_building_materials",
+      "name": "Materiais de construção",
+      "icon": "bi bi-recycle"
+    }
+  ],
+
+  "subcategories": [
+    {
+      "id": "sub_sofas",
+      "categoryId": "cat_furniture",
+      "name": "Sofás"
+    },
+    {
+      "id": "sub_bricks",
+      "categoryId": "cat_building_materials",
+      "name": "Tijolos"
+    },
+    {
+      "id": "sub_Planks",
+      "categoryId": "cat_building_materials",
+      "name": "Tábuas de madeira"
+    },
+    {
+      "id": "sub_finishing_materials",
+      "categoryId": "cat_building_materials",
+      "name": "Materiais de Acabamento"
+    },
+    {
+      "id": "sub_tables",
+      "categoryId": "cat_furniture",
+      "name": "Mesas"
+    },
+    {
+      "id": "sub_chairs",
+      "categoryId": "cat_furniture",
+      "name": "Cadeiras"
+    },
+    {
+      "id": "sub_cabinets",
+      "categoryId": "cat_furniture",
+      "name": "Armários"
+    },
+
+    {
+      "id": "sub_cellphones",
+      "categoryId": "cat_electronics",
+      "name": "Celulares"
+    },
+    {
+      "id": "sub_computers",
+      "categoryId": "cat_electronics",
+      "name": "Computadores"
+    },
+    {
+      "id": "sub_tv",
+      "categoryId": "cat_electronics",
+      "name": "TVs"
+    },
+    {
+      "id": "sub_audio",
+      "categoryId": "cat_electronics",
+      "name": "Áudio"
+    },
+
+    {
+      "id": "sub_refrigerator",
+      "categoryId": "cat_appliances",
+      "name": "Geladeiras"
+    },
+    {
+      "id": "sub_washing_machine",
+      "categoryId": "cat_appliances",
+      "name": "Máquinas de Lavar"
+    },
+    {
+      "id": "sub_microwave",
+      "categoryId": "cat_appliances",
+      "name": "Micro-ondas"
+    },
+
+    {
+      "id": "sub_clothes",
+      "categoryId": "cat_clothing",
+      "name": "Roupas"
+    },
+    {
+      "id": "sub_shoes",
+      "categoryId": "cat_clothing",
+      "name": "Calçados"
+    },
+    {
+      "id": "sub_accessories",
+      "categoryId": "cat_clothing",
+      "name": "Acessórios"
+    },
+
+    {
+      "id": "sub_school",
+      "categoryId": "cat_books",
+      "name": "Material Escolar"
+    },
+    {
+      "id": "sub_books",
+      "categoryId": "cat_books",
+      "name": "Livros"
+    },
+
+    {
+      "id": "sub_board_games",
+      "categoryId": "cat_toys",
+      "name": "Jogos"
+    },
+    {
+      "id": "sub_toys",
+      "categoryId": "cat_toys",
+      "name": "Brinquedos Infantis"
+    },
+
+    {
+      "id": "sub_bicycle",
+      "categoryId": "cat_sports",
+      "name": "Bicicletas"
+    },
+    {
+      "id": "sub_gym",
+      "categoryId": "cat_sports",
+      "name": "Academia"
+    },
+
+    {
+      "id": "sub_hand_tools",
+      "categoryId": "cat_tools",
+      "name": "Ferramentas Manuais"
+    },
+    {
+      "id": "sub_power_tools",
+      "categoryId": "cat_tools",
+      "name": "Ferramentas Elétricas"
+    },
+
+    {
+      "id": "sub_plants",
+      "categoryId": "cat_garden",
+      "name": "Plantas"
+    },
+    {
+      "id": "sub_garden_tools",
+      "categoryId": "cat_garden",
+      "name": "Ferramentas de Jardim"
+    },
+
+    {
+      "id": "sub_pet_accessories",
+      "categoryId": "cat_pets",
+      "name": "Acessórios"
+    },
+    {
+      "id": "sub_pet_houses",
+      "categoryId": "cat_pets",
+      "name": "Casinhas"
+    },
+
+    {
+      "id": "sub_pans",
+      "categoryId": "cat_kitchen",
+      "name": "Panelas"
+    },
+    {
+      "id": "sub_utensils",
+      "categoryId": "cat_kitchen",
+      "name": "Utensílios"
+    },
+
+    {
+      "id": "sub_other",
+      "categoryId": "cat_other",
+      "name": "Diversos"
+    }
+  ]
+}
