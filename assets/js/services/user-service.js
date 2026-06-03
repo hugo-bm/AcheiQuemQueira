@@ -1,5 +1,5 @@
 import { AQQStorage } from "../core/aqq-storage.js";
-import { Validator } from "../validators/validator.js";
+import { Validator } from "../validation/validator.js";
 
 /**
  * Centralizes user entity management.
