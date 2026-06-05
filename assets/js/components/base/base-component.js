@@ -1,4 +1,4 @@
-import { on, off } from '../../core/events.js';
+import {Events} from '../../core/events.js';
 
 /**
  * Base class for all visual components.
@@ -81,7 +81,12 @@ export class BaseComponent {
     this.container = container;
 
     const wrapper = document.createElement('div');
-    wrapper.innerHTML = this.render().trim();
+     const cleanHtml = this.render()
+      .replace(/>\s+</g, '><') // Remove spaces and line breaks between closing and opening tags
+      .trim();
+
+    wrapper.innerHTML = cleanHtml;
+    console.log("base",wrapper.childNodes)
 
     this.element = wrapper.firstElementChild;
 
@@ -125,7 +130,7 @@ export class BaseComponent {
    * @param {Function} handler
    */
   addListener(element, eventName, handler) {
-    on(element, eventName, handler);
+    Events.on(element, eventName, handler);
 
     this.listeners.push({
       element,
@@ -142,7 +147,7 @@ export class BaseComponent {
    * @param {Function} handler
    */
   removeListener(element, eventName, handler) {
-    off(element, eventName, handler);
+    Events.off(element, eventName, handler);
 
     this.listeners = this.listeners.filter(
       listener =>
@@ -159,7 +164,7 @@ export class BaseComponent {
    */
   destroy() {
     this.listeners.forEach(listener => {
-      off(
+      Events.off(
         listener.element,
         listener.eventName,
         listener.handler
