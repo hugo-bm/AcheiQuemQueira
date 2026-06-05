@@ -86,7 +86,6 @@ export class BaseComponent {
       .trim();
 
     wrapper.innerHTML = cleanHtml;
-    console.log("base",wrapper.childNodes)
 
     this.element = wrapper.firstElementChild;
 
