@@ -1,4 +1,4 @@
-const DOM = {
+export const DOM = {
 
   select(selector) {
     return document.querySelector(selector);

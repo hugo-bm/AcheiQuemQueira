@@ -1,4 +1,4 @@
-const Events = {
+export const Events = {
 
   on(element, event, callback) {
     element.addEventListener(event, callback);
