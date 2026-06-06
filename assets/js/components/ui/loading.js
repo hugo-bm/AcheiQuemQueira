@@ -47,20 +47,22 @@ export class Loading {
     if (!target) {
       return;
     }
-
+     if (this.visible && this.container === target) {
+      return;
+    }
     this.hide();
-
     this.container = target;
-
+    
     this.element = document.createElement('div');
-    this.element.className =
-      'd-flex flex-column align-items-center justify-content-center py-4';
-
-    this.element.innerHTML = this.#render();
-
+    this.element.className ='position-fixed top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center';
+    
+    this.element.innerHTML = this.#render().replace(/>\s+</g, '><').trim();
+  
     this.container.appendChild(this.element);
 
     this.visible = true;
+
+    console.log(this);
   }
 
 /**
@@ -167,29 +169,6 @@ export class Loading {
         ? 'spinner-grow'
         : 'spinner-border';
 
-    return `
-      <div
-        class="${spinnerClass}"
-        role="status"
-        data-loading-spinner
-      >
-        <span class="visually-hidden">
-          Carregando
-        </span>
-      </div>
-
-      ${
-        this.message
-          ? `
-            <div
-              class="mt-3 text-center small"
-              data-loading-message
-            >
-              ${this.message}
-            </div>
-          `
-          : ''
-      }
-    `;
+    return `<div class="${spinnerClass}" role="status" data-loading-spinner><span class="visually-hidden">Carregando</span></div>${this.message ? `<div class="mt-3 text-center small" data-loading-message>${this.message}</div>` : ''}`.trim();
   }
 }
