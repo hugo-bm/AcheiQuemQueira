@@ -151,10 +151,9 @@ export class ChatInput extends BaseComponent {
         if (!content) {
             return;
         }
-
-        Events.emit('chat:send-message', {
+        Events.emit(this.container,'chat:send-message', {
             content
-        });
+        },true);
 
         this.clear();
         // Prevent the virtual keyboard from closing after each message.

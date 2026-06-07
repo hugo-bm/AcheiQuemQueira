@@ -1,23 +1,7 @@
 import { BaseComponent } from "../base/base-component.js";
 import { MessageBubble } from "./message-bubble.js";
 import { EmptyState } from "../ui/empty-state.js";
-
- /**
-   * Chat message.
-   *
-   * @typedef {Object} Message
-   *
-   * @property {string} id
-   *
-   * @property {string} chatId
-   * @property {string} senderId
-   *
-   * @property {string} content
-   *
-   * @property {boolean} read
-   *
-   * @property {string} createdAt
-   */
+import "../../models/entities.js"
 
 /**
  * MessageList component.
@@ -247,7 +231,7 @@ export class MessageList extends BaseComponent {
    */
   render() {
     return `<div
-                class="h-100 overflow-auto mt-2"
+                class="h-100 mt-2"
                 data-ref="message-list"
             ></div>`.trim();
   }

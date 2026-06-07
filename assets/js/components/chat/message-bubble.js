@@ -1,4 +1,5 @@
 import { BaseComponent } from '../base/base-component.js';
+import "../../models/entities.js"
 
 /**
  * MessageBubble component.
@@ -10,7 +11,7 @@ export class MessageBubble extends BaseComponent {
      * Creates a new MessageBubble instance.
      *
      * @param {Object} options Component options.
-     * @param {Object|null} [options.message=null] Message data.
+     * @param {Message|null} [options.message=null] Message data.
      * @param {boolean} [options.isOwnMessage=false] Indicates whether the message belongs to the current user.
      */
     constructor({
@@ -30,7 +31,7 @@ export class MessageBubble extends BaseComponent {
      *
      * Performs granular DOM updates when possible.
      *
-     * @param {Object} message Updated message.
+     * @param {Message} message Updated message.
      */
     setMessage(message) {
         this.message = message;
@@ -105,14 +106,7 @@ export class MessageBubble extends BaseComponent {
 
         return text.replace(
             urlRegex,
-            url => `<a
-                    href="${url}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="link-primary"
-                >
-                    ${url}
-                </a>`.trim()
+            url => `<a href="${url}" target="_blank" rel="noopener noreferrer" class="link-light fw-bold">${url}</a>`.trim()
         );
     }
 

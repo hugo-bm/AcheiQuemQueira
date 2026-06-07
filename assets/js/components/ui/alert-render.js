@@ -42,46 +42,17 @@ export class AlertRender {
 
         const alert = document.createElement('div');
 
-        alert.className = `
-            alert
-            alert-${type}
-            alert-dismissible
-            fade
-            show
-            d-flex
-            align-items-start
-            gap-3
-            shadow-sm
-            mb-2
-        `;
+        alert.className = `alert alert-${type} alert-dismissible fade show d-flex align-items-start gap-3 shadow-sm mb-2`;
 
         alert.setAttribute('role', 'alert');
 
-        alert.innerHTML = `
-            <i class="bi ${icon} fs-5 flex-shrink-0" aria-hidden="true" focusable="false"></i>
-
+        alert.innerHTML = `<i class="bi ${icon} fs-5 flex-shrink-0" aria-hidden="true" focusable="false"></i>
             <div class="flex-grow-1">
                 <div class="fw-semibold">
                     ${title}
                 </div>
-
-                ${
-                    description
-                        ? `
-                            <div class="small mt-1">
-                                ${description}
-                            </div>
-                        `
-                        : ''
-                }
-            </div>
-
-            <button
-                type="button"
-                class="btn-close"
-                aria-label="Fechar">
-            </button>
-        `;
+                ${description? `<div class="small mt-1">${description}</div>`: ''}</div>
+            <button type="button" class="btn-close" aria-label="Fechar"></button>`;
 
         const closeButton = alert.querySelector('.btn-close');
 
@@ -107,7 +78,9 @@ export class AlertRender {
                 alert.remove();
             }, 150);
         };
-
+        if (closeButton) {
+            closeButton.addEventListener('click', removeAlert);
+        }
         this.container.appendChild(alert);
 
         if (timeout && timeout > 0) {
