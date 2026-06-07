@@ -136,12 +136,10 @@ export class ProposalService {
     AQQStorage.set('items', items);
 
     const chatResult = ChatService.createChat({
-      itemId: item.id,
       proposalId: proposal.id,
-      ownerUserId: item.userId,
+      ownerUserId: items[itemIndex].ownerId,
       interestedUserId: data.proposerId
     });
-
     if (chatResult.success) {
       ChatService.createSystemMessage(
         chatResult.chat.id,
