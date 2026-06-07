@@ -9,6 +9,7 @@ import {
   NOTIFICATION_TYPES,
   REFERENCE_TYPES
 } from '../core/constants.js';
+import "../models/entities.js"
 
 /**
  * Centralizes negotiation business operations.
@@ -147,7 +148,7 @@ export class NegotiationService {
    * Returns negotiations for an item.
    *
    * @param {string} itemId - Item identifier.
-   * @returns {Object[]}
+   * @returns {Negotiation[]}
    */
   static getItemNegotiations(itemId) {
     try {
@@ -164,7 +165,7 @@ export class NegotiationService {
    * Returns negotiations for a user.
    *
    * @param {string} userId - User identifier.
-   * @returns {Object[]}
+   * @returns {Negotiation[]}
    */
   static getUserNegotiations(userId) {
     try {
@@ -182,7 +183,7 @@ export class NegotiationService {
    * Returns the negotiation associated with a proposal.
    *
    * @param {string} proposalId - Proposal identifier.
-   * @returns {Object|null}
+   * @returns {Negotiation|null}
    */
   static getProposalNegotiation(proposalId) {
     try {
@@ -554,6 +555,8 @@ export class NegotiationService {
         'negotiations',
         negotiations
       );
+      
+      ProposalService.cancelProposal(negotiation.proposalId);
 
       NotificationService.create({
         userId:
