@@ -20,6 +20,12 @@ AQQ - Responsive
   display: none;
 }
 
+@media(max-width: 767px){
+ .aq-w-sm-100 {
+    width: 100% !important;
+  }
+}
+
 @media (min-width: 768px) {
 
   .aq-mobile-only {
@@ -35,5 +41,9 @@ AQQ - Responsive
 
   .aq-desktop-up {
     display: block;
+  }
+
+  .aq-w-lg-50 {
+    width: 50% !important;
   }
 }
