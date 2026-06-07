@@ -1,5 +1,6 @@
-import { BaseComponent } from '../base/base-component.js';
-import { on, off, emit } from '../../core/events.js';
+import { BaseComponent } from "../base/base-component.js";
+import { Events } from "../../core/events.js";
+import "../../models/entities.js"
 
 /**
  * Chat header component.
@@ -19,16 +20,16 @@ export class ChatHeader extends BaseComponent {
    * Creates a new ChatHeader instance.
    *
    * @param {Object} [options={}] Component configuration.
-   * @param {Object|null} [options.user=null] User data.
+   * @param {User|null} [options.user=null] User data.
    * @param {string} [options.status='open'] Negotiation status.
    * @param {Object|null} [options.avatarComponent=null] Avatar component instance.
    */
   constructor(options = {}) {
     super();
 
-    this.user = options.user ?? null;
-    this.status = options.status ?? 'open';
-    this.avatarComponent = options.avatarComponent ?? null;
+    this.user = options.user || null;
+    this.status = options.status || "open";
+    this.avatarComponent = options.avatarComponent || null;
 
     this.refs = {};
   }
@@ -36,7 +37,7 @@ export class ChatHeader extends BaseComponent {
   /**
    * Updates user information.
    *
-   * @param {Object} user User data.
+   * @param {User} user User data.
    */
   setUser(user) {
     this.user = user;
@@ -93,43 +94,19 @@ export class ChatHeader extends BaseComponent {
         >
           <i class="bi bi-arrow-left fs-5" aria-hidden="true"></i>
         </button>
-
-        <div
-          class="d-flex align-items-center gap-2 flex-grow-1 min-w-0"
-        >
-          <div
-            class="flex-shrink-0"
-            data-role="avatar"
-          >
-            ${this.avatarComponent?.render?.() ?? ''}
-          </div>
-
-          <button
-            type="button"
-            class="btn btn-link d-md-none d-sm text-decoration-none p-0 text-start text-body fw-semibold text-truncate"
-            data-role="user-profile"
-            style="min-height: 48px;"
-          >
-            ${this.#getDisplayName('mobile')}
-          </button>
-          <button
-            type="button"
-            class="btn btn-link d-none d-md-inline text-decoration-none p-0 text-start text-body fw-semibold text-truncate"
-            data-role="user-profile"
-            style="min-height: 48px;"
-          >
-            ${this.#getDisplayName('desktop')}
-          </button>
-        </div>
-
+        <button type="button" class=" btn btn-link text-decoration-none p-0 d-flex align-items-center gap-2  flex-grow-1 min-w-0"  data-role="user-profile">
+          <img src="" alt="" class="rounded-circle flex-shrink-0" width="40"  height="40">
+          <span class="text-truncate">
+              <span class="d-inline d-md-none">${this.#getDisplayName("mobile")}</span>
+              <span class="d-none d-md-inline">${this.#getDisplayName("desktop")}</span>
+          </span>
+        </button>
         <span
           class="badge ${this.#getStatusClass(this.status)} flex-shrink-0"
           data-role="status"
-        >
-          ${this.#getStatusLabel(this.status)}
-        </span>
+        >${this.#getStatusLabel(this.status)}</span>
       </header>
-    `;
+    `.trim();
   }
 
   /**
@@ -164,24 +141,24 @@ export class ChatHeader extends BaseComponent {
     if (this.refs.back) {
       this.addListener(
         this.refs.back,
-        'click',
-        this.#handleBackClick.bind(this)
+        "click",
+        this.#handleBackClick.bind(this),
       );
     }
 
     if (this.refs.name) {
       this.addListener(
         this.refs.name,
-        'click',
-        this.#handleProfileClick.bind(this)
+        "click",
+        this.#handleProfileClick.bind(this),
       );
     }
 
     if (this.refs.avatar) {
       this.addListener(
         this.refs.avatar,
-        'click',
-        this.#handleProfileClick.bind(this)
+        "click",
+        this.#handleProfileClick.bind(this),
       );
     }
   }
@@ -196,9 +173,9 @@ export class ChatHeader extends BaseComponent {
       return;
     }
 
-    emit('chat:user-profile', {
-      userId: this.user.id
-    });
+    Events.emit(this.container,"chat:user-profile", {
+      userId: this.user.id,
+    },true);
   }
 
   /**
@@ -207,7 +184,7 @@ export class ChatHeader extends BaseComponent {
    * @private
    */
   #handleBackClick() {
-    emit('chat:back');
+    Events.emit(this.container,"chat:back",{},true);
   }
 
   /**
@@ -218,17 +195,19 @@ export class ChatHeader extends BaseComponent {
    * @private
    */
   #getDisplayName(type) {
+
     if (!this.user) {
-      return '';
+      return "";
     }
 
     const fullName = this.#getFullName();
+
 
     if (type === "desktop") {
       return fullName;
     }
 
-    return fullName.split(' ')[0];
+    return fullName.split(" ")[0];
   }
 
   /**
@@ -238,7 +217,7 @@ export class ChatHeader extends BaseComponent {
    * @private
    */
   #getFullName() {
-    return this.user?.name ?? '';
+    return this.user?.name ?? "";
   }
 
   /**
@@ -250,15 +229,15 @@ export class ChatHeader extends BaseComponent {
    */
   #getStatusClass(status) {
     const classes = {
-      open: 'bg-secondary',
-      accepted: 'bg-primary',
-      leaving: 'bg-warning text-dark',
-      arrived: 'bg-info text-dark',
-      completed: 'bg-success',
-      cancelled: 'bg-danger'
+      open: "bg-secondary",
+      accepted: "bg-primary",
+      leaving: "bg-warning text-dark",
+      arrived: "bg-info text-dark",
+      completed: "bg-success",
+      cancelled: "bg-danger",
     };
 
-    return classes[status] ?? 'bg-secondary';
+    return classes[status] ?? "bg-secondary";
   }
 
   /**
@@ -270,14 +249,14 @@ export class ChatHeader extends BaseComponent {
    */
   #getStatusLabel(status) {
     const labels = {
-      open: 'Open',
-      accepted: 'Accepted',
-      leaving: 'Leaving',
-      arrived: 'Arrived',
-      completed: 'Completed',
-      cancelled: 'Cancelled'
+      open: "Em Negociação",
+      accepted: "Proposta Aceita",
+      leaving: "Em Retirada",
+      arrived: "Chegou!",
+      completed: "Negociação Completa",
+      cancelled: "Negociação Cancelada",
     };
 
-    return labels[status] ?? 'Open';
+    return labels[status] ?? "Open";
   }
 }
