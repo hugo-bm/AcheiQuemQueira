@@ -61,8 +61,6 @@ export class Loading {
     this.container.appendChild(this.element);
 
     this.visible = true;
-
-    console.log(this);
   }
 
 /**
