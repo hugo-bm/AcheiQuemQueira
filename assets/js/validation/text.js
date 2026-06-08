@@ -154,4 +154,54 @@ export class TextValidator {
       error: null
     };
   }
+
+  /**
+   * Validates an email field.
+   *
+   * Rules:
+   * - Required
+   * - Must be a string
+   * - Maximum length of 254 characters (RFC 5321)
+   * - Must match a valid email format
+   *
+   * @param {*} value - Value to validate.
+   * @returns {{valid: boolean, error: string|null}}
+   */
+  static validateEmail(value) {
+    if (!Validator.required(value)) {
+      return {
+        valid: false,
+        error: 'REQUIRED'
+      };
+    }
+
+    if (!Validator.isString(value)) {
+      return {
+        valid: false,
+        error: 'INVALID_TYPE'
+      };
+    }
+
+    if (!Validator.maxLength(value, 254)) {
+      return {
+        valid: false,
+        error: 'MAX_LENGTH'
+      };
+    }
+
+    // Official W3C/HTML5 standard Regex for email validation.
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
+    if (!emailRegex.test(value)) {
+      return {
+        valid: false,
+        error: 'INVALID_FORMAT'
+      };
+    }
+
+    return {
+      valid: true,
+      error: null
+    };
+  }
 }
