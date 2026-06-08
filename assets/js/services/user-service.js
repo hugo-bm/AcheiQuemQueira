@@ -1,5 +1,6 @@
 import { AQQStorage } from "../core/aqq-storage.js";
 import { Validator } from "../validation/validator.js";
+import "../models/entities.js"
 
 /**
  * Centralizes user entity management.
@@ -30,8 +31,9 @@ export class UserService {
   /**
    * Creates a user.
    *
-   * @typedef {Object} User
+   * @typedef {Object} UserCreate
    *
+   * @property {string} document - Brazilian CPF or CNPJ
    * @property {string} name
    * @property {string} email
    * @property {string} password
@@ -42,11 +44,12 @@ export class UserService {
    * @property {string} neighborhood
    * @property {string} address
    *
-   * @param {User} userData - User data.
-   * @returns {{success:boolean,user?:Object,error?:string}}
+   * @param {UserCreate} userData - User data.
+   * @returns {{success:boolean,user?: User,error?:string}}
    */
   static createUser(userData) {
     const {
+      document,
       name,
       email,
       password,
@@ -57,6 +60,10 @@ export class UserService {
       address = "",
     } = userData;
 
+    if (!Validator.required(document)) {
+      return { success: false, error: "INVALID_CPF_OR_CNPJ" };
+    }
+  
     if (!Validator.required(name)) {
       return { success: false, error: "INVALID_NAME" };
     }
@@ -100,6 +107,7 @@ export class UserService {
       const user = {
         id: this.generateId(),
 
+        document,
         name,
         email,
         password,
@@ -174,7 +182,7 @@ export class UserService {
    * @property {UserSocialLinks} socialLinks
    *
    * @param {UserUpdate} updates - Allowed updates.
-   * @returns {{success:boolean,user?:Object,error?:string}}
+   * @returns {{success:boolean,user?: User,error?:string}}
    */
   static updateUser(userId, updates) {
     try {
@@ -226,7 +234,7 @@ export class UserService {
    * Deactivates a user.
    *
    * @param {string} userId - User identifier.
-   * @returns {{success:boolean,user?:Object,error?:string}}
+   * @returns {{success:boolean,user?:User,error?:string}}
    */
   static deactivateUser(userId) {
     try {
@@ -262,7 +270,7 @@ export class UserService {
    * Returns a user by identifier.
    *
    * @param {string} userId - User identifier.
-   * @returns {Object|null}
+   * @returns {User|null}
    */
   static getById(userId) {
     const users = AQQStorage.get("users") ?? [];
@@ -274,7 +282,7 @@ export class UserService {
    * Returns a user by email.
    *
    * @param {string} email - User email.
-   * @returns {Object|null}
+   * @returns {User|null}
    */
   static getByEmail(email) {
     const users = AQQStorage.get("users") ?? [];
@@ -290,12 +298,24 @@ export class UserService {
    * Returns a user by phone.
    *
    * @param {string} phone - User phone.
-   * @returns {Object|null}
+   * @returns {User|null}
    */
   static getByPhone(phone) {
     const users = AQQStorage.get("users") ?? [];
 
     return users.find((user) => user.phone === phone) ?? null;
+  }
+
+  /**
+   * Returns a user by phone.
+   *
+   * @param {string} phone - User phone.
+   * @returns {User|null}
+   */
+  static getByDocument(document) {
+    const users = AQQStorage.get("users") ?? [];
+
+    return users.find((user) => user.document === document) ?? null;
   }
 
   /**
