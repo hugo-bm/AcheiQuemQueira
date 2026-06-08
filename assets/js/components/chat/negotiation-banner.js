@@ -177,7 +177,7 @@ export class NegotiationBanner extends BaseComponent {
    */
   createButton(label, variant, action) {
     return `    
-      <button type="button" class="btn btn-${variant}" data-action="${action}">${label}</button>
+      <button type="button" class="btn aq-btn-${variant}" data-action="${action}">${label}</button>
     `.trim();
   }
 

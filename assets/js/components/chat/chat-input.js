@@ -48,7 +48,7 @@ export class ChatInput extends BaseComponent {
                     </button>
                     <button
                         type="submit"
-                        class="btn btn-primary d-none d-md-inline-flex align-items-center gap-2 chat-send-btn"
+                        class="btn aq-btn-primary d-none d-md-inline-flex align-items-center gap-2 chat-send-btn"
                         aria-label="Enviar mensagem"
                     >
                         <i class="bi bi-send-fill" aria-hidden="true"></i>
