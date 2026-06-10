@@ -512,14 +512,22 @@ export class UserService {
    */
   static confirmPhoneVerification(userId, code) {
     try {
-      const user = this.getById(userId);
 
-      if (!user) {
+      const rawUsers = AQQStorage.get("users") ?? [];
+      
+
+      const users = Array.isArray(rawUsers) ? rawUsers.filter(u => u !== null) : [];
+      
+
+      const userIndex = users.findIndex((u) => u.id === userId);
+
+      if (userIndex === -1) {
         return {
           success: false,
           error: "USER_NOT_FOUND",
         };
       }
+
 
       const verificationCodes = AQQStorage.get("verification_codes") ?? [];
 
@@ -546,12 +554,15 @@ export class UserService {
         };
       }
 
-      verificationCodes.splice(index, 1);
+        const updatedUser = { 
+        ...users[userIndex],
+        verifiedPhone: true,
+        updatedAt: new Date().toISOString()
+      };
 
-      user.verifiedPhone = true;
-      user.updatedAt = new Date().toISOString();
+      users[userIndex] = updatedUser;
 
-      AQQStorage.set("users", AQQStorage.get("users") ?? []);
+      AQQStorage.set("users", users);
       AQQStorage.set("verification_codes", verificationCodes);
 
       return {
@@ -572,26 +583,25 @@ export class UserService {
    * @returns {{success:boolean,user?:Object,error?:string}}
    */
   static verifyIdentity(userId) {
-    try {
+   try {
       const users = AQQStorage.get("users") ?? [];
 
-      const user = users.find((currentUser) => currentUser.id === userId);
+      const index = users.findIndex((user) => user.id === userId);
 
-      if (!user) {
+      if (index === -1) {
         return {
           success: false,
           error: "USER_NOT_FOUND",
         };
       }
 
-      user.verifiedIdentity = true;
-      user.updatedAt = new Date().toISOString();
+      users[index].verifiedIdentity = true;
+      users[index].updatedAt = new Date().toISOString();
 
       AQQStorage.set("users", users);
 
       return {
         success: true,
-        user,
       };
     } catch (error) {
       return {
