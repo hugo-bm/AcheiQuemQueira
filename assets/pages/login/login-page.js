@@ -282,8 +282,6 @@ export class LoginPage {
 
         this.listeners = [];
 
-        //Events.off?.();
-
         this.alert= {}
 
         this.alert = null;
