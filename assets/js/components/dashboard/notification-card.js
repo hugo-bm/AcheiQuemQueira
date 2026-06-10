@@ -33,7 +33,7 @@ export class NotificationCard extends BaseCardComponent {
    */
   render() {
     return `
-      <div class="card aq-notification-card border-0 aq-shadow-sm"
+      <div class="card aq-notification-card border-start-4 aq-shadow-sm"
         role="button"
         tabindex="0">
         <div class="card-body py-3">
@@ -269,6 +269,18 @@ export class NotificationCard extends BaseCardComponent {
     this.onClick = null;
     this.notification = null;
     this.refs = {};
+
+    this.removeListener(
+      this.element,
+      'click',
+      this.handleClick.bind(this)
+    );
+
+    this.removeListener(
+      this.element,
+      'keydown',
+      this.handleKeyDown.bind(this)
+    );
 
     super.destroy();
   }
