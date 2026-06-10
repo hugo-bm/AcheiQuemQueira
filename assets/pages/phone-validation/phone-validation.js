@@ -374,12 +374,7 @@ export class PhoneValidationPage {
         }
 
         const result =
-            UserService.updateUser(
-                this.user.id,
-                {
-                    verifiedPhone: true
-                }
-            );
+            UserService.confirmPhoneVerification(this.user.id, value);
 
         if (!result?.success) {
             this.showError(
