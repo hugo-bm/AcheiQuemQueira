@@ -11,6 +11,7 @@ import { CPFValidator } from '../../js/validation/cpf.js';
 import { CNPJValidator } from '../../js/validation/cnpj.js';
 import { PhoneValidator } from '../../js/validation/phone.js';
 import { LocationValidator } from '../../js/validation/location.js';
+import { ROUTES } from '../../js/core/constants.js';
 
 export class RegisterPage {
   constructor() {
@@ -115,7 +116,7 @@ export class RegisterPage {
       this.alertRender.success("Conta criada com sucesso.");
 
       setTimeout(() => {
-        window.location.href = "../phone-validation/phone-validation.html";
+        window.location.href = ROUTES['phone-validation'];
       }, 1000);
     } catch {
       this.alertRender.error("Ocorreu um erro ao criar a conta.");
@@ -125,7 +126,7 @@ export class RegisterPage {
   handleLogin(event) {
     event.preventDefault();
 
-    window.location.href = "../login/login-page.html";
+    window.location.href = ROUTES['login'];
   }
 
   handleEmailBlur() {

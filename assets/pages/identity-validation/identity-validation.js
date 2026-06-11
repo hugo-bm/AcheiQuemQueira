@@ -2,6 +2,7 @@ import { AlertRender } from '../../js/components/ui/alert-render.js';
 import { Events } from '../../js/core/events.js';
 import { UserService } from '../../js/services/user-service.js';
 import { NavStorage } from '../../js/core/nav-storage.js';
+import { ROUTES } from '../../js/core/constants.js';
 
 export class IdentityValidationPage {
     constructor() {
@@ -232,12 +233,12 @@ export class IdentityValidationPage {
             }
         );
 
-        // this.createTimer(
-        //     12000,
-        //     () => {
-        //         this.navigateToLogin();
-        //     }
-        // );
+        this.createTimer(
+            12000,
+            () => {
+                this.navigateToLogin();
+            }
+        );
     }
 
     freezeFrame() {
@@ -423,8 +424,7 @@ export class IdentityValidationPage {
     navigateToLogin() {
         this.stopCamera();
 
-        window.location.href =
-            '../login/login-page.html';
+        window.location.href = ROUTES['login'];
     }
 
     createTimer(delay, callback) {

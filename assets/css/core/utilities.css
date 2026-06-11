@@ -12,6 +12,78 @@ AQQ - Utilities
   background: var(--aq-card);
 }
 
+.aq-notification-unread {
+  background-color: var(--aq-surface-highlight, rgba(111, 139, 114, 0.06));
+  border-left: 4px solid #6F8B72; 
+}
+
+.aq-notification-card {
+  cursor: pointer;
+  min-height: 48px;
+  transition:
+    background-color .2s ease,
+    transform .15s ease;
+}
+
+.aq-notification-card:hover {
+  transform: translateY(-1px);
+}
+
+.aq-line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.aq-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.aq-avatar-sm {
+  width: 40px;
+  height: 40px;
+}
+
+.aq-avatar-md {
+  width: 56px;
+  height: 56px;
+}
+
+.aq-avatar-lg {
+  width: 80px;
+  height: 80px;
+}
+
+.aq-avatar-icon {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: inherit;
+  line-height: 1;
+}
+
+.aq-avatar-sm .aq-avatar-icon {
+  font-size: 40px;
+}
+
+.aq-avatar-md .aq-avatar-icon {
+  font-size: 56px;
+}
+
+.aq-avatar-lg .aq-avatar-icon {
+  font-size: 80px;
+}
+
 .aq-shadow-sm {
   box-shadow: var(--aq-shadow-sm);
 }
@@ -46,6 +118,10 @@ AQQ - Utilities
 
 .aq-text-primary {
   color: var(--bs-primary);
+}
+
+.aq-text-logo {
+  color: var(--aq-text-title);
 }
 
 .aq-clickable {

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../../icons/favicon-32.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../../css/core/reset.css" />
+  <title>Dashboard - AQQ</title>
+  <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- CSS - AQQ -->
+    <link rel="stylesheet" href="../../css/core/variables.css" />
+    <link rel="stylesheet" href="../../css/core/typography.css" />
+    <link rel="stylesheet" href="../../css/core/utilities.css" />
+    <link rel="stylesheet" href="../../css/core/animations.css" />
+    <link rel="stylesheet" href="../../css/core/responsive.css" />
+
+    <script type="module" src="./dashboard-page.js"></script>
+</head>
+
+<body>
+
+  <!-- Alert Container -->
+  <div id="alert-container" class="position-fixed top-0 start-50 translate-middle-x aq-w-sm-100 aq-w-lg-25 p-3" style="z-index:1080;"></div>
+
+  <!-- Dashboard Header -->
+  <div id="dashboard-header-container"></div>
+
+  <!-- Main Content -->
+  <main class="container-fluid py-3 aq-container">
+    <div id="item-grid-container"></div>
+  </main>
+
+  <!-- Notification Offcanvas -->
+  <div id="notification-offcanvas-container"></div>
+
+  <!-- Floating Action Button -->
+  <a id="floating-action-button" href="../add-item/add-item-page.html"
+    class="
+      btn
+      aq-btn-primary
+      position-fixed
+      bottom-0
+      end-0
+      m-3
+      aq-shadow-md
+      aq-fab-button
+      d-flex
+      align-items-center
+      justify-content-center
+    "
+    style="
+      min-width:56px;
+      height:56px;
+      z-index:1050;
+    "
+    aria-label="Novo anúncio">
+
+    <!-- Mobile -->
+    <span class="d-md-none rounded-circle">
+      <i class="bi bi-plus-lg fs-1"></i>
+    </span>
+
+    <!-- Desktop -->
+    <span class="d-none d-md-inline-flex align-items-center gap-1">
+      <i class="bi bi-plus fs-2"></i>
+      <span>Novo anúncio</span>
+    </span>
+  </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+</html>

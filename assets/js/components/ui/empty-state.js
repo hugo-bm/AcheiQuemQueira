@@ -199,18 +199,18 @@ export class EmptyState {
               >
                 ${this.description}
               </p>
-            `
+            `.trim()
             : `
               <p
                 class="text-muted mb-0"
                 data-empty-state-description
               ></p>
-            `
+            `.trim()
         }
 
         <div data-empty-state-action></div>
       </div>
-    `;
+    `.trim();
 
     this.element = wrapper;
 

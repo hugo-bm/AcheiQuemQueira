@@ -80,13 +80,14 @@ export class QualityBadge {
       d-inline-flex
       align-items-center
       gap-1
-      border
+      border border-1
       user-select-none
     `;
 
     badge.style.color = config.color;
-    badge.style.borderColor = config.color;
+    badge.style.borderColor = `${config.color} !important`;
     badge.style.backgroundColor = 'transparent';
+    badge.style.border = "10px solid" + config.color;
 
     badge.setAttribute('role', 'button');
     badge.setAttribute('tabindex', '0');

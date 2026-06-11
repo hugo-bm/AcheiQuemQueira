@@ -1,4 +1,5 @@
 import { AlertRender } from '../../js/components/ui/alert-render.js';
+import { ROUTES } from '../../js/core/constants.js';
 
 import AuthService from '../../js/services/auth-service.js';
 import { TextValidator } from '../../js/validation/text.js';
@@ -176,8 +177,7 @@ export class LoginPage {
             return;
         }
         this.destroy();
-        window.location.href =
-            '../dashboard/dashboard.html';
+        window.location.href = ROUTES['dashboard'];
     }
 
     /**
