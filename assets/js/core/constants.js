@@ -61,3 +61,29 @@ export const NEGOTIATION_STATUS = {
   COMPLETED: 'completed',
   CANCELLED: 'cancelled'
 };
+
+export const ROUTES = {
+      'my-items': '/assets/pages/my-list-items/my-list-items-page.html',
+
+      'my-chats': '/assets/pages/my-list-chats/my-list-chats-page.html',
+
+      'my-reviews': '/assets/pages/my-list-ratings/my-list-ratings-page.html',
+
+      'profile': '/assets/pages/profile/profile-page.html',
+
+      'login': '/assets/pages/login/login-page.html',
+
+      'register': '/assets/pages/register/register-page.html',
+
+      'add-item': '/assets/pages/add-item/add-item-page.html',
+
+      'describe-item':'/assets/pages/describe-item/describe-item-page.html',
+
+      'search':'/assets/pages/search/search-page.html',
+
+      'dashboard':'/assets/pages/dashboard/dashboard-page.html',
+
+      'identity-validation': '/assets/pages/identity-validation/identity-validation.html',
+
+      'phone-validation': '/assets/pages/phone-validation/phone-validation.html',
+    };

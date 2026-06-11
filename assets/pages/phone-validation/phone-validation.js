@@ -6,6 +6,7 @@ import { AlertRender } from '../../js/components/ui/alert-render.js';
 import { BaseModalComponent } from '../../js/components/base/base-modal-component.js';
 
 import { Events } from '../../js/core/events.js';
+import { ROUTES } from '../../js/core/constants.js';
 
 export class SmsCodeModal extends BaseModalComponent {
     constructor(code) {
@@ -75,8 +76,7 @@ export class PhoneValidationPage {
                 'Não foi possível iniciar a validação.'
             );
 
-            window.location.href =
-                '../register/register-page.html';
+            window.location.href = ROUTES['register'];
 
             return;
         }
@@ -88,8 +88,7 @@ export class PhoneValidationPage {
                 'Usuário não encontrado.'
             );
 
-            window.location.href =
-                '../register/register-page.html';
+            window.location.href = ROUTES['register'];
 
             return;
         }
@@ -396,8 +395,7 @@ export class PhoneValidationPage {
         );
 
         setTimeout(() => {
-            window.location.href =
-                '../identity-validation/identity-validation.html';
+            window.location.href = ROUTES['identity-validation'];
         }, 1000);
     }
 
