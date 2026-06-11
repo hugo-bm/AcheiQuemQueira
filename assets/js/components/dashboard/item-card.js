@@ -172,7 +172,7 @@ export class ItemCard extends BaseCardComponent {
     }
 
     formatLocation() {
-        console.log(this.location)
+
         return [
             this.location.neighborhood,
             this.location.city,
@@ -182,7 +182,7 @@ export class ItemCard extends BaseCardComponent {
 
     formatPrice(value) {
         const number =
-            Number(value) || 0;
+            Number(value.replace(',', '.')) || 0;
 
         return new Intl.NumberFormat(
             'pt-BR',
