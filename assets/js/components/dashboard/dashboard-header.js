@@ -70,7 +70,7 @@ export class DashboardHeader extends BaseComponent {
               <i class="bi bi-list fs-4"></i>
             </button>
             <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-              <img src="assets/icons/favicon-32.svg" width="32" height="32" alt="Logo do AQQ">
+              <img src="/assets/icons/favicon-32.svg" width="32" height="32" alt="Logo do AQQ">
               <span class="d-none d-md-inline d-lg-none aq-text-logo">AQQ</span>
               <span class="d-none d-lg-inline fs-5 aq-text-logo"><div class="d-flex gap-1"><div class="fw-semibold">Achei</div> Quem <div class="fw-bold">Queira</div></div></span>
             </a>
@@ -82,8 +82,8 @@ export class DashboardHeader extends BaseComponent {
                 <i class="bi bi-bell"></i>
               </button>
             </div>
-            <div class="collapse navbar-collapse d-none d-lg-flex">
-              <form class="mx-4 flex-grow-1" data-role="desktop-search-form">
+            <div class="collapse navbar-collapse d-none d-lg-flex justify-content-end" >
+              <form class="mx-4 flex-grow-1" data-role="desktop-search-form" style="max-width: 640px">
                 <input type="search" class="form-control" placeholder="Pesquisar..." data-role="desktop-search-input">
               </form>
               <ul class="navbar-nav align-items-center gap-2">

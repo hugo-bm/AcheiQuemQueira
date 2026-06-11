@@ -20,25 +20,35 @@ AQQ - Responsive
   display: none;
 }
 
+
+
 @media(max-width: 767px){
  .aq-w-sm-100 {
     width: 100% !important;
   }
+  
+  .aq-fab-button {
+    border-radius: 50% !important;
+}
+
 }
 
 @media (min-width: 768px) {
-
+  
   .aq-mobile-only {
     display: none;
   }
-
+  
   .aq-tablet-up {
     display: block;
   }
 }
 
 @media (min-width: 992px) {
-
+  
+  .aq-fab-button {
+    border-radius: var(--aq-radius-lg) !important;
+  }
   .aq-desktop-up {
     display: block;
   }
