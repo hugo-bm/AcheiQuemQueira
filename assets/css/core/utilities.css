@@ -120,6 +120,10 @@ AQQ - Utilities
   color: var(--bs-primary);
 }
 
+.aq-text-logo {
+  color: var(--aq-text-title);
+}
+
 .aq-clickable {
   cursor: pointer;
   transition: var(--aq-transition);
