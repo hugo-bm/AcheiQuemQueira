@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../../icons/favicon-32.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../../css/core/reset.css" />
+  <title>Adicionar Anúncio - AQQ</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <!-- CSS - AQQ -->
+  <link rel="stylesheet" href="../../css/core/variables.css" />
+  <link rel="stylesheet" href="../../css/core/typography.css" />
+  <link rel="stylesheet" href="../../css/core/utilities.css" />
+  <link rel="stylesheet" href="../../css/core/animations.css" />
+  <link rel="stylesheet" href="../../css/core/responsive.css" />
+
+  <script type="module" src="./add-item-page.js"></script>
+</head>
+
+<body>
+
+  <!-- Alert Container -->
+  <div id="alert-container" class="position-fixed top-0 start-50 translate-middle-x aq-w-sm-100 aq-w-lg-25 p-3"
+    style="z-index:1080;"></div>
+
+  <!-- Main Content -->
+  <main class="container aq-container py-4 py-md-5 d-flex justify-content-center">
+    <div class="w-100" style="max-width: 1080px;">
+
+      <!-- Header -->
+      <div class="d-flex align-items-center gap-3 mb-4">
+        <button id="back-button" type="button"
+          class="btn btn-secundary p-0 text-decoration-none d-flex align-items-center justify-content-center"
+          aria-label="Voltar">
+          <i class="bi bi-arrow-left fs-3" aria-hidden="true"></i>
+        </button>
+        <h1 class="aq-h4 text-primary fw-semibold mb-0 h-md-3">Adicione um novo anúncio</h1>
+      </div>
+
+      <!-- Main Card -->
+      <div id="card-conteiner" class="card aq-card-surface border-1 aq-shadow-md">
+        <div class="card-body p-4">
+          <div class="d-flex flex-column gap-4">
+            <!-- Images -->
+            <section id="images-section">
+              <label class="form-label text-primary fw-semibold">Imagens</label>
+              <div id="images-card" class="border border-1 aq-shadow-md rounded p-4 text-center aq-surface">
+                <div id="empty-images-state" class="d-flex flex-column align-items-center gap-3">
+                  <i class=" bi bi-image fs-1 text-secondary" aria-hidden="true"></i>
+                  <span class="aq-text-light">Inserir imagem</span>
+                </div>
+                <div id="image-preview-container" class="d-grid gap-2 mt-3" style="
+                    grid-template-columns: repeat(2, 1fr);
+                    width: 100%;
+                    max-width: 720px;
+                    margin-left: auto;
+                    margin-right: auto;
+                "></div>
+                <button id="add-image-button" type="button" class="btn aq-btn-secondary">Adicionar imagem</button>
+                <input id="image-input" type="file" accept="image/*" multiple hidden>
+                <div id="images-counter" class="mt-3 small text-muted">0 / 5 imagens</div>
+              </div>
+              <div class="invalid-feedback" data-error-for="images-card"></div>
+            </section>
+
+            <!-- Title -->
+            <div>
+              <label for="title" class="form-label text-primary">Título do anúncio</label>
+              <input id="title" type="text" class="form-control" maxlength="120">
+              <div class="invalid-feedback" data-error-for="title"></div>
+            </div>
+            <div class="d-block d-md-flex d-lg-flex justify-content-md-between gap-5">
+              <!-- Category -->
+              <div class="w-100 my-4">
+                <label for="category" class="form-label text-primary">Categoria</label>
+                <select id="category" class="form-select text-secundary bg-opacity-25">
+                  <option value="">
+                    Selecione uma categoria
+                  </option>
+                </select>
+                <div class="invalid-feedback" data-error-for="category"></div>
+              </div>
+
+              <!-- Subcategory -->
+              <div class="w-100 my-4">
+                <label for="subcategory" class="form-label text-primary">
+                  Subcategoria
+                </label>
+
+                <select id="subcategory" class="form-select text-secundary bg-opacity-25">
+                  <option value="">
+                    Selecione uma subcategoria
+                  </option>
+                </select>
+                <div class="invalid-feedback" data-error-for="subcategory"></div>
+              </div>
+            </div>
+            <!-- Description -->
+            <div>
+              <label for="description" class="form-label text-primary">
+                Descrição
+              </label>
+              <textarea id="description" rows="5" class="form-control"></textarea>
+              <div class="invalid-feedback" data-error-for="description"></div>
+            </div>
+
+            <!-- Volume Description -->
+            <div>
+              <label for="volume-description" class="form-label text-primary">
+                Volume / Quantidade
+              </label>
+              <input id="volume-description" type="text" class="form-control"
+                placeholder="Ex: 1 caixa, 2 sacolas, 5 unidades">
+              <div class="invalid-feedback" data-error-for="volume-description"></div>
+            </div>
+
+            <!-- Quality -->
+            <div>
+              <label for="quality" class="form-label text-primary">Qualidade do Item</label>
+              <select id="quality" class="form-select text-secundary bg-opacity-25">
+                <option value="">
+                  Selecione a qualidade
+                </option>
+
+                <option value="grau-1">
+                  Defeituoso
+                </option>
+
+                <option value="grau-2">
+                  Funcional com Problemas
+                </option>
+
+                <option value="grau-3">
+                  Problemas Estéticos
+                </option>
+
+                <option value="grau-4">
+                  Funcional
+                </option>
+              </select>
+              <div class="invalid-feedback" data-error-for="quality"></div>
+            </div>
+
+            <div class="d-block d-md-flex d-lg-flex justify-content-md-between mb-2 gap-5">
+              <!-- Duration -->
+              <div class="w-100 my-4">
+                <label for="duration" class="form-label text-primary">Duração do anúncio</label>
+                <select id="duration" class="form-select text-secundary bg-opacity-25">
+                  <option value="">
+                    Selecione a duração do anúncio
+                  </option>
+
+                  <option value="1">
+                    1 Dia
+                  </option>
+
+                  <option value="7">
+                    1 Semana
+                  </option>
+
+                  <option value="15">
+                    15 Dias
+                  </option>
+
+                  <option value="30">
+                    1 Mês
+                  </option>
+                </select>
+                <div class="invalid-feedback" data-error-for="duration"></div>
+              </div>
+
+              <!-- type -->
+              <div class="w-100 my-4">
+                <label for="type" class="form-label text-primary">Tipo de anúncio</label>
+                <select id="type" class="form-select text-secundary bg-opacity-25">
+                  <option value="">
+                    Selecione o tipo do anúncio
+                  </option>
+                  <option value="free">
+                    Quero doar gratuitamente
+                  </option>
+                  <option value="sale">
+                    Quero vender
+                  </option>
+                  <option value="donation">
+                    Pago para retirar
+                  </option>
+                </select>
+                <div class="invalid-feedback" data-error-for="type"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Base Price -->
+          <div>
+            <label for="base-price" class="form-label text-primary">Preço Base</label>
+
+            <input id="base-price" type="text" inputmode="decimal" class="form-control" placeholder="0,00"
+              autocomplete="off">
+            <div class="invalid-feedback" data-error-for="base-price"></div>
+          </div>
+
+          <!-- Save -->
+          <div class="pt-4">
+            <button id="save-item-button" type="button" class="btn aq-btn-primary w-100">Adicionar anúncio</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

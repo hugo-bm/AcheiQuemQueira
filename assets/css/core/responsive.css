@@ -26,6 +26,10 @@ AQQ - Responsive
  .aq-w-sm-100 {
     width: 100% !important;
   }
+
+  #image-preview-container {
+        grid-template-columns: repeat(3, 1fr) !important;
+  }
   
   .aq-fab-button {
     border-radius: 50% !important;
@@ -41,6 +45,10 @@ AQQ - Responsive
   
   .aq-tablet-up {
     display: block;
+  }
+
+  #image-preview-container {
+        grid-template-columns: repeat(5, 1fr) !important;
   }
 }
 
