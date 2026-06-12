@@ -10,7 +10,7 @@ import { UserService } from '../../js/services/user-service.js';
 import { ItemService } from '../../js/services/item-service.js';
 import { NotificationService } from '../../js/services/notification-service.js';
 import { CatalogService } from '../../js/services/catalog-service.js';
-import { ROUTES } from '../../js/core/constants.js';
+import { REFERENCE_TYPES, ROUTES } from '../../js/core/constants.js';
 
 class DashboardPage {
   /**
@@ -35,6 +35,8 @@ class DashboardPage {
     this.fabButton = document.getElementById('floating-action-button');
 
     this.handleBeforeUnload = this.handleBeforeUnload.bind(this);
+
+    this.notifications = null;
   }
 
   /**
@@ -125,12 +127,16 @@ class DashboardPage {
     const notifications = NotificationService.getByUser(this.currentUser.id);
 
     this.notificationOffcanvas =new NotificationOffcanvas(
-      { notifications,
+      { notifications: notifications,
         onNotificationClick:
           notification => {
-            if (!notification.readAt) {
-              NotificationService.markAsRead(notification.id);
+            if (notification.readAt === null) {
+              if (NotificationService.markAsRead(notification.id)){
+                this.updateNotifications();
+              }
             }
+            this.setNavigationData(notification.referenceType, notification.referenceId);
+            this.navigate(notification.referenceType);
           }
       }
     );
@@ -315,6 +321,27 @@ class DashboardPage {
     }
   }
 
+  /**
+   * Navigation data set.
+   *
+   * @param {string} type
+   * @param {string} referenceId
+   */
+  setNavigationData(type, referenceId) {
+    const data = {"item": {itemId: referenceId},
+    "proposal": {proposalId: referenceId},
+    "negotiation": {},
+    "chat": {chatId: referenceId},
+    "user": {},
+    "system": {},
+    };
+    NavStorage.set(type+'-page',data[type]);
+}
+
+updateNotifications() {
+  const notifications = NotificationService.getByUser(this.currentUser.id);
+  this.notificationOffcanvas.setNotifications(notifications);
+}
   /**
    * Extracts user first name.
    *
