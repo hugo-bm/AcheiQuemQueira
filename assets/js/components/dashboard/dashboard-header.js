@@ -88,7 +88,7 @@ export class DashboardHeader extends BaseComponent {
               </form>
               <ul class="navbar-nav align-items-center gap-2">
                 <li class="nav-item">
-                  <button type="button" class="btn btn-link nav-link" data-route="my-items">Meus Itens</button>
+                  <button type="button" class="btn btn-link nav-link" data-route="my-items">Meus Anúncios</button>
                 </li>
                 <li class="nav-item">
                   <button type="button" class="btn btn-link nav-link" data-route="my-chats">Conversas</button>
@@ -140,7 +140,7 @@ export class DashboardHeader extends BaseComponent {
               <span>Olá, ${this.firstName}</span>
             </div>
             <div class="list-group">
-              <button class="list-group-item list-group-item-action" data-route="my-items">Meus Itens</button>
+              <button class="list-group-item list-group-item-action" data-route="my-items">Meus Anúncios</button>
               <button class="list-group-item list-group-item-action" data-route="my-chats">Conversas</button>
               <button class="list-group-item list-group-item-action" data-route="my-reviews">Avaliações</button>
               <button class="list-group-item list-group-item-action" data-role="profile-button-mobile">Meu Perfil</button>
