@@ -86,4 +86,6 @@ export const ROUTES = {
       'identity-validation': '/assets/pages/identity-validation/identity-validation.html',
 
       'phone-validation': '/assets/pages/phone-validation/phone-validation.html',
+
+      'chat': '/assets/pages/chat/chat-page.html',
     };
