@@ -1,0 +1,305 @@
+import { BaseCardComponent } from '../base/base-card-component.js';
+import { Avatar } from '../ui/avatar.js';
+import { Events } from "../../core/events.js"
+
+/**
+ * Represents a Proposal item component or controller.
+ * @extends {BaseCardComponent} // Replace 'Object' with the actual base class name if known (e.g., HTMLElement, Component)
+ * 
+ * @property {string|number} proposalId - The unique identifier for the proposal.
+ * @property {string|null} avatarUrl - The URL of the user's avatar image.
+ * @property {string} firstName - The first name of the user.
+ * @property {string} fullName - The full name of the user.
+ * @property {string} lastMessage - The last message content or a fallback message.
+ * @property {string} proposalStatus - The current status of the proposal ('pending', 'accepted', etc.).
+ * @property {string} lastActivityDate - The ISO string or formatted date of the last activity.
+ * @property {number} unreadCount - The number of unread messages.
+ * @property {Function|null} onClick - The callback function triggered on click events.
+ */
+export class ChatCard extends BaseCardComponent {
+    /**
+     * Creates an instance.
+     * 
+     * @param {Object} [options={}] - The configuration object.
+     * @param {string|number} options.proposalId - The unique identifier for the proposal.
+     * @param {string|null} [options.avatarUrl=null] - The URL of the user's avatar image.
+     * @param {string} [options.firstName=''] - The first name of the ohter user.
+     * @param {string} [options.fullName=''] - The full name of the other user.
+     * @param {string} [options.lastMessage=''] - The last message text.
+     * @param {string} [options.proposalStatus='pending'] - The initial status of the proposal.
+     * @param {string} [options.lastActivityDate=''] - The last active timestamp or date string.
+     * @param {number|string} [options.unreadCount=0] - The initial number of unread messages.
+     * @param {Function|null} [options.onClick=null] - Click event handler callback.
+     */
+    constructor({
+        proposalId,
+        avatarUrl = null,
+        firstName = '',
+        fullName = '',
+        lastMessage = '',
+        proposalStatus = 'pending',
+        lastActivityDate = '',
+        unreadCount = 0,
+        onClick = null
+    } = {}) {
+        super();
+
+        this.proposalId = proposalId;
+
+        this.avatarUrl = avatarUrl;
+
+        this.firstName = firstName;
+        this.fullName = fullName;
+
+        this.lastMessage = lastMessage?.trim() || 'Nenhuma mensagem enviada.';
+
+        this.proposalStatus = proposalStatus;
+        this.lastActivityDate = lastActivityDate;
+
+        this.unreadCount = Number(unreadCount) || 0;
+
+        this.onClick = onClick;
+
+        this.avatar = null;
+
+        this.handleClick = this.handleClick.bind(this);
+
+        this.handleKeyboard = this.handleKeyboard.bind(this);
+    }
+
+    getTagName() {
+        return 'article';
+    }
+
+    getAttributes() {
+        return {
+            role: 'button',
+            tabindex: '0'
+        };
+    }
+
+    getCardClasses() {
+        return [
+            'aq-clickable',
+            'aq-card-surface',
+            'aq-notification-card',
+            'border',
+            'aq-shadow-md',
+            'aq-radius-md',
+            'position-relative',
+            'border-1'
+        ].join(' ');
+    }
+
+    renderBody() {
+        return `
+<div class="d-flex align-items-center gap-3">
+    <div data-ref="avatar"></div>
+    <div class="flex-grow-1 min-w-0">
+        <div class="d-flex justify-content-between align-items-start gap-2">
+            <div class="min-w-0 d-flex align-items-center justify-content-center">
+                <div class="fw-semibold fs-5 text-primary aq-mobile-only" data-ref="mobile-name">${this.firstName}</div>
+                <div class="fw-semibold fs-5 text-primary aq-tablet-up" data-ref="desktop-name">${this.fullName}</div>
+            </div>
+            <div class="text-center flex-shrink-0">
+                <span class="badge" data-ref="status">${this.getStatusLabel()}</span>
+                <div class="small aq-text-soft mt-1" data-ref="date">${this.lastActivityDate}</div>
+            </div>
+        </div>
+        <div class="small aq-text-soft aq-line-clamp-2 mt-1" data-ref="message">${this.lastMessage}</div>
+    </div>
+</div>`.trim();
+    }
+
+    afterMount() {
+        this.registerRefs();
+        this.mountAvatar();
+        this.renderUnreadBadge();
+        this.bindEvents();
+        this.updateStatus(this.proposalStatus);
+    }
+
+    registerRefs() {
+        this.registerRef(
+            'avatar',
+            this.element.querySelector('[data-ref="avatar"]')
+        );
+
+        this.registerRef(
+            'message',
+            this.element.querySelector('[data-ref="message"]')
+        );
+
+        this.registerRef(
+            'status',
+            this.element.querySelector('[data-ref="status"]')
+        );
+
+        this.registerRef(
+            'date',
+            this.element.querySelector('[data-ref="date"]')
+        );
+    }
+
+    mountAvatar() {
+        const avatarContainer = this.getRef('avatar');
+
+        if (!avatarContainer) {
+            return;
+        }
+
+        this.avatar = new Avatar({
+                imageUrl: this.avatarUrl,
+                name: this.fullName,
+                size: 'md'
+            });
+
+        this.avatar.mount(avatarContainer);
+
+        if (this.avatar.element) {
+            this.avatar.element.setAttribute('aria-hidden','true');
+        }
+    }
+
+    bindEvents() {
+        Events.on(this.element, "click", this.handleClick);
+        Events.on(this.element, 'keydown', this.handleKeyboard);
+        this.listeners = {
+            element:this.element,
+            eventName: "click",
+            handler: this.handleClick
+        }
+        this.listeners = {
+            element:this.element,
+            eventName: "keydown",
+            handler: this.handleKeyboard
+        }
+    }
+
+    handleClick() {
+        if (typeof this.onClick === 'function' ) {
+            this.onClick(this.proposalId);
+        }
+    }
+
+    handleKeyboard(event) {
+        if (event.key !== 'Enter' &&event.key !== ' ') {
+            return;
+        }
+
+        event.preventDefault();
+
+        this.handleClick();
+    }
+
+    updateUnreadCount(count) {
+        this.unreadCount = Number(count) || 0;
+
+        const currentBadge = this.getRef('unread-badge');
+
+        if (this.unreadCount <= 0) {
+            if (currentBadge) {
+                currentBadge.remove();
+            }
+
+            this.refs['unread-badge'] = null;
+
+            return;
+        }
+
+        if (currentBadge) {
+            currentBadge.textContent = this.unreadCount;
+
+            return;
+        }
+
+        this.renderUnreadBadge();
+    }
+
+    renderUnreadBadge() {
+        if (this.unreadCount <= 0) {
+            return;
+        }
+
+        const badge = document.createElement('span');
+
+        badge.className = [
+            'badge',
+            'bg-danger',
+            'position-absolute',
+            'top-0',
+            'end-0',
+            'translate-middle',
+            'rounded-circle'
+        ].join(' ');
+
+        badge.textContent = this.unreadCount;
+
+        this.element.appendChild(badge);
+
+        this.registerRef('unread-badge', badge);
+    }
+
+    updateLastMessage(message) {
+        const content = message?.trim() || 'Nenhuma mensagem enviada.';
+
+        this.lastMessage = content;
+
+        const messageElement = this.getRef('message');
+
+        if (!messageElement) {
+            return;
+        }
+
+        messageElement.textContent = content;
+    }
+
+    updateStatus(status) {
+        this.proposalStatus = status;
+
+        const statusElement = this.getRef('status');
+
+        if (!statusElement) {
+            return;
+        }
+
+        statusElement.className = `badge bg-${this.getStatusVariant()}`;
+
+        statusElement.textContent = this.getStatusLabel();
+    }
+
+    getStatusVariant() {
+        const STATUS_STYLING = {
+            pending: 'warning',
+            accepted: 'success',
+            rejected: 'danger',
+            cancelled: 'secondary',
+            completed: 'info'
+        };
+        return STATUS_STYLING[this.proposalStatus] || 'secondary';
+    }
+
+    getStatusLabel() {
+       const STATUS_LABELS = {
+            pending: 'Pendente',
+            accepted: 'Aceita',
+            rejected: 'Recusada',
+            cancelled: 'Cancelada',
+            completed: 'Concluída'
+        };
+
+        return STATUS_LABELS[this.proposalStatus] ?? 'Desconhecido';
+    }
+
+    destroy() {
+        this.avatar?.destroy();
+        this.avatar = null;
+
+
+        this.refs.map(element=>{
+            element = null;
+        });
+
+        super.destroy();
+    }
+}
