@@ -29,7 +29,7 @@ export class ProfileMetricCard extends BaseCardComponent {
    * @returns {string}
    */
   getCardClasses() {
-    return 'w-25 h-100';
+    return 'w-100 h-100';
   }
 
   /**
