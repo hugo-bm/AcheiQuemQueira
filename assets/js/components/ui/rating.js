@@ -1,4 +1,4 @@
-import { on, off, emit } from '../../core/events.js';
+import { Events } from '../../core/events.js';
 
 /**
  * Reusable component used to display and select ratings
@@ -119,7 +119,7 @@ export class Rating {
    */
   destroy() {
     this.listeners.forEach(listener => {
-      off(
+      Events.off(
         listener.element,
         listener.eventName,
         listener.handler
@@ -146,10 +146,10 @@ export class Rating {
 
       this.setValue(value);
 
-      emit('rating:change', {
+      Events.emit('rating:change', {
         value,
         component: this
-      });
+      }, true);
     };
 
     const keyHandler = event => {
@@ -163,15 +163,15 @@ export class Rating {
 
         this.setValue(value);
 
-        emit('rating:change', {
+        Events.emit('rating:change', {
           value,
           component: this
-        });
+        },true);
       }
     };
 
-    on(star, 'click', clickHandler);
-    on(star, 'keydown', keyHandler);
+    Events.on(star, 'click', clickHandler);
+    Events.on(star, 'keydown', keyHandler);
 
     this.listeners.push({
       element: star,
