@@ -2,6 +2,7 @@ import { AQQStorage } from '../core/aqq-storage.js';
 import { NegotiationService } from './negotiation-service.js';
 import { ReputationService } from './reputation-service.js';
 import { NEGOTIATION_STATUS } from '../core/constants.js';
+import "../models/entities.js"
 
 export class ReviewService {
   /**
@@ -13,7 +14,7 @@ export class ReviewService {
    * @param {string} reviewData.reviewedUserId - Reviewed user identifier.
    * @param {number} reviewData.rating - Rating value.
    * @param {string} reviewData.comment - Review comment.
-   * @returns {Promise<Object>}
+   * @returns {Promise<Review>}
    */
   static async createReview(reviewData) {
     const negotiation = NegotiationService.getById(
@@ -167,7 +168,7 @@ export class ReviewService {
    * Returns a review by identifier.
    *
    * @param {string} reviewId - Review identifier.
-   * @returns {Object|null}
+   * @returns {Review|null}
    */
   static getById(reviewId) {
     const reviews = AQQStorage.get('reviews') || [];
@@ -182,7 +183,7 @@ export class ReviewService {
    * Returns all reviews for a negotiation.
    *
    * @param {string} negotiationId - Negotiation identifier.
-   * @returns {Object[]}
+   * @returns {Review[]}
    */
   static getByNegotiationId(negotiationId) {
     const reviews = AQQStorage.get('reviews') || [];
@@ -203,7 +204,7 @@ export class ReviewService {
    * Returns reviews received by a user.
    *
    * @param {string} userId - User identifier.
-   * @returns {Object[]}
+   * @returns {Review[]}
    */
   static getReviewsReceived(userId) {
     const reviews = AQQStorage.get('reviews') || [];
@@ -224,7 +225,7 @@ export class ReviewService {
    * Returns reviews written by a user.
    *
    * @param {string} userId - User identifier.
-   * @returns {Object[]}
+   * @returns {Review[]}
    */
   static getReviewsWritten(userId) {
     const reviews = AQQStorage.get('reviews') || [];
