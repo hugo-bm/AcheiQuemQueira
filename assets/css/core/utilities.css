@@ -12,6 +12,13 @@ AQQ - Utilities
   background: var(--aq-card);
 }
 
+.aq-not-copy {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+/Edge */
+  user-select: none;         /* Padrão moderno (Chromium) */
+}
+
 .aq-notification-unread {
   background-color: var(--aq-surface-highlight, rgba(111, 139, 114, 0.06));
   border-left: 4px solid #6F8B72; 
