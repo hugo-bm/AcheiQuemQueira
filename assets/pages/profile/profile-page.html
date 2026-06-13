@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../../icons/favicon-32.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../../css/core/reset.css" />
+
+    <title>Perfil - AQQ</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <!-- CSS - AQQ -->
+    <link rel="stylesheet" href="../../css/core/variables.css" />
+    <link rel="stylesheet" href="../../css/core/typography.css" />
+    <link rel="stylesheet" href="../../css/core/utilities.css" />
+    <link rel="stylesheet" href="../../css/core/animations.css" />
+    <link rel="stylesheet" href="../../css/core/responsive.css" />
+
+    <script type="module" src="./profile-page.js" defer></script>
+</head>
+<body>
+    <div
+        id="alert-container"
+        class="position-fixed top-0 start-50 translate-middle-x aq-w-sm-100 aq-w-lg-50 p-3"
+        style="z-index:1080;">
+    </div>
+
+    <main class="container aq-container w-100 py-4 py-md-5 d-flex justify-content-center">
+        <div class="w-100" style="max-width: 1080px;">
+            
+            <!-- Header -->
+            <header class="d-flex align-items-center w-100 gap-3 mb-4">
+                <button id="back-button" type="button"
+                    class="btn aq-btn-secundary p-0 text-decoration-none d-flex align-items-center justify-content-center"
+                    aria-label="Voltar" style="min-width:48px; min-height:48px; z-index:2;">
+                    <i class="bi bi-arrow-left fs-3" aria-hidden="true"></i>
+                </button>
+                <h1 class="aq-h1 text-primary fw-semibold mb-0 h-md-3">Perfil</h1>
+            </header>
+            
+            <!-- 1. Bloco do Perfil -->
+            <section id="profile-container" class="mb-4">
+            </section>
+
+            <!-- 2. Bloco de Métricas -->
+            <section id="metrics-container" class="row g-3 bg-transparent w-100 m-0 mb-4">
+            </section>
+
+            <!-- 3. Bloco de Avaliações Detalhas -->
+            <section id="reviews-container" class="d-flex flex-column gap-2 w-100 mt-4">
+            </section>
+
+        </div>
+    </main>
+     <!-- Bootstrap Bundle -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+</html>
