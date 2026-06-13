@@ -265,7 +265,7 @@ export class EmptyState {
     const button = document.createElement("button");
 
     button.type = "button";
-    button.className = "btn btn-primary";
+    button.className = "btn aq-btn-secondary text-light";
     button.textContent = this.actionText;
 
     button.addEventListener("click", this.handleActionClick);
