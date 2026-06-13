@@ -65,8 +65,6 @@ class DashboardPage {
         return;
       }
 
-      console.log(this)
-
       await this.initializeHeader();
       await this.initializeNotifications();
       await this.initializeItems();
@@ -167,7 +165,6 @@ class DashboardPage {
       data: orderedItems,
 
       onItemClick: data => {
-        console.log(data)
         NavStorage.set('describe-item-page',{itemId: data.id});
         window.location.href = ROUTES['describe-item'];
       }
@@ -192,8 +189,8 @@ class DashboardPage {
 
               if (!owner) { return null;}
 
+
               const catalogResult = CatalogService.getSubcategoryContext(item.subcategoryId);
-              console.log(catalogResult)
               const categoryName = catalogResult?.data?.category?.name || "Outros";
               const subcategoryName = catalogResult?.data?.subcategory?.name || "Diversos";
               return {
