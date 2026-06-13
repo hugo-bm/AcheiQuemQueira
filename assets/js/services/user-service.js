@@ -274,7 +274,6 @@ export class UserService {
    */
   static getById(userId) {
     const users = AQQStorage.get("users") ?? [];
-
     return users.find((user) => user.id === userId) ?? null;
   }
 

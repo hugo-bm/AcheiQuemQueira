@@ -215,31 +215,26 @@ export class RegisterPage {
    populateSelect(selectElement, placeholderText, items) {
         if (!selectElement) return;
 
-        // 1. Limpa todas as opções existentes de forma nativa e segura
         selectElement.length = 0;
 
-        // 2. Cria um contêiner temporário na memória para agrupar os nós
+
         const fragment = document.createDocumentFragment();
 
-        // 3. Injeta a opção padrão (Placeholder) usando o construtor nativo Option(text, value)
+
         fragment.appendChild(new Option(placeholderText, ''));
 
-        // 4. Converte os dados estruturados em elementos do DOM físicos e anexa ao fragmento
         items.forEach(item => {
-            fragment.appendChild(new Option(item.name, item.id));
+            fragment.appendChild(new Option(item.name, item.name));
         });
 
-        // 5. Despacha todas as novas opções para a tela em uma única operação atômica de DOM
         selectElement.appendChild(fragment);
     }
 
     resetSelect(selectElement, placeholderText) {
         if (!selectElement) return;
         
-        // Reduz o tamanho do select para zero, limpando tudo instantaneamente
         selectElement.length = 0;
         
-        // Injeta apenas a opção inicial padrão
         selectElement.appendChild(new Option(placeholderText, ''));
         
         selectElement.disabled = true;
@@ -247,7 +242,6 @@ export class RegisterPage {
 
   async validate(data) {
     let valid = true;
-    console.log("Teste de entada na validação");
     const cpfCnpjDigits = data.cpfCnpj.replace(/\D/g, "");
 
     if (cpfCnpjDigits.length === 11) {
@@ -272,20 +266,15 @@ export class RegisterPage {
       this.showError("cpf-cnpj", "CPF ou CNPJ inválido.");
     }
 
-    this.validateField("name", TextValidator.validateName(data.name)) ||
-      (valid = false);
+    this.validateField("name", TextValidator.validateName(data.name)) || (valid = false);
 
-    this.validateField("email", TextValidator.validateEmail(data.email)) ||
-      (valid = false);
+    this.validateField("email", TextValidator.validateEmail(data.email)) || (valid = false);
 
-    this.validateField("phone", PhoneValidator.validate(data.phone)) ||
-      (valid = false);
+    this.validateField("phone", PhoneValidator.validate(data.phone)) || (valid = false);
 
-    this.validateField("state", LocationValidator.validateState(data.state)) ||
-      (valid = false);
+    this.validateField("state", LocationValidator.validateState(data.state)) || (valid = false);
 
-    this.validateField("city", LocationValidator.validateCity(data.city)) ||
-      (valid = false);
+    this.validateField("city", LocationValidator.validateCity(data.city)) || (valid = false);
 
     this.validateField(
       "neighborhood",

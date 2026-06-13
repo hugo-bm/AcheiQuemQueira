@@ -32,7 +32,7 @@ export class SmsCodeModal extends BaseModalComponent {
                         </div>
                         <div class="modal-body text-center">
                             <p class="mb-3">Exemplo de aplicativo de SMS</p>
-                            <div  class="display-5 fw-bold text-primary">${this.code}</div>
+                            <div  class="display-5 fw-bold text-primary aq-not-copy">${this.code}</div>
                         </div>
                         <div class="modal-footer">
                             <button
@@ -72,9 +72,7 @@ export class PhoneValidationPage {
         const context = NavStorage.get('phone-validation-page');
 
         if (!context?.userId) {
-            this.showError(
-                'Não foi possível iniciar a validação.'
-            );
+            this.showError('Não foi possível iniciar a validação.');
 
             window.location.href = ROUTES['register'];
 
@@ -136,8 +134,7 @@ export class PhoneValidationPage {
     }
 
     maskPhone(phone) {
-        const digits = String(phone)
-            .replace(/\D/g, '');
+        const digits = String(phone).replace(/\D/g, '');
 
         const suffix = digits.slice(-4);
 
@@ -194,97 +191,87 @@ export class PhoneValidationPage {
             );
         }
 
-        const description =
-            document.createElement('p');
+        const description = document.createElement('p');
 
-        description.className =
-            'text-center mb-3';
+        description.className = 'text-center mb-3';
 
-        description.textContent =
-            'Digite o código recebido.';
+        description.textContent = 'Digite o código recebido.';
 
         container.appendChild(
             description
         );
 
-        const input =
-            document.createElement('input');
+        const input =  document.createElement('input');
 
         input.type = 'text';
 
         input.id = 'code-input';
 
-        input.className =
-            'form-control mb-2';
+        input.className = 'form-control mb-2';
 
         container.appendChild(input);
 
-        const feedback =
-            document.createElement('div');
+        const feedback = document.createElement('div');
 
-        feedback.className =
-            'invalid-feedback';
+        feedback.className = 'invalid-feedback';
 
-        feedback.dataset.errorFor =
-            'code';
+        feedback.dataset.errorFor = 'code';
 
         container.appendChild(feedback);
 
-        const validateButton =
-            document.createElement('button');
+        const validateButton =  document.createElement('button');
 
         validateButton.type = 'button';
 
-        validateButton.id =
-            'validate-code-button';
+        validateButton.id = 'validate-code-button';
 
-        validateButton.className =
-            'btn aq-btn-primary w-100 mt-3';
+        validateButton.className = 'btn aq-btn-primary w-100 mt-3';
 
-        validateButton.textContent =
-            'Validar';
+        validateButton.textContent = 'Validar';
 
-        container.appendChild(
-            validateButton
-        );
+        container.appendChild(validateButton);
 
-        const resendButton =
-            document.createElement('button');
+        const resendButton = document.createElement('button');
 
         resendButton.type = 'button';
 
-        resendButton.id =
-            'resend-code-button';
+        resendButton.id ='resend-code-button';
 
-        resendButton.className =
-            'btn btn-link aq-text-primary w-100 mt-3';
+        resendButton.className = 'btn btn-link aq-text-primary w-100 mt-3';
 
         resendButton.disabled = true;
 
-        container.appendChild(
-            resendButton
-        );
+        container.appendChild(resendButton);
 
         this.elements.codeInput = input;
 
-        this.elements.codeError =
-            feedback;
+        this.elements.codeError = feedback;
 
-        this.elements.validateButton =
-            validateButton;
+        this.elements.validateButton = validateButton;
 
-        this.elements.resendButton =
-            resendButton;
+        this.elements.resendButton = resendButton;
 
-        const validateHandler =
-            this.handleValidate.bind(this);
+        const validateHandler =  this.handleValidate.bind(this);
 
-        const resendHandler =
-            this.handleResend.bind(this);
+        const resendHandler = this.handleResend.bind(this);
 
         Events.on(validateButton, "click", validateHandler);
 
         Events.on(resendButton, "click", resendHandler);
+
+         Events.on(input, "past", (event) => {
+            event.preventDefault();
+            this.alertRender.warning('Não é permitido colar informações neste campo.')
+        });
+
+        this.listeners.push({
+            element: input,
+            event: 'past',
+            handler: (event) => {
+            event.preventDefault();
+            this.alertRender.warning('Não é permitido colar informações neste campo.')
+        }
+        });
 
         this.listeners.push({
             element: validateButton,
@@ -317,9 +304,7 @@ export class PhoneValidationPage {
 
             this.updateResendButton();
 
-            if (
-                this.remainingSeconds <= 0
-            ) {
+            if (this.remainingSeconds <= 0) {
                 clearInterval(
                     this.timerId
                 );
@@ -358,9 +343,7 @@ export class PhoneValidationPage {
 
         this.clearCodeError();
 
-        if (
-            value !== this.generatedCode
-        ) {
+        if (value !== this.generatedCode) {
             this.showCodeError(
                 'Código inválido.'
             );
@@ -376,16 +359,12 @@ export class PhoneValidationPage {
             UserService.confirmPhoneVerification(this.user.id, value);
 
         if (!result?.success) {
-            this.showError(
-                'Não foi possível validar o telefone.'
-            );
+            this.showError('Não foi possível validar o telefone.');
 
             return;
         }
 
-        this.alertRender.success(
-            'Telefone validado com sucesso.'
-        );
+        this.alertRender.success('Telefone validado com sucesso.');
 
         NavStorage.set(
             'identity-validation-page',

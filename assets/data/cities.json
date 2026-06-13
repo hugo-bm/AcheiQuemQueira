@@ -48,6 +48,154 @@
             "Jardim Primavera",
             "Saracuruna"
           ]
+        },
+        {
+          "id": "niteroi",
+          "name": "Niterói",
+          "neighborhoods": [
+            "Icaraí",
+            "Santa Rosa",
+            "Ingá"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SP",
+      "name": "São Paulo",
+      "cities": [
+        {
+          "id": "sao_Paulo",
+          "name": "São Paulo",
+          "neighborhoods": [
+            "Vila Mariana",
+            "Pinheiros",
+            "Moema"
+          ]
+        },
+        {
+          "id": "vinhedo",
+          "name": "Vinhedo",
+          "neighborhoods": [
+            "Centro",
+            "Capela",
+            "Marambaia"
+          ]
+        },
+        {
+          "id": "campinas",
+          "name": "Campinas",
+          "neighborhoods": [
+            "Cambuí",
+            "Barão Geraldo",
+            "Taquaral"
+          ]
+        },
+        {
+          "id": "jundiai",
+          "name": "Jundiaí",
+          "neighborhoods": [
+            "Anhangabaú",
+            "Eley",
+            "Vianelo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PB",
+      "name": "Paraíba",
+      "cities": [
+        {
+          "id": "joao_pessoa",
+          "name": "João Pessoa",
+          "neighborhoods": [
+            "Tambaú",
+            "Manaíra",
+            "Cabo Branco"
+          ]
+        },
+        {
+          "id": "campina_grande",
+          "name": "Campina Grande",
+          "neighborhoods": [
+            "Catolé",
+            "Bodocongó",
+            "Alto Branco"
+          ]
+        },
+        {
+          "id": "cabedelo",
+          "name": "Cabedelo",
+          "neighborhoods": [
+            "Intermares",
+            "Camboinha",
+            "Bessa"
+          ]
+        },
+        {
+          "id": "patos",
+          "name": "Patos",
+          "neighborhoods": [
+            "Centro",
+            "Belo Horizonte",
+            "Brasília"
+          ]
+        },
+        {
+          "id": "bayeux",
+          "name": "Bayeux",
+          "neighborhoods": [
+            "Centro",
+            "Mário Andreazza",
+            "Alto da Boa Vista"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SC",
+      "name": "Santa Catarina",
+      "cities": [
+        {
+          "id": "florianopolis",
+          "name": "Florianópolis",
+          "neighborhoods": [
+            "Centro",
+            "Trindade",
+            "Jurerê Internacional",
+            "Campeche"
+          ]
+        },
+        {
+          "id": "joinville",
+          "name": "Joinville",
+          "neighborhoods": [
+            "América",
+            "Anita Garibaldi",
+            "Glória",
+            "Costa e Silva"
+          ]
+        },
+        {
+          "id": "blumenau",
+          "name": "Blumenau",
+          "neighborhoods": [
+            "Vila Nova",
+            "Victor Konder",
+            "Centro",
+            "Itoupava Central"
+          ]
+        },
+        {
+          "id": "balneario_camboriu",
+          "name": "Balneário Camboriú",
+          "neighborhoods": [
+            "Centro",
+            "Barra Sul",
+            "Nações",
+            "Pioneiros"
+          ]
         }
       ]
     }
