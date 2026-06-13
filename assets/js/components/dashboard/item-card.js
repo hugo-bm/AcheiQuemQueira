@@ -203,42 +203,33 @@ export class ItemCard extends BaseCardComponent {
         if (!this.item?.expiresAt) {
             return '';
         }
-
-        // Define o início do dia atual (00:00:00) para evitar quebras por diferença de horas
+        
         const today = new Date();
         today.setHours(0, 0, 0, 0);
 
         const expirationDate = new Date(this.item.expiresAt);
         expirationDate.setHours(0, 0, 0, 0);
 
-        // Calcula a diferença em milissegundos
         const differenceInMs = expirationDate.getTime() - today.getTime();
         
-        // Converte milissegundos em dias (1 dia = 24h * 60m * 60s * 1000ms)
-        // Somamos 1 para garantir que a contagem inclua o dia atual de forma inclusiva
         const remainingDays = Math.ceil(differenceInMs / (1000 * 60 * 60 * 24)) + 1;
 
-        // Trata os cenários de expiração passados por segurança
         if (remainingDays <= 0) {
             return 'Expirado';
         }
 
-        // Regra 1: Faltando exatamente 1 dia
         if (remainingDays === 1) {
             return 'Último dia';
         }
 
-        // Regra 2: Faltando exatamente 2 dias
         if (remainingDays === 2) {
             return 'Expira amanhã';
         }
 
-        // Regra 3: Menos de 7 dias (Mostra o número de dias puro)
         if (remainingDays < 7) {
             return `${remainingDays} dias`;
         }
 
-        // Regra 4: Mais de 7 dias (Converte e exibe em semanas cheias)
         const remainingWeeks = Math.floor(remainingDays / 7);
         const labelSemana = remainingWeeks === 1 ? 'semana' : 'semanas';
         return `${remainingWeeks} ${labelSemana}`;

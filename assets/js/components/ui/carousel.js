@@ -155,19 +155,12 @@ export class Carousel extends BaseComponent {
    */
   renderEmptyState() {
     return `
-            <div
-                class="d-flex flex-column align-items-center justify-content-center text-center p-4 border rounded h-100"
-            >
-                <i
-                    class="bi bi-image fs-1 text-secondary"
-                    aria-hidden="true"
-                ></i>
-
-                <span class="mt-2 text-muted">
-                    Imagem não disponível
-                </span>
+            <div class="d-flex flex-column align-items-center justify-content-center text-center p-4 border rounded h-100">
+                <i class="bi bi-image fs-1 text-secondary"
+                    aria-hidden="true"></i>
+                <span class="mt-2 text-muted">Imagem não disponível</span>
             </div>
-        `;
+        `.trim();
   }
 
   /**
@@ -178,15 +171,14 @@ export class Carousel extends BaseComponent {
    */
   renderSingleImage(image) {
     return `
-            <div class="overflow-hidden rounded">
-                <img
-                    src="${image}"
+            <div class="overflow-hidden rounded bg-light d-flex align-items-center justify-content-center"
+            style="aspect-ratio: 4 / 3;">
+                <img src="${image}"
                     alt="Item image"
                     class="img-fluid w-100"
-                    loading="lazy"
-                >
+                    loading="lazy" style="object-fit: contain; max-height: 240px; max-width: 240px;">
             </div>
-        `;
+        `.trim();
   }
 
   /**
@@ -196,20 +188,16 @@ export class Carousel extends BaseComponent {
    */
   renderCarousel() {
     return `
-            <div
-                id="${this.carouselId}"
+            <div id="${this.carouselId}"
                 class="carousel slide"
-                data-bs-ride="false"
-            >
+                data-bs-ride="false">
                 ${this.renderIndicators()}
-
                 <div class="carousel-inner">
                     ${this.renderSlides()}
                 </div>
-
                 ${this.renderControls()}
             </div>
-        `;
+        `.trim();
   }
 
   /**
@@ -235,7 +223,7 @@ export class Carousel extends BaseComponent {
                   )
                   .join("")}
             </div>
-        `;
+        `.trim();
   }
 
   /**
@@ -247,19 +235,15 @@ export class Carousel extends BaseComponent {
     return this.images
       .map(
         (image, index) => `
-                    <div
-                        class="carousel-item ${index === 0 ? "active" : ""}"
-                    >
-                        <img
-                            src="${image}"
-                            alt="Item image ${index + 1}"
-                            class="d-block w-100"
-                            loading="lazy"
-                        >
-                    </div>
-                `,
-      )
-      .join("");
+                    <div class="carousel-item ${index === 0 ? "active" : ""}">
+                      <div class="d-flex align-items-center justify-content-center bg-light w-100" 
+                             style="aspect-ratio: 4 / 3;">
+                        <img src="${image}"
+                            alt="Item image ${index + 1}" class="d-block w-100" loading="lazy"
+                            style="object-fit: contain; max-height: 100%; max-width: 100%;">
+                      </div>
+                    </div>`.trim(),
+      ).join("");
   }
 
   /**
@@ -269,38 +253,22 @@ export class Carousel extends BaseComponent {
    */
   renderControls() {
     return `
-            <button
-                class="carousel-control-prev"
+            <button class="carousel-control-prev"
                 type="button"
                 data-bs-target="#${this.carouselId}"
-                data-bs-slide="prev"
-            >
-                <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                ></span>
-
-                <span class="visually-hidden">
-                    Previous
-                </span>
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+                <span class="visually-hidden">Previous</span>
             </button>
-
-            <button
-                class="carousel-control-next"
+            <button class="carousel-control-next"
                 type="button"
                 data-bs-target="#${this.carouselId}"
-                data-bs-slide="next"
-            >
-                <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                ></span>
-
-                <span class="visually-hidden">
-                    Next
-                </span>
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon"
+                    aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
             </button>
-        `;
+        `.trim();
   }
 
   /**
