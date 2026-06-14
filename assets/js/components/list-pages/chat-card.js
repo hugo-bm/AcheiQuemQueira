@@ -30,6 +30,7 @@ export class ChatCard extends BaseCardComponent {
      * @param {string} [options.lastActivityDate=''] - The last active timestamp or date string.
      * @param {number|string} [options.unreadCount=0] - The initial number of unread messages.
      * @param {Function|null} [options.onClick=null] - Click event handler callback.
+     * @param {"chat"|"proposal"} [options.variant="chat"] - Select the rendering layout between "chat" and "proposal"
      */
     constructor({
         proposalId,
@@ -40,7 +41,8 @@ export class ChatCard extends BaseCardComponent {
         proposalStatus = 'pending',
         lastActivityDate = '',
         unreadCount = 0,
-        onClick = null
+        onClick = null,
+        variant = 'chat'
     } = {}) {
         super();
 
@@ -61,6 +63,8 @@ export class ChatCard extends BaseCardComponent {
         this.onClick = onClick;
 
         this.avatar = null;
+
+        this.variant = variant;
 
         this.handleClick = this.handleClick.bind(this);
 
@@ -92,29 +96,61 @@ export class ChatCard extends BaseCardComponent {
     }
 
     renderBody() {
+        if (this.variant === 'proposal') {
+        return this.renderProposalBody();
+    }
+
+    return this.renderChatBody();
+        
+    }
+
+    renderChatBody () {
         return `
+        <div class="d-flex align-items-center gap-3">
+            <div data-ref="avatar"></div>
+            <div class="flex-grow-1 min-w-0">
+                <div class="d-flex justify-content-between align-items-start gap-2">
+                    <div class="min-w-0 d-flex align-items-center justify-content-center">
+                        <div class="fw-semibold fs-5 text-primary aq-mobile-only" data-ref="mobile-name">${this.firstName}</div>
+                        <div class="fw-semibold fs-5 text-primary aq-tablet-up" data-ref="desktop-name">${this.fullName}</div>
+                    </div>
+                    <div class="text-center flex-shrink-0">
+                        <span class="badge" data-ref="status">${this.getStatusLabel()}</span>
+                        <div class="small aq-text-soft mt-1" data-ref="date">${this.lastActivityDate}</div>
+                    </div>
+                </div>
+                <div class="small aq-text-soft aq-line-clamp-2 mt-1" data-ref="message">${this.lastMessage}</div>
+            </div>
+        </div>`.trim();
+    }
+
+    renderProposalBody() {
+    return `
 <div class="d-flex align-items-center gap-3">
     <div data-ref="avatar"></div>
     <div class="flex-grow-1 min-w-0">
-        <div class="d-flex justify-content-between align-items-start gap-2">
-            <div class="min-w-0 d-flex align-items-center justify-content-center">
-                <div class="fw-semibold fs-5 text-primary aq-mobile-only" data-ref="mobile-name">${this.firstName}</div>
-                <div class="fw-semibold fs-5 text-primary aq-tablet-up" data-ref="desktop-name">${this.fullName}</div>
+        <div class="fw-semibold fs-5 text-primary" data-ref="desktop-name">${this.firstName} ${this.getLastName()}</div>
+        <div class="d-flex justify-content-between gap-3 mt-1">
+            <div class="flex-grow-1">
+                <div class="small aq-text-soft aq-line-clamp-2" data-ref="message">${this.lastMessage}</div>
             </div>
-            <div class="text-center flex-shrink-0">
-                <span class="badge" data-ref="status">${this.getStatusLabel()}</span>
+            <div class="text-end flex-shrink-0">
+                <span class="badge" data-ref="status">
+                    ${this.getStatusLabel()}
+                </span>
                 <div class="small aq-text-soft mt-1" data-ref="date">${this.lastActivityDate}</div>
             </div>
         </div>
-        <div class="small aq-text-soft aq-line-clamp-2 mt-1" data-ref="message">${this.lastMessage}</div>
     </div>
 </div>`.trim();
-    }
+}
 
     afterMount() {
         this.registerRefs();
         this.mountAvatar();
-        this.renderUnreadBadge();
+        if (this.variant === 'chat') {
+            this.renderUnreadBadge();
+        }
         this.bindEvents();
         this.updateStatus(this.proposalStatus);
     }
@@ -164,16 +200,16 @@ export class ChatCard extends BaseCardComponent {
     bindEvents() {
         Events.on(this.element, "click", this.handleClick);
         Events.on(this.element, 'keydown', this.handleKeyboard);
-        this.listeners = {
+        this.listeners.push( {
             element:this.element,
             eventName: "click",
             handler: this.handleClick
-        }
-        this.listeners = {
+        });
+        this.listeners.push({
             element:this.element,
             eventName: "keydown",
             handler: this.handleKeyboard
-        }
+        });
     }
 
     handleClick() {
@@ -193,6 +229,9 @@ export class ChatCard extends BaseCardComponent {
     }
 
     updateUnreadCount(count) {
+        if (this.variant !== 'chat') {
+            return;
+        }
         this.unreadCount = Number(count) || 0;
 
         const currentBadge = this.getRef('unread-badge');
@@ -217,6 +256,9 @@ export class ChatCard extends BaseCardComponent {
     }
 
     renderUnreadBadge() {
+        if (this.variant !== 'chat') {
+            return;
+        }
         if (this.unreadCount <= 0) {
             return;
         }
@@ -291,13 +333,26 @@ export class ChatCard extends BaseCardComponent {
         return STATUS_LABELS[this.proposalStatus] ?? 'Desconhecido';
     }
 
+    getLastName() {
+        const parts = this.fullName.trim().split(/\s+/);
+
+        return parts.length > 1 ? parts[parts.length - 1] : '';
+    }
+
+    setVariant(variant = 'chat') {
+        this.variant =
+            variant === 'proposal'
+                ? 'proposal'
+                : 'chat';
+    }
+
     destroy() {
         this.avatar?.destroy();
         this.avatar = null;
 
 
-        this.refs.map(element=>{
-            element = null;
+        Object.keys(this.refs).forEach(key => {
+            this.refs[key] = null;
         });
 
         super.destroy();
