@@ -4,6 +4,32 @@ AQQ - Utilities
 ==================================================
 */
 
+.carousel-indicators [data-bs-target] {
+
+  background-color: #6F8B72; 
+
+  opacity: 0.5; 
+  transition: opacity 0.6s ease;
+}
+
+.carousel-indicators .active {
+
+  opacity: 1; 
+
+  background-color: #5B745E; 
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236F8B72'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0'/%3e%3c/svg%3e");
+
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236F8B72'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708'/%3e%3c/svg%3e");
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
+}
+
 .aq-surface {
   background: var(--aq-surface);
 }
