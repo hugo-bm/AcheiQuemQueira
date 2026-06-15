@@ -50,7 +50,7 @@ class ProfilePage {
     this.profileUser = profileUser;
     this.isOwnProfile = this.currentUserId === this.profileUser.id;
 
-    // 🌟 ORDEM CORRETA DE RENDERS E EVENTOS (Evita referências nulas)
+
     this.renderProfile();
     this.renderMetrics();
     this.renderReviews();
@@ -58,7 +58,7 @@ class ProfilePage {
   }
 
   loadProfile() {
-    const navigationData = NavStorage.get("profile");
+    const navigationData = NavStorage.get("profile-page");
     const profileUserId = navigationData?.userId;
     if (profileUserId) {
       return UserService.getById(profileUserId);
@@ -117,7 +117,6 @@ class ProfilePage {
 
   buildPublicData() {
     const wrapper = document.createElement("div");
-    // 🌟 SOLUÇÃO DE GEOMETRIA: 'w-100 row g-3 text-start' anula o encolhimento herdado do nó pai
     wrapper.className = "w-100 row g-3 text-start m-0";
 
     const personalFields = [
@@ -172,8 +171,6 @@ class ProfilePage {
     title.textContent = titleText;
     cardBody.appendChild(title);
 
-    // 🌟 ALINHAMENTO GEOMÉTRICO FIEL: 'row row-cols-1 row-cols-md-2 g-3'
-    // Garante empilhamento vertical puro (1 coluna) no mobile e duas colunas paralelas exatas no desktop
     const gridFields = document.createElement("div");
     gridFields.className = "row row-cols-1 row-cols-md-2 g-3 m-0 w-100";
 
@@ -227,7 +224,6 @@ class ProfilePage {
       },
     ];
 
-    // 🌟 CORREÇÃO DE GRID: As métricas herdam a linha responsiva para conversar com o HTML consertado
     metrics.forEach((metric) => {
       const column = document.createElement("div");
       column.className = "col-12 col-md-4 mb-2 mb-md-0";
@@ -308,23 +304,23 @@ class ProfilePage {
     });
     wrapper.appendChild(this.emptyState.render());
     return wrapper;
-    // Retorna o contêiner higienizado e amarrado de forma estrita
   }
   bindEvents() {
     if (this.refs.backButton) {
       this.refs.backButton.addEventListener("click", () => {
-        const navigationData = NavStorage.get("profile");
+        const navigationData = NavStorage.get("profile-page");
         const backIds = Array.isArray(navigationData?.backIds)
           ? [...navigationData.backIds]
           : [];
         const previousId = backIds.pop();
         if (!previousId) {
-          window.location.href = ROUTES["dashboard"];
+          NavStorage.remove("profile-page");
+          history.back();
           return;
         }
-        NavStorage.set("profile", { userId: previousId, backIds });
+        NavStorage.set("profile-page", { userId: previousId, backIds });
         this.destroy();
-        window.location.href = ROUTES["profile"];
+        history.back();
       });
     }
     const editButton = document.getElementById("edit-profile-button");
@@ -333,14 +329,13 @@ class ProfilePage {
         this.alertRender.info("Funcionalidade ainda não implementada.");
       });
     }
-    // 🌟 AGORA FUNCIONA: Captura os elementos recém-injetados de depoimentos
     this.refs.reviewsContainer
       .querySelectorAll("[data-user-id]")
       .forEach((link) => {
         link.addEventListener("click", () => {
           const targetUserId = link.dataset.userId;
           if (!targetUserId) return;
-          const navigationData = NavStorage.get("profile");
+          const navigationData = NavStorage.get("profile-page");
           const backIds = Array.isArray(navigationData?.backIds)
             ? [...navigationData.backIds]
             : [];
