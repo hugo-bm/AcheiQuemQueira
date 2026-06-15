@@ -33,6 +33,7 @@ export class ProposalService {
    * @param {Object} data - Proposal data.
    * @param {string} data.itemId - Item identifier.
    * @param {string} data.proposerId - User identifier.
+   * @param {string} [data.message=''] - Customer-customized message.
    * @returns {{success:boolean, proposal?:Object, error?:string}}
    */
   static createProposal(data) {
@@ -88,33 +89,36 @@ export class ProposalService {
       };
     }
 
-    let message = '';
+    let messageFinal = data.message || '';
 
-    switch (item.type) {
-      case ITEM_TYPES.FREE:
-        message =
-          'Tenho interesse e posso retirar no local.';
-        break;
+    if (data.message.length)
+    {
+      switch (item.type) {
+        case ITEM_TYPES.FREE:
+          messageFinal =
+            'Olá! Tenho interesse na doação e posso retirar no local. Como combinamos?';
+          break;
 
-      case ITEM_TYPES.SALE:
-        message =
-          'Tenho interesse neste item.';
-        break;
+        case ITEM_TYPES.SALE:
+          messageFinal =
+            'Olá! Tenho interesse no item para compra e posso retirar no local. Como combinamos?';
+          break;
 
-      case ITEM_TYPES.DISPOSAL:
-        message =
-          'Posso retirar este item e dar uma destinação adequada.';
-        break;
+        case ITEM_TYPES.DISPOSAL:
+          messageFinal =
+            'Olá! Faço a retirada e o descarte do item no local. Qual o seu orçamento?';
+          break;
 
-      default:
-        message = '';
+        default:
+          messageFinal = '';
+      }
     }
 
     const proposal = {
       id: this.generateId(),
       itemId: data.itemId,
       proposerId: data.proposerId,
-      message,
+      message: messageFinal,
       status: PROPOSAL_STATUS.PENDING,
       createdAt: new Date().toISOString()
     };
@@ -143,7 +147,7 @@ export class ProposalService {
     if (chatResult.success) {
       ChatService.createSystemMessage(
         chatResult.chat.id,
-        message
+        messageFinal
       );
     }
 
@@ -151,7 +155,7 @@ export class ProposalService {
       userId: item.userId,
       type: NOTIFICATION_TYPES.PROPOSAL,
       title: 'Nova proposta recebida',
-      message,
+      messageFinal,
       referenceType: REFERENCE_TYPES.PROPOSAL,
       referenceId: proposal.id
     });
