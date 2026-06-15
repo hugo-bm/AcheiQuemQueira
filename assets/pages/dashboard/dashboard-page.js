@@ -54,8 +54,7 @@ class DashboardPage {
         return;
       }
 
-      this.currentUser =
-        UserService.getById(sessionUserId);
+      this.currentUser =  UserService.getById(sessionUserId);
 
       if (!this.currentUser) {
         Session.logout();
@@ -94,7 +93,7 @@ class DashboardPage {
 
       onSearch: query => {
         NavStorage.set('search-page',{ query });
-
+        this.destroy();
         window.location.href = ROUTES['search'];
       },
 
@@ -103,11 +102,13 @@ class DashboardPage {
       },
 
       onProfile: () => {
+        this.destroy();
         window.location.href = ROUTES['profile'];
       },
 
       onLogout: () => {
         Session.logout();
+        this.destroy();
         window.location.href = ROUTES['login'];
       },
 
@@ -166,6 +167,7 @@ class DashboardPage {
 
       onItemClick: data => {
         NavStorage.set('describe-item-page',{itemId: data.id});
+        this.destroy()
         window.location.href = ROUTES['describe-item'];
       }
     });
@@ -188,8 +190,6 @@ class DashboardPage {
               const owner = UserService.getById(item.ownerId);
 
               if (!owner) { return null;}
-
-
               const catalogResult = CatalogService.getSubcategoryContext(item.subcategoryId);
               const categoryName = catalogResult?.data?.category?.name || "Outros";
               const subcategoryName = catalogResult?.data?.subcategory?.name || "Diversos";
@@ -314,6 +314,7 @@ class DashboardPage {
       ROUTES[route];
 
     if (destination) {
+      this.destroy();
       window.location.href = destination;
     }
   }

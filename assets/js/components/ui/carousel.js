@@ -190,7 +190,7 @@ export class Carousel extends BaseComponent {
     return `
             <div id="${this.carouselId}"
                 class="carousel slide"
-                data-bs-ride="false">
+                data-bs-ride="false" data-bs-touch="true">
                 ${this.renderIndicators()}
                 <div class="carousel-inner">
                     ${this.renderSlides()}
@@ -207,7 +207,7 @@ export class Carousel extends BaseComponent {
    */
   renderIndicators() {
     return `
-            <div class="carousel-indicators">
+            <div class="carousel-indicators" >
                 ${this.images
                   .map(
                     (_, index) => `
@@ -218,6 +218,7 @@ export class Carousel extends BaseComponent {
                                 class="${index === 0 ? "active" : ""}"
                                 aria-current="${index === 0}"
                                 aria-label="Slide ${index + 1}"
+                                style="color: red;"
                             ></button>
                         `,
                   )

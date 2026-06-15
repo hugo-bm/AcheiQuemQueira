@@ -64,4 +64,8 @@ AQQ - Responsive
   .aq-w-lg-50 {
     width: 50% !important;
   }
+  
+  .aq-w-lg-75 {
+    width: 75% !important;
+  }
 }

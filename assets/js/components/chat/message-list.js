@@ -162,7 +162,6 @@ export class MessageList extends BaseComponent {
       return;
     }
 
-    this.emptyState.destroy();
     this.emptyState = null;
   }
 

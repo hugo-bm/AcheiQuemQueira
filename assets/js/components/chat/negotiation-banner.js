@@ -138,7 +138,6 @@ export class NegotiationBanner extends BaseComponent {
    * @returns {string}
    */
   getStatusLabel() {
-    console.log(this.getStatus())
     switch (this.getStatus()) {
       case PROPOSAL_STATUS.PENDING:
         return "Proposta Pedente";

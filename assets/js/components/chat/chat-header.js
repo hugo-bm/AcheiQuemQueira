@@ -30,6 +30,7 @@ export class ChatHeader extends BaseComponent {
     this.user = options.user || null;
     this.status = options.status || "open";
     this.avatarComponent = options.avatarComponent || null;
+    this.avatarConteiner = null;
 
     this.refs = {};
   }
@@ -88,15 +89,16 @@ export class ChatHeader extends BaseComponent {
       >
         <button
           type="button"
-          class="btn btn-link text-decoration-none p-2 flex-shrink-0"
+          class="btn aq-btn-secundary p-0 text-decoration-none d-flex align-items-center justify-content-center"
           data-role="back-button"
           aria-label="Back"
+          style="min-width:48px; min-height:48px; z-index:2;"
         >
-          <i class="bi bi-arrow-left fs-5" aria-hidden="true"></i>
+          <i class="bi bi-arrow-left fs-3" aria-hidden="true"></i>
         </button>
-        <button type="button" class=" btn btn-link text-decoration-none p-0 d-flex align-items-center gap-2  flex-grow-1 min-w-0"  data-role="user-profile">
-          <img src="" alt="" class="rounded-circle flex-shrink-0" width="40"  height="40">
-          <span class="text-truncate">
+        <button id="profile-btn" type="button" class=" btn btn-link text-decoration-none p-0 d-flex align-items-center gap-2  flex-grow-1 min-w-0"  data-role="user-profile">
+         <div id="avatar-conteiner"></div>
+          <span class="text-truncate aq-text-primary aq-text-shadow-glow">
               <span class="d-inline d-md-none">${this.#getDisplayName("mobile")}</span>
               <span class="d-none d-md-inline">${this.#getDisplayName("desktop")}</span>
           </span>
@@ -113,11 +115,14 @@ export class ChatHeader extends BaseComponent {
    * Lifecycle hook executed after component mount.
    */
   afterMount() {
-    this.refs.avatar = this.element.querySelector('[data-role="avatar"]');
+    
     this.refs.name = this.element.querySelector('[data-role="user-profile"]');
     this.refs.status = this.element.querySelector('[data-role="status"]');
     this.refs.back = this.element.querySelector('[data-role="back-button"]');
-
+    this.avatarConteiner = this.element.querySelector('#avatar-conteiner');
+    this.refs.profileBtn = this.element.querySelector("#profile-btn");
+    this.avatarComponent.mount(this.avatarConteiner);
+    
     this.#registerEvents();
   }
 
@@ -129,6 +134,7 @@ export class ChatHeader extends BaseComponent {
 
     this.refs = {};
     this.user = null;
+    this.avatarConteiner = null;
     this.avatarComponent = null;
   }
 
@@ -146,17 +152,9 @@ export class ChatHeader extends BaseComponent {
       );
     }
 
-    if (this.refs.name) {
+    if (this.refs.profileBtn) {
       this.addListener(
-        this.refs.name,
-        "click",
-        this.#handleProfileClick.bind(this),
-      );
-    }
-
-    if (this.refs.avatar) {
-      this.addListener(
-        this.refs.avatar,
+        this.refs.profileBtn,
         "click",
         this.#handleProfileClick.bind(this),
       );

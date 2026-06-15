@@ -141,7 +141,10 @@ export class AddItemPage {
   }
 
   bindEvents() {
-    this.boundHandlers.back = () => history.back();
+    this.boundHandlers.back = () => { 
+      this.destroy(); 
+      history.back(); 
+    };
 
     this.boundHandlers.titleBlur = () => this.suggestCategory();
 
@@ -404,7 +407,7 @@ export class AddItemPage {
     }
 
     const typeReqVal = Validator.required(this.refs.type.value);
-    const typeVal = ["free", "sale","donation"].includes(this.refs.type.value);
+    const typeVal = ["free", "sale","disposal"].includes(this.refs.type.value);
 
     if (!typeReqVal || !typeVal) {
         let errorMsgType = "INVALID_TYPE";
