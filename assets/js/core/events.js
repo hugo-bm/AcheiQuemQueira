@@ -35,7 +35,6 @@ export const Events = {
       composed: goUp, // It crosses structural scope boundaries.
       detail: payload, // Encapsulate the data (payload)
     });
-    console.log(element);
     element.dispatchEvent(customEvent);
   },
 };
