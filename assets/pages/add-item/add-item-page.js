@@ -404,7 +404,7 @@ export class AddItemPage {
     }
 
     const typeReqVal = Validator.required(this.refs.type.value);
-    const typeVal = ["free", "sale","donation"].includes(this.refs.type.value);
+    const typeVal = ["free", "sale","disposal"].includes(this.refs.type.value);
 
     if (!typeReqVal || !typeVal) {
         let errorMsgType = "INVALID_TYPE";
