@@ -323,6 +323,7 @@ class ProfilePage {
           return;
         }
         NavStorage.set("profile", { userId: previousId, backIds });
+        this.destroy();
         window.location.href = ROUTES["profile"];
       });
     }
@@ -345,6 +346,7 @@ class ProfilePage {
             : [];
           backIds.push(this.profileUser.id);
           NavStorage.set("profile", { userId: targetUserId, backIds });
+          this.destroy();
           window.location.href = ROUTES["profile"];
         });
       });

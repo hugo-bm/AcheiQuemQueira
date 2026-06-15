@@ -141,7 +141,10 @@ export class AddItemPage {
   }
 
   bindEvents() {
-    this.boundHandlers.back = () => history.back();
+    this.boundHandlers.back = () => { 
+      this.destroy(); 
+      history.back(); 
+    };
 
     this.boundHandlers.titleBlur = () => this.suggestCategory();
 
