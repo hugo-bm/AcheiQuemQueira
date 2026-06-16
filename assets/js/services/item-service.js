@@ -9,6 +9,8 @@ import {
   REFERENCE_TYPES,
 } from "../core/constants.js";
 
+import "../models/entities.js";
+
 /**
  * Centralizes item business operations.
  */
@@ -31,7 +33,7 @@ export class ItemService {
    *
    * @typedef {"grau-1"|"grau-2"|"grau-3"|"grau-4"} ItemQuality
    *
-   * @typedef {Object} Item
+   * @typedef {Object} ItemCreate
    *
    * @property {string} ownerId
    *
@@ -52,8 +54,8 @@ export class ItemService {
    * @property {number} item_duration
    * Lifetime of the advertisement.
    *
-   * @param {Item} data - Item data.
-   * @returns {{success:boolean,item?:Object,error?:string}}
+   * @param {ItemCreate} data - Item data.
+   * @returns {{success:boolean,item?:Item,error?:string}}
    */
   static createItem(data) {
     try {
@@ -147,7 +149,7 @@ export class ItemService {
    * @param {string} itemId - Item identifier.
    * @typedef {"grau-1"|"grau-2"|"grau-3"|"grau-4"} ItemQuality
    *
-   * @typedef {Object} Item
+   * @typedef {Object} ItemUpdate
    *
    * @property {string} ownerId
    *
@@ -165,8 +167,8 @@ export class ItemService {
    * @property {ItemQuality} [quality]
    * @property {string} [price]
    *
-   * @param {Item} data - Item data.
-   * @returns {{success:boolean,item?:Object,error?:string}}
+   * @param {ItemUpdate} data - Item data.
+   * @returns {{success:boolean,item?:Item,error?:string}}
    */
   static updateItem(itemId, data) {
     try {
@@ -300,7 +302,7 @@ export class ItemService {
    * Returns an item by identifier.
    *
    * @param {string} itemId - Item identifier.
-   * @returns {Object|null}
+   * @returns {Item|null}
    */
   static getById(itemId) {
     const items = AQQStorage.get("items") ?? [];
@@ -313,7 +315,7 @@ export class ItemService {
   /**
    * Returns all items.
    *
-   * @returns {Object[]}
+   * @returns {Item[]}
    */
   static getAll() {
     const items = AQQStorage.get("items") ?? [];
@@ -326,7 +328,7 @@ export class ItemService {
   /**
    * Returns active items.
    *
-   * @returns {Object[]}
+   * @returns {Item[]}
    */
   static getActiveItems() {
     try {
@@ -339,7 +341,7 @@ export class ItemService {
   /**
    * Returns expired items.
    *
-   * @returns {Object[]}
+   * @returns {Item[]}
    */
   static getExpiredItems() {
     try {
@@ -355,7 +357,7 @@ export class ItemService {
    * Returns items from a user.
    *
    * @param {string} userId - User identifier.
-   * @returns {Object[]}
+   * @returns {Item[]}
    */
   static getUserItems(userId) {
     try {

@@ -19,7 +19,8 @@ import { Helpers } from "../../js/core/helpers.js";
 import { ItemService } from '../../js/services/item-service.js';
 
 import "../../js/models/entities.js"
-import { NEGOTIATION_STATUS, PROPOSAL_STATUS } from '../../js/core/constants.js';
+import { NEGOTIATION_STATUS, PROPOSAL_STATUS, ROUTES } from '../../js/core/constants.js';
+import { Avatar } from '../../js/components/ui/avatar.js';
 
 export class ChatPage {
     constructor() {
@@ -50,8 +51,7 @@ export class ChatPage {
         this.messagesContainer =
         document.getElementById('chat-messages-container');
         
-        this.inputContainer =
-        document.getElementById('chat-input-container');
+        this.inputContainer = document.getElementById('chat-input-container');
 
         this.alert = new AlertRender(document.getElementById('alert-container'));
         
@@ -66,11 +66,8 @@ export class ChatPage {
     async init() {
         const context = NavStorage.get('chat-page');
         if (!context?.proposalId) {
-            this.alert.danger(
-                'Erro',
-                'Conversa não encontrada.'
-            );
-            Helpers.debounce(()=>{window.location.href = '../dashboard/dashboard.html';}, 2000);
+            this.alert.danger('Erro','Conversa não encontrada.');
+            Helpers.debounce(()=>{window.location.href = history.back()}, 2000);
 
             return;
         }
@@ -78,8 +75,7 @@ export class ChatPage {
         this.currentUserID = Session.getUserId();
 
         if (!this.currentUserID) {
-            Helpers.debounce(()=>{window.location.href =
-                '../auth/login.html'},2000);
+            Helpers.debounce(()=>{window.location.href = ROUTES['login']},2000);
 
             return;
         }
@@ -92,8 +88,7 @@ export class ChatPage {
                 'Nenhuma conversa disponível para esta proposta.'
             );
 
-            Helpers.debounce(()=>{window.location.href =
-                '../dashboard/dashboard.html'},2000);
+            Helpers.debounce(()=>{window.location.href = ROUTES['dashboard']},2000);
 
             return;
         }
@@ -160,16 +155,23 @@ export class ChatPage {
     render() {
         const otherUser =
             this.getOtherUser();
+
+        if (!otherUser) {
+            this.alert.danger("Usuário não encontrado!")
+            window.location.href = ROUTES['dashboard']
+        }
         let status = "open";
         if (this.negotiation) {
-          status =  this.negotiation.status !== NEGOTIATION_STATUS.OPEN
-              ? this.negotiation.status
-              : this.proposal.status;
-        } 
+            status = this.negotiation.status !== NEGOTIATION_STATUS.OPEN
+                ? this.negotiation.status
+                : this.proposal.status;
+        }
+
         this.chatHeader =
             new ChatHeader({
                 user: otherUser,
-                status:status
+                status: status,
+                avatarComponent: new Avatar({ imageUrl: otherUser.avatar, name: otherUser?.name ?? "desconhecido", size: 'md' }),
             });
 
         this.chatHeader.mount(
@@ -177,10 +179,10 @@ export class ChatPage {
         );
 
         this.negotiationBanner = new NegotiationBanner({
-          negotiation: this.negotiation,
-          proposal: this.proposal,
-          currentUserId: this.currentUserID,
-          adOwnerId: this._item?.ownerId
+            negotiation: this.negotiation,
+            proposal: this.proposal,
+            currentUserId: this.currentUserID,
+            adOwnerId: this._item?.ownerId
         });
 
         this.negotiationBanner.mount(
@@ -189,12 +191,10 @@ export class ChatPage {
 
         this.messageList =
             new MessageList({
-                messages:
-                    this.messages,
-                currentUserId:
-                    this.currentUserID
+                messages: this.messages,
+                currentUserId: this.currentUserID
             });
-
+        
         this.messageList.mount(
             this.messagesContainer
         );
@@ -457,10 +457,7 @@ export class ChatPage {
         await this.refresh();
 
 
-        this.alert.success(
-            'Sucesso',
-            'Negociação cancelada.'
-        );
+        this.alert.success('Sucesso','Negociação cancelada.');
     }
 
     /**
@@ -468,8 +465,7 @@ export class ChatPage {
      */
     handleBack() {
       this.destroy();
-      window.location.href =
-            '../dashboard/dashboard.html';
+      window.location.href = ROUTES['dashboard'];
     }
 
     /**
@@ -479,15 +475,13 @@ export class ChatPage {
      */
     handleUserProfile(payload) {
         NavStorage.set(
-            'user-profile-page',
+            'profile-page',
             {
-                userId: payload.userId
+                userId: payload.detail.userId
             }
         );
         this.destroy();
-
-        window.location.href =
-            '../profile/profile.html';
+       window.location.href = ROUTES['profile'];
     }
 
     /**
@@ -549,10 +543,7 @@ export class ChatPage {
      * @param {string} eventName
      * @param {Function} handler
      */
-    addChatEventListener(
-        eventName,
-        handler
-    ) {
+    addChatEventListener(eventName,handler) {
         Events.on(this.body, eventName, handler);
 
         this.listeners.push({

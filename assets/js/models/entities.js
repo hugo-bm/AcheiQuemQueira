@@ -140,6 +140,7 @@
  * @property {ItemStatus} status
  *
  * @property {string} expiresAt
+ * @property {number} interestedCount
  *
  * @property {string} createdAt
  * @property {string} updatedAt
