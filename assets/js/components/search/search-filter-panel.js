@@ -267,7 +267,7 @@ export class SearchFilterPanel extends BaseComponent {
         fragment.appendChild(defaultOption);
         this.locations.states.forEach(state => {
             const option = document.createElement('option');
-            option.value = state.id;
+            option.value = state.name;
             option.textContent = state.name;
             fragment.appendChild(option);
         });
@@ -330,7 +330,7 @@ export class SearchFilterPanel extends BaseComponent {
         }
 
         const state = this.locations.states.find(
-            currentState => currentState.id === this.filters.state
+            currentState => currentState.name === this.filters.state
         );
 
         if (!state) {
@@ -341,7 +341,7 @@ export class SearchFilterPanel extends BaseComponent {
 
         state.cities.forEach(city => {
             const option = document.createElement('option');
-            option.value = city.id;
+            option.value = city.name;
             option.textContent = city.name;
             fragment.appendChild(option);
         });
@@ -376,11 +376,11 @@ export class SearchFilterPanel extends BaseComponent {
         }
 
         const state = this.locations.states.find(
-            currentState => currentState.id === this.filters.state
+            currentState => currentState.name === this.filters.state
         );
 
         const city = state?.cities.find(
-            currentCity => currentCity.id === this.filters.city
+            currentCity => currentCity.name === this.filters.city
         );
 
         if (!city) {
