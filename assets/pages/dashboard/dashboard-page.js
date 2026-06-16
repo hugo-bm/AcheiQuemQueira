@@ -375,7 +375,7 @@ updateNotifications() {
     this.header?.destroy();
     this.itemGrid?.destroy();
     this.notificationOffcanvas?.destroy();
-    this.emptyState?.destroy();
+    this.emptyState = null;
 
     window.removeEventListener('beforeunload',this.handleBeforeUnload);
 
