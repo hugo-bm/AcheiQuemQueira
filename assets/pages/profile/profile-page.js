@@ -95,6 +95,24 @@ class ProfilePage {
     body.appendChild(avatarWrapper);
     body.appendChild(name);
 
+    if (this.profileUser.verifiedIdentity) {
+      const verificationBadge = document.createElement("div");
+      const textBadge = document.createElement("div");
+      const iconBadge = document.createElement("i");
+
+      iconBadge.className = "bi bi-check-circle-fill";
+      textBadge.className = "text-truncate";
+      textBadge.textContent = "Verificado";
+
+      verificationBadge.className = " badge aq-bg-info-subtle text-info d-inline-flex align-items-center gap-1 border border-info border-2 rounded-pill";
+
+
+      verificationBadge.appendChild(iconBadge);
+      verificationBadge.appendChild(textBadge);
+
+      body.appendChild(verificationBadge);
+    }
+
     if (this.isOwnProfile) {
       const editButton = document.createElement("button");
       editButton.id = "edit-profile-button";
