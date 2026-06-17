@@ -24,6 +24,9 @@ export class NotificationCard extends BaseCardComponent {
     this.onClick = onClick;
 
     this.refs = {};
+
+    this.boundHandleClick = this.handleClick.bind(this);
+    this.boundHandleKeyDown = this.handleKeyDown.bind(this);
   }
 
   /**
@@ -73,20 +76,11 @@ export class NotificationCard extends BaseCardComponent {
    * Lifecycle hook.
    */
   afterMount() {
-    this.refs.title =
-      this.element.querySelector('[data-ref="title"]');
-
-    this.refs.message =
-      this.element.querySelector('[data-ref="message"]');
-
-    this.refs.date =
-      this.element.querySelector('[data-ref="date"]');
-
-    this.refs.unread =
-      this.element.querySelector('[data-ref="unread"]');
-
-    this.refs.icon =
-      this.element.querySelector('[data-ref="icon"]');
+    this.refs.title = this.element.querySelector('[data-ref="title"]');
+    this.refs.message = this.element.querySelector('[data-ref="message"]');
+    this.refs.date = this.element.querySelector('[data-ref="date"]');
+    this.refs.unread = this.element.querySelector('[data-ref="unread"]');
+    this.refs.icon = this.element.querySelector('[data-ref="icon"]');
 
     this.refs.title.textContent = this.notification.title;
     this.refs.message.textContent = this.notification.message;
@@ -94,17 +88,8 @@ export class NotificationCard extends BaseCardComponent {
 
     this.applyReadState();
 
-    this.addListener(
-      this.element,
-      'click',
-      this.handleClick.bind(this)
-    );
-
-    this.addListener(
-      this.element,
-      'keydown',
-      this.handleKeyDown.bind(this)
-    );
+    this.addListener(this.element, 'click', this.boundHandleClick);
+    this.addListener(this.element, 'keydown', this.boundHandleKeyDown);
   }
 
   /**
@@ -153,21 +138,16 @@ export class NotificationCard extends BaseCardComponent {
       return;
     }
 
-    this.refs.title.textContent =
-      notification.title;
+    this.refs.title.textContent = notification.title;
 
-    this.refs.message.textContent =
-      notification.message;
+    this.refs.message.textContent = notification.message;
 
-    this.refs.date.textContent =
-      this.formatDate();
+    this.refs.date.textContent = this.formatDate();
 
-    const icon =
-      this.refs.icon.querySelector('i');
+    const icon = this.refs.icon.querySelector('i');
 
     if (icon) {
-      icon.className =
-        this.getIconClass();
+      icon.className = this.getIconClass();
     }
 
     this.applyReadState();
@@ -177,8 +157,7 @@ export class NotificationCard extends BaseCardComponent {
    * Applies visual read state.
    */
   applyReadState() {
-    const read =
-      Boolean(this.notification.readAt);
+    const read = Boolean(this.notification.readAt);
 
     if (!read) {
       this.element.classList.add("aq-notification-unread");
@@ -266,8 +245,18 @@ export class NotificationCard extends BaseCardComponent {
    * Releases resources.
    */
   destroy() {
+
+    this.removeListener(this.element, 'click', this.boundHandleClick);
+    this.removeListener(this.element, 'keydown', this.boundHandleKeyDown);
+
     this.onClick = null;
     this.notification = null;
+    
+    this.boundHandleClick = null;
+    this.boundHandleKeyDown = null;
+    this.boundHandleDelete = null;
+
+    Object.keys(this.refs).forEach(key => this.refs[key] = null);
     this.refs = {};
 
     this.removeListener(
