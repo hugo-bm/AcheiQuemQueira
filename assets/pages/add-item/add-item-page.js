@@ -433,8 +433,9 @@ export class AddItemPage {
   }
 
   createPayload() {
-    const price = this.refs.basePrice.value.replace(".", "").replace(",", ".");
+    let price = this.refs.basePrice.value.replace(".", "").replace(",", ".");
     
+    price = price === '' ? "0.0" : price;
 
     return {
       ownerId: this.userId,
