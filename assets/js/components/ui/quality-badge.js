@@ -77,6 +77,7 @@ export class QualityBadge {
 
     badge.className = `
       badge
+      ${config.backgroud || ''}
       d-inline-flex
       align-items-center
       gap-1
@@ -206,6 +207,7 @@ export class QualityBadge {
         label: 'Defeituoso',
         icon: 'bi bi-x-octagon-fill',
         color: 'var(--grau-1)',
+        backgroud: 'aq-bg-grau1-subtle',
         description:
           'O item possui defeitos que comprometem sua utilização.'
       },
@@ -214,6 +216,7 @@ export class QualityBadge {
         label: 'Funcional com Problemas',
         icon: 'bi bi-exclamation-triangle-fill',
         color: 'var(--grau-2)',
+        backgroud: 'aq-bg-grau2-subtle',
         description:
           'O item funciona, porém apresenta defeitos ou limitações.'
       },
@@ -222,6 +225,7 @@ export class QualityBadge {
         label: 'Problemas Estéticos',
         icon: 'bi bi-tools',
         color: 'var(--grau-3)',
+        backgroud: 'aq-bg-grau3-subtle',
         description:
           'O item funciona normalmente, apresentando apenas desgaste visual.'
       },
@@ -230,6 +234,7 @@ export class QualityBadge {
         label: 'Funcional',
         icon: 'bi bi-check-circle-fill',
         color: 'var(--grau-4)',
+        backgroud: 'aq-bg-grau4-subtle',
         description:
           'O item funciona corretamente e está em boas condições.'
       }
