@@ -382,3 +382,60 @@ AQQ - Utilities
   border-color: #6F8B72;
   box-shadow: 0 0 0 0.25rem rgba(111, 139, 114, 0.25);
 }
+
+
+.aq-bg-primary-subtle {
+  background-color: rgba(111, 139, 114, 0.26) !important;
+}
+
+
+.aq-bg-secondary-subtle {
+  background-color: rgba(141, 150, 133, 0.26) !important;
+
+}
+
+
+.aq-bg-success-subtle {
+  background-color: rgba(114, 174, 135, 0.26) !important;
+
+}
+
+
+.aq-bg-info-subtle {
+  background-color: rgba(124, 154, 151, 0.26) !important;
+}
+
+
+.aq-bg-warning-subtle {
+  background-color: rgba(240, 154, 74, 0.29) !important; /* 15% pois o laranja é claro */
+}
+
+
+.aq-bg-danger-subtle {
+  background-color: rgba(216, 106, 106, 0.26) !important;
+
+}
+
+
+.aq-bg-grau1-subtle {
+  background-color: rgba(196, 69, 54, 0.12) !important;
+
+}
+
+
+.aq-bg-grau2-subtle {
+  background-color: rgba(240, 154, 74, 0.15) !important;
+
+}
+
+
+.aq-bg-grau3-subtle {
+  background-color: rgba(217, 166, 58, 0.15) !important;
+
+}
+
+
+.aq-bg-grau4-subtle {
+  background-color: rgba(79, 157, 105, 0.12) !important;
+
+}
