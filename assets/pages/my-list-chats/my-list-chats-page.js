@@ -102,7 +102,6 @@ class MyListChatsPage {
     this.clearChatList();
 
     const chats = await this.loadChats();
-
     if (!Array.isArray(chats) || chats.length === 0 ) {
       this.renderEmptyState();
       return;
@@ -114,7 +113,6 @@ class MyListChatsPage {
       const cardData = await this.buildChatCardData(chat);
 
       const wrapper = document.createElement('div');
-
       const card = new ChatCard(cardData);
 
       card.mount(wrapper);
