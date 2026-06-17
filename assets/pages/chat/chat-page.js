@@ -65,12 +65,17 @@ export class ChatPage {
      */
     async init() {
         const context = NavStorage.get('chat-page');
-        if (!context?.proposalId) {
+        let receivedId = {chatId: context?.chatId, proposalId: null};
+        if (!receivedId.chatId) {
+            receivedId.proposalId = context?.proposalId;
+        }
+
+        if (!receivedId.proposalId && !receivedId.chatId) {
             this.alert.danger('Erro','Conversa não encontrada.');
             Helpers.debounce(()=>{window.location.href = history.back()}, 2000);
-
             return;
         }
+        
 
         this.currentUserID = Session.getUserId();
 
@@ -80,7 +85,7 @@ export class ChatPage {
             return;
         }
 
-        await this.loadData(context.proposalId);
+        await this.loadData(receivedId);
 
         if (!this.chat) {
             this.alert.warning(
@@ -102,47 +107,52 @@ export class ChatPage {
 
     /**
      * Loads all required page data.
+     * 
+     * @typedef ReceivedId
+     * @property {string|null} chatId
+     * @property {string|null} proposalId
      *
-     * @param {string} proposalId
+     * @param {ReceivedId} receivedId
      *
      * @returns {Promise<void>}
      */
-    async loadData(proposalId) {
+    async loadData(receivedId) {
         this.loading.show(this.body);
 
+        const keys = Object.keys(receivedId);
+
+        keys.forEach((key) => {
+            if (key === 'proposalId' && receivedId[key] !== null)
+            {
+                this.proposal = ProposalService.getById(receivedId.proposalId);
+                if (!this.proposal) {
+                    return;
+                }
+                this.chat = ChatService.getByProposal(receivedId.proposalId);
+                if (!this.chat) {
+                    return;
+                }
+            } else 
+            {
+                this.chat = ChatService.getById(receivedId.chatId);
+                if (!this.chat) {
+                    return;
+                }
+                this.proposal = ProposalService.getById(this.chat.proposalId);
+                if (!this.proposal) {
+                    return;
+                }
+            }
+        });
+
         try {
-            this.proposal =
-                ProposalService.getById(proposalId);
-
-            if (!this.proposal) {
-                return;
-            }
-
-            this.chat =
-                ChatService.getByProposal(
-                    proposalId
-                );
-
-            if (!this.chat) {
-                return;
-            }
-
             this._item = ItemService.getById(this.proposal?.itemId);
 
-            this.negotiation =
-                NegotiationService.getProposalNegotiation(
-                    proposalId
-                );
+            this.negotiation = NegotiationService.getProposalNegotiation(this.proposal.id);
 
-            this.messages =
-                ChatService.getMessages(
-                    this.chat.id
-                ) ?? [];
+            this.messages = ChatService.getMessages(this.chat.id) ?? [];
 
-            ChatService.markChatAsRead(
-                this.chat.id,
-                this.currentUserID
-            );
+            ChatService.markChatAsRead(this.chat.id, this.currentUserID);
         }
         finally {
             this.loading.hide();
@@ -465,7 +475,8 @@ export class ChatPage {
      */
     handleBack() {
       this.destroy();
-      window.location.href = ROUTES['dashboard'];
+      NavStorage.remove("chat-page");
+      history.back();
     }
 
     /**
