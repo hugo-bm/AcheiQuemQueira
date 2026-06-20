@@ -218,12 +218,10 @@ class ProfilePage {
     if (!this.refs.metricsContainer) return;
     this.refs.metricsContainer.textContent = "";
 
-    const reviews = ReviewService.getReviewsReceived(this.profileUser.id);
-    const averageRating = ReviewService.getAverageRating(this.profileUser.id);
-    const negotiations = NegotiationService.getUserNegotiations(
-      this.profileUser.id,
-    );
-
+    const reviews = this.profileUser.reputation.reviewsCount.toFixed(0);
+    const averageRating = this.profileUser.reputation.averageRating.toFixed(2);
+    const negotiations = this.profileUser.reputation.completedDeals.toFixed(0);
+    console.log(reviews, averageRating, negotiations)
     const metrics = [
       {
         icon: "bi-chat-square-text",
@@ -268,7 +266,6 @@ class ProfilePage {
     this.refs.reviewsContainer.appendChild(title);
 
     const reviews = ReviewService.getReviewsReceived(this.profileUser.id);
-
     if (!reviews.length) {
       this.refs.reviewsContainer.appendChild(this.renderEmptyState());
       return;
@@ -277,8 +274,7 @@ class ProfilePage {
     const fragment = document.createDocumentFragment();
 
     reviews.forEach((review) => {
-      const reviewer = UserService.getById(review.reviewerId);
-
+      const reviewer = UserService.getById(review.reviewerUserId);
       const card = document.createElement("div");
       card.className = "card aq-card-surface aq-shadow-sm aq-radius-md mb-3";
 
@@ -331,7 +327,8 @@ class ProfilePage {
           ? [...navigationData.backIds]
           : [];
         const previousId = backIds.pop();
-        if (!previousId) {
+
+        if (previousId === undefined) {
           NavStorage.remove("profile-page");
           history.back();
           return;
@@ -358,7 +355,7 @@ class ProfilePage {
             ? [...navigationData.backIds]
             : [];
           backIds.push(this.profileUser.id);
-          NavStorage.set("profile", { userId: targetUserId, backIds });
+          NavStorage.set("profile-page", { userId: targetUserId, backIds });
           this.destroy();
           window.location.href = ROUTES["profile"];
         });
