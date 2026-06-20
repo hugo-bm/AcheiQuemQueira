@@ -1,0 +1,1664 @@
+{
+  "metadata": {
+    "seedVersion": "1.0.0"
+  },
+  "users": [
+    {
+      "id": "4219434c-a03f-4fb9-b32f-42979a25680e",
+      "document": "298.216.882-09",
+      "name": "Lucas Silva Santos",
+      "email": "lucas.santos@gmail.com",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(11) 98765-4321",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": "/public/images/user_2.jpg",
+      "state": "São Paulo",
+      "city": "São Paulo",
+      "neighborhood": "Vila Mariana",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "reputation": {
+        "averageRating": 0,
+        "reviewsCount": 0,
+        "completedDeals": 0,
+        "publishedItems": 0
+      },
+      "createdAt": "2026-06-13T04:25:37.732Z",
+      "updatedAt": "2026-06-13T04:26:08.741Z"
+    },
+    {
+      "id": "4828a8a0-e40f-4485-8795-c28e15d85726",
+      "document": "051.613.117-62",
+      "name": "Mariana Costa Oliveira",
+      "email": "mariana.oliveira@yahoo.com",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(21) 97654-3210",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": "/public/images/user_1.jpg",
+      "state": "Rio de Janeiro",
+      "city": "Rio de Janeiro",
+      "neighborhood": "Campo Grande",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "reputation": {
+        "averageRating": 0,
+        "reviewsCount": 0,
+        "completedDeals": 0,
+        "publishedItems": 0
+      },
+      "createdAt": "2026-06-13T04:27:49.168Z",
+      "updatedAt": "2026-06-13T04:28:09.446Z"
+    },
+    {
+      "id": "48585b3d-5052-4b93-8a10-a1f5111e211f",
+      "document": "747.586.854-01",
+      "name": "Gabriel Rodrigues Lima",
+      "email": "gabriel.lima@gmail.com",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(31) 96543-2109",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": null,
+      "state": "Paraíba",
+      "city": "João Pessoa",
+      "neighborhood": "Cabo Branco",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "reputation": {
+        "averageRating": 0,
+        "reviewsCount": 0,
+        "completedDeals": 0,
+        "publishedItems": 0
+      },
+      "createdAt": "2026-06-13T04:30:21.603Z",
+      "updatedAt": "2026-06-13T04:31:13.988Z"
+    },
+    {
+      "id": "6dd70ebe-0bad-4ec6-be92-6dc1129ee3e2",
+      "document": "688.534.213-04",
+      "name": "Beatriz Almeida Souza",
+      "email": "beatriz.souza@hotmail.com",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(41) 95432-1098",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": null,
+      "state": "Santa Catarina",
+      "city": "Joinville",
+      "neighborhood": "América",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "reputation": {
+        "averageRating": 0,
+        "reviewsCount": 0,
+        "completedDeals": 0,
+        "publishedItems": 0
+      },
+      "createdAt": "2026-06-13T04:32:29.628Z",
+      "updatedAt": "2026-06-13T04:32:49.511Z"
+    },
+    {
+      "id": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+      "document": "483.047.302-94",
+      "name": "Felipe Pereira Costa",
+      "email": "felipe.costa@outlook.com",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(12) 94321-0987",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": null,
+      "state": "São Paulo",
+      "city": "vinhedo",
+      "neighborhood": "Capela",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "reputation": {
+        "averageRating": 0,
+        "reviewsCount": 0,
+        "completedDeals": 0,
+        "publishedItems": 0
+      },
+      "createdAt": "2026-06-13T04:34:05.576Z",
+      "updatedAt": "2026-06-13T04:34:26.486Z"
+    },
+    {
+      "id": "6648f666-a0a8-4085-9743-5322ee3f6d36",
+      "document": "676.589.749-60",
+      "name": "Amanda Martins Ribeiro",
+      "email": "amanda.ribeiro@outlook.com",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(61) 93210-9876",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": "/public/images/user_6.jpg",
+      "state": "Rio de Janeiro",
+      "city": "Niterói",
+      "neighborhood": "Icaraí",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "reputation": {
+        "averageRating": 0,
+        "reviewsCount": 0,
+        "completedDeals": 0,
+        "publishedItems": 0
+      },
+      "createdAt": "2026-06-13T04:36:31.428Z",
+      "updatedAt": "2026-06-13T04:36:52.446Z"
+    },
+    {
+      "id": "b7a33049-bbbd-42f8-979d-95e297c202b6",
+      "document": "813.177.139-31",
+      "name": "Rodrigo Alves Carvalho",
+      "email": "rodrigo.carvalho@gmail.com",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(21) 92109-8765",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": "/public/images/user_3.jpg",
+      "state": "Rio de Janeiro",
+      "city": "Rio de Janeiro",
+      "neighborhood": "Bangu",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "reputation": {
+        "averageRating": 0,
+        "reviewsCount": 0,
+        "completedDeals": 0,
+        "publishedItems": 0
+      },
+      "createdAt": "2026-06-13T04:38:19.692Z",
+      "updatedAt": "2026-06-13T04:38:38.912Z"
+    },
+    {
+      "id": "d5868497-680e-4a75-abdc-ab298005890b",
+      "document": "143.576.134-00",
+      "name": "Larissa Barbosa Melo",
+      "email": "larissa.melo@hotmail.com",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(21) 91098-7654",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": "/public/images/user_4.jpg",
+      "state": "Rio de Janeiro",
+      "city": "Rio de Janeiro",
+      "neighborhood": "Santa Cruz",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "@lari.melo",
+        "facebook": "facebook.com/lari_melo"
+      },
+      "reputation": {
+        "averageRating": 5,
+        "reviewsCount": 4,
+        "completedDeals": 5,
+        "publishedItems": 4
+      },
+      "createdAt": "2026-06-13T04:39:39.700Z",
+      "updatedAt": "2026-06-13T04:39:59.449Z"
+    },
+    {
+      "id": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+      "document": "010.848.502-14",
+      "name": "Bruno Teixeira Pinto",
+      "email": "bruno.pinto@hotmail.com",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(21) 90987-6543",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": "/public/images/user_7.jpg",
+      "state": "Rio de Janeiro",
+      "city": "Rio de Janeiro",
+      "neighborhood": "Campo Grande",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "@texeira.bruno",
+        "facebook": "facebook.com/texeira_pinto"
+      },
+      "reputation": {
+        "averageRating": 5,
+        "reviewsCount": 1,
+        "completedDeals": 3,
+        "publishedItems": 3
+      },
+      "createdAt": "2026-06-13T04:40:58.894Z",
+      "updatedAt": "2026-06-13T04:41:18.338Z"
+    },
+    {
+      "id": "4a445774-5887-480f-8011-aa5a087b8710",
+      "document": "693.176.410-16",
+      "name": "Camila Rocha Fonseca",
+      "email": "camila.fonseca@gmail.com",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(21) 99876-5432",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": "/public/images/user_5.jpg",
+      "state": "Rio de Janeiro",
+      "city": "Rio de Janeiro",
+      "neighborhood": "Bangu",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "reputation": {
+        "averageRating": 0,
+        "reviewsCount": 0,
+        "completedDeals": 0,
+        "publishedItems": 0
+      },
+      "createdAt": "2026-06-13T04:42:44.849Z",
+      "updatedAt": "2026-06-13T04:43:05.007Z"
+    },
+    {
+      "id": "3717968f-bcf7-40ef-bc98-e9b0116222eb",
+      "document": "46.914.120/0001-03",
+      "name": "Sucata do Infinito Ltda",
+      "email": "contato@sucatadoinfinito.com.br",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(21) 91111-2222",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": null,
+      "state": "Rio de Janeiro",
+      "city": "Rio de Janeiro",
+      "neighborhood": "Santa Cruz",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "reputation": {
+        "averageRating": 0,
+        "reviewsCount": 0,
+        "completedDeals": 0,
+        "publishedItems": 0
+      },
+      "createdAt": "2026-06-13T04:45:00.785Z",
+      "updatedAt": "2026-06-13T04:45:32.240Z"
+    },
+    {
+      "id": "4d891a5d-3a60-4435-8cfb-48bd111f64f7",
+      "document": "95.381.761/0001-47",
+      "name": "EletroGambiarras & Cia",
+      "email": "contato@eletrogambiarras.com.br",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(21) 92522-3733",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": null,
+      "state": "Rio de Janeiro",
+      "city": "Rio de Janeiro",
+      "neighborhood": "Campo Grande",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "reputation": {
+        "averageRating": 0,
+        "reviewsCount": 0,
+        "completedDeals": 0,
+        "publishedItems": 0
+      },
+      "createdAt": "2026-06-13T04:46:27.346Z",
+      "updatedAt": "2026-06-13T04:46:53.376Z"
+    },
+    {
+      "id": "d4de434b-5f12-41f3-8c27-f31a97a06afd",
+      "document": "01.265.783/0001-06",
+      "name": "Recicla Que o Filho é Teu",
+      "email": "contato@reciclaqueefilho.com.br",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(21) 93333-4444",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": null,
+      "state": "Rio de Janeiro",
+      "city": "Rio de Janeiro",
+      "neighborhood": "Bangu",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "reputation": {
+        "averageRating": 0,
+        "reviewsCount": 0,
+        "completedDeals": 0,
+        "publishedItems": 0
+      },
+      "createdAt": "2026-06-13T04:47:39.257Z",
+      "updatedAt": "2026-06-13T04:47:58.776Z"
+    },
+    {
+      "id": "3fcec8b1-8ff6-42ae-bf0d-19d5d09bc081",
+      "document": "48.977.467/0001-12",
+      "name": "Curto-Circuito Consciente",
+      "email": "contato@curtocircuito.eco.br",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(21) 94444-5555",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": null,
+      "state": "Rio de Janeiro",
+      "city": "Rio de Janeiro",
+      "neighborhood": "Santa Cruz",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "reputation": {
+        "averageRating": 0,
+        "reviewsCount": 0,
+        "completedDeals": 0,
+        "publishedItems": 0
+      },
+      "createdAt": "2026-06-13T04:49:02.494Z",
+      "updatedAt": "2026-06-13T04:49:21.919Z"
+    },
+    {
+      "id": "4b47b735-3abd-41de-950a-3e45bf269770",
+      "document": "76.775.743/0001-03",
+      "name": "De Volta para o Futuro Lixo Eletrônico",
+      "email": "contato@devoltaprolixo.com.br",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(21) 95555-6666",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": null,
+      "state": "Rio de Janeiro",
+      "city": "Rio de Janeiro",
+      "neighborhood": "Campo Grande",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "reputation": {
+        "averageRating": 0,
+        "reviewsCount": 0,
+        "completedDeals": 0,
+        "publishedItems": 0
+      },
+      "createdAt": "2026-06-13T04:50:37.373Z",
+      "updatedAt": "2026-06-13T04:50:58.751Z"
+    },
+    {
+      "id": "7e84e4d7-95eb-46be-b0c5-d8175afb6f98",
+      "document": "76.328.228/0001-77",
+      "name": "Rei do Capacitor Queimado",
+      "email": "contato@reidocapacitor.com.br",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(21) 96666-7777",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": null,
+      "state": "Rio de Janeiro",
+      "city": "Itaguaí",
+      "neighborhood": "Centro",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "reputation": {
+        "averageRating": 0,
+        "reviewsCount": 0,
+        "completedDeals": 0,
+        "publishedItems": 0
+      },
+      "createdAt": "2026-06-13T04:52:31.694Z",
+      "updatedAt": "2026-06-13T04:52:50.621Z"
+    },
+    {
+      "id": "3b0d93cb-7bd0-40e6-a1fa-3e8e969e9841",
+      "document": "44.485.147/0001-94",
+      "name": "Placa Mãe Solteira Reciclagem",
+      "email": "contato@placamaesolteira.com.br",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(21) 97777-8888",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": null,
+      "state": "Santa Catarina",
+      "city": "Blumenau",
+      "neighborhood": "Vila Nova",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "reputation": {
+        "averageRating": 0,
+        "reviewsCount": 0,
+        "completedDeals": 0,
+        "publishedItems": 0
+      },
+      "createdAt": "2026-06-13T04:54:02.996Z",
+      "updatedAt": "2026-06-13T04:54:33.580Z"
+    },
+    {
+      "id": "64b4519b-d524-4f46-a188-622ae01924bd",
+      "document": "29.321.305/0001-87",
+      "name": "Fio Desencapado Cooperativa",
+      "email": "contato@fiodesencapado.com.br",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(21) 98888-9999",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": null,
+      "state": "Rio de Janeiro",
+      "city": "Rio de Janeiro",
+      "neighborhood": "Bangu",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "reputation": {
+        "averageRating": 0,
+        "reviewsCount": 0,
+        "completedDeals": 0,
+        "publishedItems": 0
+      },
+      "createdAt": "2026-06-13T04:55:40.696Z",
+      "updatedAt": "2026-06-13T04:56:01.051Z"
+    },
+    {
+      "id": "7511f542-8c19-4314-8716-38b210a9dbc0",
+      "document": "36.973.037/0001-43",
+      "name": "Alquimia do Cobre",
+      "email": "contato@alquimiadocobre.com.br",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(41) 99999-0000",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": null,
+      "state": "Paraíba",
+      "city": "Bayeux",
+      "neighborhood": "Alto da Boa Vista",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "reputation": {
+        "averageRating": 0,
+        "reviewsCount": 0,
+        "completedDeals": 0,
+        "publishedItems": 0
+      },
+      "createdAt": "2026-06-13T04:57:01.922Z",
+      "updatedAt": "2026-06-13T04:57:22.395Z"
+    },
+    {
+      "id": "9809a44e-daec-4fe6-a3fb-73be6ebb6bd1",
+      "document": "45.691.085/0001-30",
+      "name": "Rato de Ferro Velho Tech",
+      "email": "contato@ratodeferrotech.com.br",
+      "password": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
+      "phone": "(19) 91234-5678",
+      "verifiedPhone": true,
+      "verifiedIdentity": true,
+      "active": true,
+      "avatar": null,
+      "state": "São Paulo",
+      "city": "vinhedo",
+      "neighborhood": "Centro",
+      "address": "Rua exemplo A, 98 - casa da frente",
+      "socialLinks": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "reputation": {
+        "averageRating": 0,
+        "reviewsCount": 0,
+        "completedDeals": 0,
+        "publishedItems": 0
+      },
+      "createdAt": "2026-06-13T04:58:12.408Z",
+      "updatedAt": "2026-06-13T04:58:42.981Z"
+    }
+  ],
+  "items": [
+    {
+      "id": "a053d2eb-dac6-4296-8f05-b0278bf7c51f",
+      "ownerId": "4828a8a0-e40f-4485-8795-c28e15d85726",
+      "title": "IPhone 15 prata sem conserto",
+      "description": "Um Iphone 15 que estava quebrado e na gaveta. A tampa traseira quebrou e a CPU não funciona. Mas dar para tirar outras peças",
+      "volumeDescription": "1 Iphone",
+      "type": "sale",
+      "categoryId": "cat_electronics",
+      "subcategoryId": "sub_cellphones",
+      "quality": "grau-1",
+      "price": "115.00",
+      "images": [
+        "/public/images/iphone_prata_quebra.jpg"
+      ],
+      "interestedCount": 0,
+      "status": "active",
+      "publishedAt": "2026-06-13T05:08:51.531Z",
+      "expiresAt": "2026-07-13T05:08:51.531Z",
+      "createdAt": "2026-06-13T05:08:51.531Z",
+      "updatedAt": "2026-06-13T05:08:51.531Z"
+    },
+    {
+      "id": "183306df-3e9d-441a-9b31-14ab2010490a",
+      "ownerId": "48585b3d-5052-4b93-8a10-a1f5111e211f",
+      "title": "Uma batedeira para bolos e tortas",
+      "description": "Uma batedeira usada em casa. Funciona quase todas as funcionalidades e falta os garfos para massas pesadas. Faço uma excelente torta de pêssegos com ela.",
+      "volumeDescription": "1 batedeira e uma cambuca",
+      "type": "free",
+      "categoryId": "cat_other",
+      "subcategoryId": "sub_other",
+      "quality": "grau-2",
+      "price": "0.00",
+      "images": [
+        "/public/images/batedeira_1.jpg",
+        "/public/images/batedeira_2.jpg"
+      ],
+      "interestedCount": 0,
+      "status": "active",
+      "publishedAt": "2026-06-16T18:27:40.017Z",
+      "expiresAt": "2026-06-23T18:27:40.017Z",
+      "createdAt": "2026-06-16T18:27:40.017Z",
+      "updatedAt": "2026-06-16T18:27:40.017Z"
+    },
+    {"id":"2e5a7aa1-a4ba-4841-8d3f-c6e2c99650db","ownerId":"50b34580-fa9c-4c05-b29e-2b1e04c1e5cb","title":"Argamassa da Superflex para venda","description":"Tenho alguns sacos de argamassa que sobraram da obra e quero vender para liberar espaço em casa.","volumeDescription":"16 sacos","type":"sale","categoryId":"cat_building_materials","subcategoryId":"sub_finishing_materials","quality":"grau-4","price":"45.00","images":["/public/images/argamassa_1.webp","/public/images/argamassa_2.webp"],"interestedCount":0,"status":"active","publishedAt":"2026-06-16T19:02:58.882Z","expiresAt":"2026-07-01T19:02:58.882Z","createdAt":"2026-06-16T19:02:58.882Z","updatedAt":"2026-06-16T19:02:58.882Z"},
+  {"id":"f739be89-2599-47cd-a4c5-cb402956576e","ownerId":"50b34580-fa9c-4c05-b29e-2b1e04c1e5cb","title":"Celular Motorola simples com fone sem fio e carregador","description":"Smartphone da motorola com carregador (não original) e fone sem fio.","volumeDescription":"1 Celular, 1 carregador, 1 fone","type":"sale","categoryId":"cat_electronics","subcategoryId":"sub_cellphones","quality":"grau-4","price":"460.00","images":["/public/images/cel_funcional_1.webp","/public/images/cel_funcional_2.webp"],"interestedCount":0,"status":"active","publishedAt":"2026-06-16T19:07:14.591Z","expiresAt":"2026-07-16T19:07:14.591Z","createdAt":"2026-06-16T19:07:14.591Z","updatedAt":"2026-06-16T19:07:14.591Z"},
+  {"id":"caab1198-5d12-4e0e-885c-930bd2647024","ownerId":"6dd70ebe-0bad-4ec6-be92-6dc1129ee3e2","title":"TV Samsung UHD 32 polegadas","description":"TV usada som funciona todos os canais tem apenas algumas manchas brancas bem leves na imagem, estou vendendo pois comprei uma mais moderna para sala. Vem com o controle e o suporte para parede.","volumeDescription":"1 Televisão","type":"sale","categoryId":"cat_electronics","subcategoryId":"sub_tv","quality":"grau-3","price":"120.00","images":["/public/images/tv_1.jpg","/public/images/tv_2.jpg","/public/images/tv_3.jpg","/public/images/tv_4.jpg"],"interestedCount":0,"status":"active","publishedAt":"2026-06-16T20:48:54.518Z","expiresAt":"2026-06-23T20:48:54.518Z","createdAt":"2026-06-16T20:48:54.518Z","updatedAt":"2026-06-16T20:48:54.518Z"},{"id":"a2a39673-10e1-40f6-933a-0ad2f6de8aae","ownerId":"6dd70ebe-0bad-4ec6-be92-6dc1129ee3e2","title":"Milheiro de tijolo de cerâmica","description":"Tijolos de cerâmica que sobraram da obra","volumeDescription":"1000 tijolos","type":"sale","categoryId":"cat_building_materials","subcategoryId":"sub_bricks","quality":"grau-4","price":"600.00","images":["/public/images/tijolo_1.jpg","/public/images/tijolo_2.png"],"interestedCount":0,"status":"active","publishedAt":"2026-06-16T20:56:58.555Z","expiresAt":"2026-06-23T20:56:58.555Z","createdAt":"2026-06-16T20:56:58.555Z","updatedAt":"2026-06-16T20:56:58.555Z"},
+  {"id":"82def9ff-71b2-44bf-8f29-9fa72663d0e4","ownerId":"6648f666-a0a8-4085-9743-5322ee3f6d36","title":"Smartphone Sansung com a tela quebrada","description":"Celular com o vidro quebrado mais a imagem está direitinha e funciona bem! Também não sai som!  E tenho o carregador original.","volumeDescription":"1 celular e um carregador","type":"sale","categoryId":"cat_electronics","subcategoryId":"sub_cellphones","quality":"grau-2","price":"220.00","images":["/public/images/cel_tela_q_1.webp","/public/images/cel_tela_q_2.jpg"],"interestedCount":0,"status":"active","publishedAt":"2026-06-16T21:01:51.129Z","expiresAt":"2026-07-01T21:01:51.129Z","createdAt":"2026-06-16T21:01:51.129Z","updatedAt":"2026-06-16T21:01:51.129Z"},{"id":"24a035f6-74eb-4826-a7fe-acd6cf117fb9","ownerId":"6648f666-a0a8-4085-9743-5322ee3f6d36","title":"Máquina de lavar que não enche e nem centrifuga","description":"Esta maquina tem 2 anos. E com 1 ano começou a vazar, depois de 7 meses que concertei ela parou de encher e centrifugar. Está parada até agora.","volumeDescription":"1 Máquina de lavar","type":"free","categoryId":"cat_appliances","subcategoryId":"sub_washing_machine","quality":"grau-1","price":"0.0","images":["/public/images/maquina_lavar_2.jpg","/public/images/maquina_lavar_3.jpg"],"interestedCount":0,"status":"active","publishedAt":"2026-06-16T21:15:29.705Z","expiresAt":"2026-06-23T21:15:29.705Z","createdAt":"2026-06-16T21:15:29.705Z","updatedAt":"2026-06-16T21:15:29.705Z"},
+  {"id":"95cba4a7-02e8-4228-b00d-fa98fa8cc0b9","ownerId":"b7a33049-bbbd-42f8-979d-95e297c202b6","title":"Taboas de madeira e compensado","description":"Tabuas de madeira de madeira, compensado, moveis desmontados que ficaram do final da reforma.","volumeDescription":"2 pilhas de tábuas","type":"disposal","categoryId":"cat_building_materials","subcategoryId":"sub_Planks","quality":"grau-1","price":"120.00","images":["/public/images/tabuas_madeira_1.jpg","/public/images/tabuas_madeira_2.jpg"],"interestedCount":0,"status":"active","publishedAt":"2026-06-16T21:20:59.021Z","expiresAt":"2026-07-16T21:20:59.021Z","createdAt":"2026-06-16T21:20:59.021Z","updatedAt":"2026-06-16T21:20:59.021Z"},{"id":"e93df381-1d76-4747-b6c8-13e791acb9ad","ownerId":"b7a33049-bbbd-42f8-979d-95e297c202b6","title":"TV Philco 42 seminova","description":"Tv Philco 42 polegadas, NÃO É SMARTH, com controle e fonte. Tem apenas uns arranhões!","volumeDescription":"1 TV","type":"sale","categoryId":"cat_electronics","subcategoryId":"sub_tv","quality":"grau-3","price":"95.00","images":["/public/images/tv_1.jpg","/public/images/tv_3.jpg","/public/images/tv_4.jpg"],"interestedCount":0,"status":"active","publishedAt":"2026-06-16T21:23:54.044Z","expiresAt":"2026-07-01T21:23:54.044Z","createdAt":"2026-06-16T21:23:54.044Z","updatedAt":"2026-06-16T21:23:54.044Z"},{"id":"da7877d7-6a09-4f6c-85cc-5e885cdc660a","ownerId":"b7a33049-bbbd-42f8-979d-95e297c202b6","title":"Smarthphone Motorola com fone e sem carregador","description":"Telefone funciona muito bem. É na cor azul com fundo metalizado!","volumeDescription":"","type":"sale","categoryId":"cat_electronics","subcategoryId":"sub_cellphones","quality":"grau-4","price":"250.00","images":["/public/images/cel_funcional_1.webp","/public/images/cel_funcional_2.webp"],"interestedCount":0,"status":"active","publishedAt":"2026-06-16T21:26:40.694Z","expiresAt":"2026-07-16T21:26:40.694Z","createdAt":"2026-06-16T21:26:40.694Z","updatedAt":"2026-06-16T21:26:40.694Z"},
+  {"id":"2b36386d-2f19-4c14-a684-72645c7228da","ownerId":"d5868497-680e-4a75-abdc-ab298005890b","title":"Entulho para remoção ecológica!","description":"Tenho resto da obra que quero que retire dando uma destinação adequada.","volumeDescription":"Tem mais ou menos  30 carrinhos na frete e atrás da casa.","type":"disposal","categoryId":"cat_other","subcategoryId":"sub_other","quality":"grau-1","price":"260.00","images":["/public/images/resto_obra_2.jpg","/public/images/resto_obra_1.jpeg"],"interestedCount":0,"status":"active","publishedAt":"2026-06-16T21:35:02.450Z","expiresAt":"2026-07-01T21:35:02.450Z","createdAt":"2026-06-16T21:35:02.450Z","updatedAt":"2026-06-16T21:35:02.450Z"},{"id":"f932e069-cf3b-456f-bd88-4bbed8850911","ownerId":"d5868497-680e-4a75-abdc-ab298005890b","title":"Espelhos antigos","description":"Dois espelhos lindos com moldura de madeira, estão um pouco desgastados e arranhados","volumeDescription":"2 espelhos","type":"free","categoryId":"cat_other","subcategoryId":"sub_other","quality":"grau-3","price":"0.0","images":["/public/images/conjunto_espelho_1.webp","/public/images/conjunto_espelho_2.jpeg"],"interestedCount":0,"status":"active","publishedAt":"2026-06-16T21:37:47.713Z","expiresAt":"2026-06-23T21:37:47.713Z","createdAt":"2026-06-16T21:37:47.713Z","updatedAt":"2026-06-16T21:37:47.713Z"},{"id":"55ceca81-b4aa-4794-b53e-9ae4f883ea7d","ownerId":"d5868497-680e-4a75-abdc-ab298005890b","title":"Vendo sacos de cimento cp 3","description":"São sacos de 50kg da marca Tupi. Valor por saco!","volumeDescription":"15 sacos","type":"sale","categoryId":"cat_building_materials","subcategoryId":"sub_finishing_materials","quality":"grau-4","price":"31.00","images":["/public/images/cimento_1.jpg","/public/images/cimento_2.jpeg"],"interestedCount":0,"status":"active","publishedAt":"2026-06-16T21:41:14.897Z","expiresAt":"2026-06-23T21:41:14.897Z","createdAt":"2026-06-16T21:41:14.897Z","updatedAt":"2026-06-16T21:41:14.897Z"},
+  {"id":"e7f849c9-bdc9-446a-8235-c585e7afe2c3","ownerId":"d5868497-680e-4a75-abdc-ab298005890b","title":"Armário de madeira - Cristaleira usado","description":"Armário de madeira verdadeira (Não é compensado). Nunca teve cupim, poucos aranhões na parte baixa do móvel.","volumeDescription":"1 - Cristaleira","type":"sale","categoryId":"cat_furniture","subcategoryId":"sub_cabinets","quality":"grau-3","price":"260.00","images":["/public/images/armario_1.webp","/public/images/armario_2.webp","/public/images/armario_3.webp"],"interestedCount":0,"status":"active","publishedAt":"2026-06-18T13:52:16.415Z","expiresAt":"2026-07-03T13:52:16.415Z","createdAt":"2026-06-18T13:52:16.415Z","updatedAt":"2026-06-18T13:52:16.415Z"},
+  {"id":"e50dc044-33e0-4a0c-ad07-7248d541ae8e","ownerId":"e49af4ff-babe-4abd-a539-b2efc0193e8d","title":"Casinha para pets de plástico tamanho 2","description":"Casinha seminova azul e preta.","volumeDescription":"1","type":"free","categoryId":"cat_pets","subcategoryId":"sub_pet_houses","quality":"grau-4","price":"0.0","images":["/public/images/casinha_pet_1.webp","/public/images/casinha_pet_2.webp"],"interestedCount":0,"status":"active","publishedAt":"2026-06-18T14:00:27.597Z","expiresAt":"2026-07-03T14:00:27.597Z","createdAt":"2026-06-18T14:00:27.597Z","updatedAt":"2026-06-18T14:00:27.597Z"},{"id":"3ffd4b15-7f29-44e1-b4bd-3f9ebf8014e4","ownerId":"e49af4ff-babe-4abd-a539-b2efc0193e8d","title":"Máquina de lavar para doar","description":"Máquina de lavar com eixo quebrado.","volumeDescription":"1","type":"free","categoryId":"cat_appliances","subcategoryId":"sub_washing_machine","quality":"grau-1","price":"0.0","images":["/public/images/maquina_lavar_1.jpg","/public/images/maquina_lavar_2.jpg","/public/images/maquina_lavar_3.jpg"],"interestedCount":0,"status":"active","publishedAt":"2026-06-18T14:02:41.370Z","expiresAt":"2026-07-18T14:02:41.370Z","createdAt":"2026-06-18T14:02:41.370Z","updatedAt":"2026-06-18T14:02:41.370Z"},{"id":"ed27c847-a57d-4249-88e3-272c6d6680ba","ownerId":"e49af4ff-babe-4abd-a539-b2efc0193e8d","title":"Entulho para retirar","description":"Restos de escombros, telhas e ferragem para dar destinação ecológica. São dois montes na frente e fundos da casa","volumeDescription":"10 carinhos na frete e 30 carrinhos no fundo da casa","type":"disposal","categoryId":"cat_other","subcategoryId":"sub_other","quality":"grau-4","price":"338.00","images":["/public/images/resto_obra_1.jpeg","/public/images/resto_obra_2.jpg"],"interestedCount":0,"status":"active","publishedAt":"2026-06-18T14:05:45.505Z","expiresAt":"2026-07-03T14:05:45.505Z","createdAt":"2026-06-18T14:05:45.505Z","updatedAt":"2026-06-18T14:05:45.505Z"},
+  {"id":"ea86572e-6639-4ea8-9bbf-8bfebed4751c","ownerId":"4a445774-5887-480f-8011-aa5a087b8710","title":"Ferramentas de jardinagem e Bonsai","description":"Ferramentas com poucos anos de uso.","volumeDescription":"1 kit de ferramentas","type":"sale","categoryId":"cat_garden","subcategoryId":"sub_garden_tools","quality":"grau-3","price":"69.00","images":["/public/images/jardim_1.webp","/public/images/jardim_2.webp","/public/images/jardim_3.webp"],"interestedCount":0,"status":"active","publishedAt":"2026-06-18T14:09:05.709Z","expiresAt":"2026-07-18T14:09:05.709Z","createdAt":"2026-06-18T14:09:05.709Z","updatedAt":"2026-06-18T14:09:05.709Z"},{"id":"0bef39ec-bae7-4159-8ad8-d5c1facf66b1","ownerId":"4a445774-5887-480f-8011-aa5a087b8710","title":"Sapato para corrida em bom estado","description":"Sapatos em bom estado da nike. Apenas com algumas manchas","volumeDescription":"1 par de sapatos","type":"free","categoryId":"cat_clothing","subcategoryId":"sub_shoes","quality":"grau-3","price":"0.0","images":["/public/images/sapato_1.webp","/public/images/sapato_2.webp"],"interestedCount":0,"status":"active","publishedAt":"2026-06-18T18:48:49.965Z","expiresAt":"2026-06-25T18:48:49.965Z","createdAt":"2026-06-18T18:48:49.965Z","updatedAt":"2026-06-18T18:48:49.965Z"}
+  ],
+  "proposals": [
+ {
+      "id": "b7a33049-bbbd-42f8-979d-95e297c202b6",
+      "itemId": "2b36386d-2f19-4c14-a684-72645c7228da",
+      "proposerId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+      "message": "Olá! Tenho interesse no item. Ainda está disponível?",
+      "status": "completed",
+      "createdAt": "2026-06-18T10:00:00.000Z"
+    },
+    {
+   "id": "f2a7d2b1-8f8f-4f4c-a5e3-9c8e1f7a1001",
+   "itemId": "2b36386d-2f19-4c14-a684-72645c7228da",
+   "proposerId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+   "message": "Olá! Tenho interesse no item. Ainda está disponível?",
+   "status": "completed",
+   "createdAt": "2026-06-19T09:10:00.000Z"
+ },
+ {
+   "id": "f2a7d2b1-8f8f-4f4c-a5e3-9c8e1f7a1002",
+   "itemId": "caab1198-5d12-4e0e-885c-930bd2647024",
+   "proposerId": "d5868497-680e-4a75-abdc-ab298005890b",
+   "message": "Oi! Gostei bastante do item e posso retirar ainda esta semana.",
+   "status": "completed",
+   "createdAt": "2026-06-19T09:35:00.000Z"
+ },
+ {
+   "id": "f2a7d2b1-8f8f-4f4c-a5e3-9c8e1f7a1003",
+   "itemId": "e50dc044-33e0-4a0c-ad07-7248d541ae8e",
+   "proposerId": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+   "message": "Tenho interesse. O item continua disponível para retirada?",
+   "status": "accepted",
+   "createdAt": "2026-06-20T10:20:00.000Z"
+ },
+ {
+   "id": "f2a7d2b1-8f8f-4f4c-a5e3-9c8e1f7a1004",
+   "itemId": "a053d2eb-dac6-4296-8f05-b0278bf7c51f",
+   "proposerId": "6dd70ebe-0bad-4ec6-be92-6dc1129ee3e2",
+   "message": "Olá! Posso buscar o item no fim de semana se estiver disponível.",
+   "status": "accepted",
+   "createdAt": "2026-06-20T11:00:00.000Z"
+ },
+ {
+   "id": "f2a7d2b1-8f8f-4f4c-a5e3-9c8e1f7a1005",
+   "itemId": "55ceca81-b4aa-4794-b53e-9ae4f883ea7d",
+   "proposerId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+   "message": "Tenho interesse no desapego. Podemos combinar a retirada?",
+   "status": "pending",
+   "createdAt": "2026-06-21T08:15:00.000Z"
+ },
+ {
+   "id": "f2a7d2b1-8f8f-4f4c-a5e3-9c8e1f7a1006",
+   "itemId": "95cba4a7-02e8-4228-b00d-fa98fa8cc0b9",
+   "proposerId": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+   "message": "Olá! Ainda estou procurando algo parecido. Posso ficar com este item?",
+   "status": "pending",
+   "createdAt": "2026-06-21T14:10:00.000Z"
+ },
+ {
+   "id": "f2a7d2b1-8f8f-4f4c-a5e3-9c8e1f7a1007",
+   "itemId": "e7f849c9-bdc9-446a-8235-c585e7afe2c3",
+   "proposerId": "6dd70ebe-0bad-4ec6-be92-6dc1129ee3e2",
+   "message": "Gostaria de retirar o item caso ninguém tenha confirmado antes.",
+   "status": "rejected",
+   "createdAt": "2026-06-22T09:40:00.000Z"
+ },
+ {
+   "id": "f2a7d2b1-8f8f-4f4c-a5e3-9c8e1f7a1008",
+   "itemId": "ed27c847-a57d-4249-88e3-272c6d6680ba",
+   "proposerId": "d5868497-680e-4a75-abdc-ab298005890b",
+   "message": "Tenho interesse e consigo buscar amanhã pela manhã.",
+   "status": "rejected",
+   "createdAt": "2026-06-22T10:05:00.000Z"
+ }
+],
+  "negotiations": [
+    {
+      "id": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+      "itemId": "2b36386d-2f19-4c14-a684-72645c7228da",
+      "proposalId": "b7a33049-bbbd-42f8-979d-95e297c202b6",
+      "ownerId": "d5868497-680e-4a75-abdc-ab298005890b",
+      "interestedUserId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+      "status": "completed",
+      "leavingAt": "2026-06-18T16:10:00.000Z",
+      "arrivedAt": "2026-06-18T16:45:00.000Z",
+      "completedAt": "2026-06-18T16:55:00.000Z",
+      "cancelledAt": null,
+      "createdAt": "2026-06-18T10:10:00.000Z"
+    },
+     {
+   "id": "c8d6c0f1-6b7f-4f43-8d2e-1f5b2f8a9001",
+   "itemId": "e7f849c9-bdc9-446a-8235-c585e7afe2c3",
+   "proposalId": "1501e410-5e16-4e45-acdc-564c87a84a58",
+   "ownerId": "d5868497-680e-4a75-abdc-ab298005890b",
+   "interestedUserId": "64b4519b-d524-4f46-a188-622ae01924bd",
+   "status": "completed",
+   "leavingAt": "2026-06-27T15:00:00.000Z",
+   "arrivedAt": "2026-06-27T15:35:00.000Z",
+   "completedAt": "2026-06-27T15:50:00.000Z",
+   "cancelledAt": null,
+   "createdAt": "2026-06-27T10:20:00.000Z"
+ },
+ {
+   "id": "f1a3e8b2-92d7-4b11-84d0-3c5f8a7d1002",
+   "itemId": "e50dc044-33e0-4a0c-ad07-7248d541ae8e",
+   "proposalId": "a953e12f-6db2-4f96-9173-eb6932449925",
+   "ownerId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+   "interestedUserId": "7511f542-8c19-4314-8716-38b210a9dbc0",
+   "status": "completed",
+   "leavingAt": "2026-06-27T16:10:00.000Z",
+   "arrivedAt": "2026-06-27T16:40:00.000Z",
+   "completedAt": "2026-06-27T16:55:00.000Z",
+   "cancelledAt": null,
+   "createdAt": "2026-06-27T11:05:00.000Z"
+ },
+ {
+   "id": "a5b7d4c9-18a4-4cf0-a7e1-6d2c9b3f3003",
+   "itemId": "3ffd4b15-7f29-44e1-b4bd-3f9ebf8014e4",
+   "proposalId": "2abd7d70-310d-436d-bf2d-02ae9c8f96d2",
+   "ownerId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+   "interestedUserId": "9809a44e-daec-4fe6-a3fb-73be6ebb6bd1",
+   "status": "completed",
+   "leavingAt": "2026-06-28T09:15:00.000Z",
+   "arrivedAt": "2026-06-28T09:50:00.000Z",
+   "completedAt": "2026-06-28T10:05:00.000Z",
+   "cancelledAt": null,
+   "createdAt": "2026-06-28T08:00:00.000Z"
+ },
+ {
+   "id": "d2f8b7a1-4e66-4c91-9b30-8f1a2d4c4004",
+   "itemId": "ed27c847-a57d-4249-88e3-272c6d6680ba",
+   "proposalId": "c1eb9a19-dd3c-4fd9-b032-2a77d541d3dc",
+   "ownerId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+   "interestedUserId": "4219434c-a03f-4fb9-b32f-42979a25680e",
+   "status": "cancelled",
+   "leavingAt": "2026-06-28T14:20:00.000Z",
+   "arrivedAt": null,
+   "completedAt": null,
+   "cancelledAt": null,
+   "createdAt": "2026-06-28T12:45:00.000Z"
+ },
+ {
+   "id": "e9c4a1d7-73b2-4e1d-8c55-9b7f3a2d5005",
+   "itemId": "ea86572e-6639-4ea8-9bbf-8bfebed4751c",
+   "proposalId": "611bcc8e-b6e3-4c5f-9ce1-29bca23f9029",
+   "ownerId": "4a445774-5887-480f-8011-aa5a087b8710",
+   "interestedUserId": "4828a8a0-e40f-4485-8795-c28e15d85726",
+   "status": "completed",
+   "leavingAt": "2026-06-29T10:10:00.000Z",
+   "arrivedAt": "2026-06-29T10:45:00.000Z",
+   "completedAt": "2026-06-29T11:00:00.000Z",
+   "cancelledAt": null,
+   "createdAt": "2026-06-29T08:30:00.000Z"
+ }
+  ],
+  "notifications": [
+{
+      "id": "notification-demo-001",
+      "userId": "d5868497-680e-4a75-abdc-ab298005890b",
+      "type": "proposal_created",
+      "title": "Nova proposta recebida",
+      "message": "Bruno Teixeira Pinto enviou uma proposta para seu anúncio.",
+      "referenceType": "proposal",
+      "referenceId": "b7a33049-bbbd-42f8-979d-95e297c202b6",
+      "createdAt": "2026-06-18T10:00:05.000Z",
+      "readAt": null
+    },
+    {
+      "id": "notification-demo-002",
+      "userId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+      "type": "proposal_accepted",
+      "title": "Proposta aceita",
+      "message": "Sua proposta foi aceita por Larissa Barbosa Melo.",
+      "referenceType": "proposal",
+      "referenceId": "b7a33049-bbbd-42f8-979d-95e297c202b6",
+      "createdAt": "2026-06-18T10:10:00.000Z",
+      "readAt": null
+    },
+    {
+      "id": "notification-demo-003",
+      "userId": "d5868497-680e-4a75-abdc-ab298005890b",
+      "type": "negotiation_leaving",
+      "title": "Interessado saiu para retirada",
+      "message": "Bruno informou que está a caminho.",
+      "referenceType": "negotiation",
+      "referenceId": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+      "createdAt": "2026-06-18T16:10:00.000Z",
+      "readAt": null
+    },
+    {
+      "id": "notification-demo-004",
+      "userId": "d5868497-680e-4a75-abdc-ab298005890b",
+      "type": "negotiation_arrived",
+      "title": "Interessado chegou",
+      "message": "Bruno chegou ao local combinado.",
+      "referenceType": "negotiation",
+      "referenceId": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+      "createdAt": "2026-06-18T16:45:00.000Z",
+      "readAt": null
+    },
+    {
+      "id": "notification-demo-005",
+      "userId": "d5868497-680e-4a75-abdc-ab298005890b",
+      "type": "negotiation_completed",
+      "title": "Negociação concluída",
+      "message": "A negociação foi concluída com sucesso.",
+      "referenceType": "negotiation",
+      "referenceId": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+      "createdAt": "2026-06-18T16:55:00.000Z",
+      "readAt": null
+    },
+    {
+      "id": "notification-demo-006",
+      "userId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+      "type": "negotiation_completed",
+      "title": "Negociação concluída",
+      "message": "A negociação foi concluída com sucesso.",
+      "referenceType": "negotiation",
+      "referenceId": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+      "createdAt": "2026-06-18T16:55:00.000Z",
+      "readAt": null
+    },
+    {
+   "id": "notification-001",
+   "userId": "d5868497-680e-4a75-abdc-ab298005890b",
+   "type": "proposal_created",
+   "title": "Nova proposta recebida",
+   "message": "Lucas Santos enviou uma proposta para seu anúncio.",
+   "referenceType": "proposal",
+   "referenceId": "proposal-001",
+   "createdAt": "2026-06-20T09:00:05.000Z",
+   "readAt": "2026-06-20T09:15:00.000Z"
+ },
+ {
+   "id": "notification-002",
+   "userId": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+   "type": "proposal_accepted",
+   "title": "Proposta aceita",
+   "message": "Sua proposta foi aceita. Agora vocês podem combinar a retirada.",
+   "referenceType": "proposal",
+   "referenceId": "proposal-001",
+   "createdAt": "2026-06-20T09:30:00.000Z",
+   "readAt": "2026-06-20T09:35:00.000Z"
+ },
+ {
+   "id": "notification-003",
+   "userId": "d5868497-680e-4a75-abdc-ab298005890b",
+   "type": "negotiation_started",
+   "title": "Negociação iniciada",
+   "message": "A negociação foi iniciada com Lucas Santos.",
+   "referenceType": "negotiation",
+   "referenceId": "neg-001",
+   "createdAt": "2026-06-20T09:31:00.000Z",
+   "readAt": "2026-06-20T09:40:00.000Z"
+ },
+ {
+   "id": "notification-004",
+   "userId": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+   "type": "negotiation_started",
+   "title": "Negociação iniciada",
+   "message": "A negociação foi iniciada com Larissa Melo.",
+   "referenceType": "negotiation",
+   "referenceId": "neg-001",
+   "createdAt": "2026-06-20T09:31:05.000Z",
+   "readAt": "2026-06-20T09:36:00.000Z"
+ },
+ {
+   "id": "notification-005",
+   "userId": "d5868497-680e-4a75-abdc-ab298005890b",
+   "type": "negotiation_leaving",
+   "title": "Usuário a caminho",
+   "message": "Lucas Santos informou que já está a caminho do local combinado.",
+   "referenceType": "negotiation",
+   "referenceId": "neg-001",
+   "createdAt": "2026-06-20T17:00:00.000Z",
+   "readAt": "2026-06-20T17:01:00.000Z"
+ },
+ {
+   "id": "notification-006",
+   "userId": "d5868497-680e-4a75-abdc-ab298005890b",
+   "type": "negotiation_arrived",
+   "title": "Usuário chegou ao local",
+   "message": "Lucas Santos informou que chegou ao local de retirada.",
+   "referenceType": "negotiation",
+   "referenceId": "neg-001",
+   "createdAt": "2026-06-20T17:25:00.000Z",
+   "readAt": "2026-06-20T17:26:00.000Z"
+ },
+ {
+   "id": "notification-007",
+   "userId": "d5868497-680e-4a75-abdc-ab298005890b",
+   "type": "negotiation_completed",
+   "title": "Negociação concluída",
+   "message": "A negociação foi concluída com sucesso.",
+   "referenceType": "negotiation",
+   "referenceId": "neg-001",
+   "createdAt": "2026-06-20T17:40:00.000Z",
+   "readAt": "2026-06-20T17:45:00.000Z"
+ },
+ {
+   "id": "notification-008",
+   "userId": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+   "type": "negotiation_completed",
+   "title": "Negociação concluída",
+   "message": "A negociação foi concluída com sucesso.",
+   "referenceType": "negotiation",
+   "referenceId": "neg-001",
+   "createdAt": "2026-06-20T17:40:05.000Z",
+   "readAt": "2026-06-20T17:41:00.000Z"
+ },
+ {
+   "id": "notification-009",
+   "userId": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+   "type": "review_received",
+   "title": "Nova avaliação recebida",
+   "message": "Larissa Melo avaliou sua participação na negociação.",
+   "referenceType": "review",
+   "referenceId": "review-001",
+   "createdAt": "2026-06-20T18:10:05.000Z",
+   "readAt": null
+ },
+ {
+   "id": "notification-010",
+   "userId": "d5868497-680e-4a75-abdc-ab298005890b",
+   "type": "review_received",
+   "title": "Nova avaliação recebida",
+   "message": "Lucas Santos avaliou sua participação na negociação.",
+   "referenceType": "review",
+   "referenceId": "review-002",
+   "createdAt": "2026-06-20T18:15:05.000Z",
+   "readAt": null
+ },
+ {
+   "id": "notification-011",
+   "userId": "6648f666-a0a8-4085-9743-5322ee3f6d36",
+   "type": "proposal_created",
+   "title": "Nova proposta recebida",
+   "message": "Bruno Pinto enviou uma proposta para seu anúncio.",
+   "referenceType": "proposal",
+   "referenceId": "proposal-002",
+   "createdAt": "2026-06-21T10:00:05.000Z",
+   "readAt": "2026-06-21T10:12:00.000Z"
+ },
+ {
+   "id": "notification-012",
+   "userId": "48585b3d-5052-4b93-8a10-a1f5111e211f",
+   "type": "proposal_accepted",
+   "title": "Proposta aceita",
+   "message": "Sua proposta foi aceita. Agora vocês podem combinar a retirada.",
+   "referenceType": "proposal",
+   "referenceId": "proposal-002",
+   "createdAt": "2026-06-21T10:20:00.000Z",
+   "readAt": "2026-06-21T10:22:00.000Z"
+ },
+ {
+   "id": "notification-013",
+   "userId": "6648f666-a0a8-4085-9743-5322ee3f6d36",
+   "type": "negotiation_completed",
+   "title": "Negociação concluída",
+   "message": "A negociação foi concluída com sucesso.",
+   "referenceType": "negotiation",
+   "referenceId": "neg-002",
+   "createdAt": "2026-06-21T14:10:00.000Z",
+   "readAt": "2026-06-21T14:11:00.000Z"
+ },
+ {
+   "id": "notification-014",
+   "userId": "48585b3d-5052-4b93-8a10-a1f5111e211f",
+   "type": "negotiation_completed",
+   "title": "Negociação concluída",
+   "message": "A negociação foi concluída com sucesso.",
+   "referenceType": "negotiation",
+   "referenceId": "neg-002",
+   "createdAt": "2026-06-21T14:10:05.000Z",
+   "readAt": "2026-06-21T14:11:30.000Z"
+ },
+ {
+   "id": "notification-015",
+   "userId": "48585b3d-5052-4b93-8a10-a1f5111e211f",
+   "type": "review_received",
+   "title": "Nova avaliação recebida",
+   "message": "Rodrigo Carvalho avaliou sua participação na negociação.",
+   "referenceType": "review",
+   "referenceId": "review-003",
+   "createdAt": "2026-06-21T14:20:05.000Z",
+   "readAt": null
+ },
+ {
+   "id": "notification-016",
+   "userId": "6648f666-a0a8-4085-9743-5322ee3f6d36",
+   "type": "review_received",
+   "title": "Nova avaliação recebida",
+   "message": "Bruno Pinto avaliou sua participação na negociação.",
+   "referenceType": "review",
+   "referenceId": "review-004",
+   "createdAt": "2026-06-21T14:25:05.000Z",
+   "readAt": null
+ },
+ {
+   "id": "notification-017",
+   "userId": "48585b3d-5052-4b93-8a10-a1f5111e211f",
+   "type": "proposal_created",
+   "title": "Nova proposta recebida",
+   "message": "Lucas Santos enviou uma proposta para seu anúncio.",
+   "referenceType": "proposal",
+   "referenceId": "proposal-003",
+   "createdAt": "2026-06-22T08:30:00.000Z",
+   "readAt": "2026-06-22T08:45:00.000Z"
+ },
+ {
+   "id": "notification-018",
+   "userId": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+   "type": "proposal_accepted",
+   "title": "Proposta aceita",
+   "message": "Sua proposta foi aceita. Agora vocês podem combinar a retirada.",
+   "referenceType": "proposal",
+   "referenceId": "proposal-003",
+   "createdAt": "2026-06-22T09:00:00.000Z",
+   "readAt": "2026-06-22T09:02:00.000Z"
+ },
+ {
+   "id": "notification-019",
+   "userId": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+   "type": "negotiation_completed",
+   "title": "Negociação concluída",
+   "message": "A negociação foi concluída com sucesso.",
+   "referenceType": "negotiation",
+   "referenceId": "neg-003",
+   "createdAt": "2026-06-22T11:30:00.000Z",
+   "readAt": "2026-06-22T11:31:00.000Z"
+ },
+ {
+   "id": "notification-020",
+   "userId": "48585b3d-5052-4b93-8a10-a1f5111e211f",
+   "type": "negotiation_completed",
+   "title": "Negociação concluída",
+   "message": "A negociação foi concluída com sucesso.",
+   "referenceType": "negotiation",
+   "referenceId": "neg-003",
+   "createdAt": "2026-06-22T11:30:05.000Z",
+   "readAt": "2026-06-22T11:31:30.000Z"
+ }
+  ],
+  "chats": [
+{
+      "id": "0bef39ec-bae7-4159-8ad8-d5c1facf66b1",
+      "proposalId": "b7a33049-bbbd-42f8-979d-95e297c202b6",
+      "participants": [
+        "d5868497-680e-4a75-abdc-ab298005890b",
+        "e49af4ff-babe-4abd-a539-b2efc0193e8d"
+      ],
+      "status": "closed",
+      "createdAt": "2026-06-18T10:00:00.000Z",
+      "updatedAt": "2026-06-18T12:30:00.000Z"
+    },
+    {
+   "id": "4ada988d-703e-4082-8a7f-fc6ebd0cfee1",
+   "proposalId": "1501e410-5e16-4e45-acdc-564c87a84a58",
+   "participants": ["d5868497-680e-4a75-abdc-ab298005890b","64b4519b-d524-4f46-a188-622ae01924bd"],
+   "status": "closed",
+   "createdAt": "2026-06-27T10:20:00.000Z",
+   "updatedAt": "2026-06-27T15:50:00.000Z"
+ },
+ {
+   "id": "97bf9e2a-9430-4ca8-b96a-aa7e40d76b0c",
+   "proposalId": "a953e12f-6db2-4f96-9173-eb6932449925",
+   "participants": ["e49af4ff-babe-4abd-a539-b2efc0193e8d","7511f542-8c19-4314-8716-38b210a9dbc0"],
+   "status": "closed",
+   "createdAt": "2026-06-27T11:05:00.000Z",
+   "updatedAt": "2026-06-27T16:55:00.000Z"
+ },
+ {
+   "id": "3a237e47-babe-4205-8c27-3315ab42f036",
+   "proposalId": "2abd7d70-310d-436d-bf2d-02ae9c8f96d2",
+   "participants": ["e49af4ff-babe-4abd-a539-b2efc0193e8d","9809a44e-daec-4fe6-a3fb-73be6ebb6bd1"],
+   "status": "closed",
+   "createdAt": "2026-06-28T08:00:00.000Z",
+   "updatedAt": "2026-06-28T10:05:00.000Z"
+ },
+ {
+   "id": "174662f1-85ae-43df-b401-eeb942197571",
+   "proposalId": "c1eb9a19-dd3c-4fd9-b032-2a77d541d3dc",
+   "participants": ["e49af4ff-babe-4abd-a539-b2efc0193e8d","4219434c-a03f-4fb9-b32f-42979a25680e"],
+   "status": "closed",
+   "createdAt": "2026-06-28T12:45:00.000Z",
+   "updatedAt": "2026-06-28T14:20:00.000Z"
+ },
+ {
+   "id": "947bb0d2-5cc9-4651-8850-dd3acfc269aa",
+   "proposalId": "611bcc8e-b6e3-4c5f-9ce1-29bca23f9029",
+   "participants": ["4a445774-5887-480f-8011-aa5a087b8710","4828a8a0-e40f-4485-8795-c28e15d85726"],
+   "status": "closed",
+   "createdAt": "2026-06-29T08:30:00.000Z",
+   "updatedAt": "2026-06-29T11:00:00.000Z"
+ }
+
+  ],
+  "messages": [
+{
+      "id": "msg-demo-001",
+      "chatId": "0bef39ec-bae7-4159-8ad8-d5c1facf66b1",
+      "senderId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+      "type": "text",
+      "content": "Olá! Tenho interesse no item. Ainda está disponível?",
+      "read": true,
+      "createdAt": "2026-06-18T10:01:00.000Z"
+    },
+    {
+      "id": "msg-demo-002",
+      "chatId": "0bef39ec-bae7-4159-8ad8-d5c1facf66b1",
+      "senderId": "d5868497-680e-4a75-abdc-ab298005890b",
+      "type": "text",
+      "content": "Oi Bruno! Sim, ainda está disponível.",
+      "read": true,
+      "createdAt": "2026-06-18T10:03:00.000Z"
+    },
+    {
+      "id": "msg-demo-003",
+      "chatId": "0bef39ec-bae7-4159-8ad8-d5c1facf66b1",
+      "senderId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+      "type": "text",
+      "content": "Perfeito. Consigo retirar hoje à tarde.",
+      "read": true,
+      "createdAt": "2026-06-18T10:05:00.000Z"
+    },
+    {
+      "id": "msg-demo-004",
+      "chatId": "0bef39ec-bae7-4159-8ad8-d5c1facf66b1",
+      "senderId": "d5868497-680e-4a75-abdc-ab298005890b",
+      "type": "text",
+      "content": "Ótimo. Podemos combinar para depois das 16h.",
+      "read": true,
+      "createdAt": "2026-06-18T10:07:00.000Z"
+    },
+    {
+      "id": "msg-demo-005",
+      "chatId": "0bef39ec-bae7-4159-8ad8-d5c1facf66b1",
+      "senderId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+      "type": "text",
+      "content": "Combinado. Estou saindo agora.",
+      "read": true,
+      "createdAt": "2026-06-18T16:10:00.000Z"
+    },
+    {
+      "id": "msg-demo-006",
+      "chatId": "0bef39ec-bae7-4159-8ad8-d5c1facf66b1",
+      "senderId": "d5868497-680e-4a75-abdc-ab298005890b",
+      "type": "text",
+      "content": "Perfeito. Estou aguardando.",
+      "read": true,
+      "createdAt": "2026-06-18T16:12:00.000Z"
+    },
+    {
+      "id": "msg-demo-007",
+      "chatId": "0bef39ec-bae7-4159-8ad8-d5c1facf66b1",
+      "senderId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+      "type": "text",
+      "content": "Cheguei ao local.",
+      "read": true,
+      "createdAt": "2026-06-18T16:45:00.000Z"
+    },
+    {
+      "id": "msg-demo-008",
+      "chatId": "0bef39ec-bae7-4159-8ad8-d5c1facf66b1",
+      "senderId": "d5868497-680e-4a75-abdc-ab298005890b",
+      "type": "text",
+      "content": "Entrega realizada. Obrigada e bom proveito!",
+      "read": true,
+      "createdAt": "2026-06-18T16:55:00.000Z"
+    }, 
+    {
+   "id": "msg-001",
+   "chatId": "4ada988d-703e-4082-8a7f-fc6ebd0cfee1",
+   "senderId": "64b4519b-d524-4f46-a188-622ae01924bd",
+   "content": "Olá! O item ainda está disponível?",
+   "createdAt": "2026-06-27T10:21:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-002",
+   "chatId": "4ada988d-703e-4082-8a7f-fc6ebd0cfee1",
+   "senderId": "d5868497-680e-4a75-abdc-ab298005890b",
+   "content": "Sim, está disponível.",
+   "createdAt": "2026-06-27T10:24:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-003",
+   "chatId": "4ada988d-703e-4082-8a7f-fc6ebd0cfee1",
+   "senderId": "64b4519b-d524-4f46-a188-622ae01924bd",
+   "content": "Posso retirar hoje à tarde?",
+   "createdAt": "2026-06-27T10:27:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-004",
+   "chatId": "4ada988d-703e-4082-8a7f-fc6ebd0cfee1",
+   "senderId": "d5868497-680e-4a75-abdc-ab298005890b",
+   "content": "Claro, sem problemas.",
+   "createdAt": "2026-06-27T10:30:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-005",
+   "chatId": "4ada988d-703e-4082-8a7f-fc6ebd0cfee1",
+   "senderId": "64b4519b-d524-4f46-a188-622ae01924bd",
+   "content": "Estou saindo agora.",
+   "createdAt": "2026-06-27T15:00:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-006",
+   "chatId": "4ada988d-703e-4082-8a7f-fc6ebd0cfee1",
+   "senderId": "d5868497-680e-4a75-abdc-ab298005890b",
+   "content": "Perfeito, estou aguardando.",
+   "createdAt": "2026-06-27T15:05:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-007",
+   "chatId": "4ada988d-703e-4082-8a7f-fc6ebd0cfee1",
+   "senderId": "64b4519b-d524-4f46-a188-622ae01924bd",
+   "content": "Acabei de chegar.",
+   "createdAt": "2026-06-27T15:35:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-008",
+   "chatId": "4ada988d-703e-4082-8a7f-fc6ebd0cfee1",
+   "senderId": "d5868497-680e-4a75-abdc-ab298005890b",
+   "content": "Entrega concluída. Obrigado!",
+   "createdAt": "2026-06-27T15:50:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-009",
+   "chatId": "97bf9e2a-9430-4ca8-b96a-aa7e40d76b0c",
+   "senderId": "7511f542-8c19-4314-8716-38b210a9dbc0",
+   "content": "Olá! Tenho interesse no item.",
+   "createdAt": "2026-06-27T11:06:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-010",
+   "chatId": "97bf9e2a-9430-4ca8-b96a-aa7e40d76b0c",
+   "senderId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+   "content": "Ótimo, ele continua disponível.",
+   "createdAt": "2026-06-27T11:09:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-011",
+   "chatId": "97bf9e2a-9430-4ca8-b96a-aa7e40d76b0c",
+   "senderId": "7511f542-8c19-4314-8716-38b210a9dbc0",
+   "content": "Podemos combinar a retirada hoje?",
+   "createdAt": "2026-06-27T11:15:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-012",
+   "chatId": "97bf9e2a-9430-4ca8-b96a-aa7e40d76b0c",
+   "senderId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+   "content": "Sim, no final da tarde.",
+   "createdAt": "2026-06-27T11:18:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-013",
+   "chatId": "97bf9e2a-9430-4ca8-b96a-aa7e40d76b0c",
+   "senderId": "7511f542-8c19-4314-8716-38b210a9dbc0",
+   "content": "Estou saindo agora.",
+   "createdAt": "2026-06-27T16:10:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-014",
+   "chatId": "97bf9e2a-9430-4ca8-b96a-aa7e40d76b0c",
+   "senderId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+   "content": "Tudo certo.",
+   "createdAt": "2026-06-27T16:15:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-015",
+   "chatId": "97bf9e2a-9430-4ca8-b96a-aa7e40d76b0c",
+   "senderId": "7511f542-8c19-4314-8716-38b210a9dbc0",
+   "content": "Cheguei ao local.",
+   "createdAt": "2026-06-27T16:40:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-016",
+   "chatId": "97bf9e2a-9430-4ca8-b96a-aa7e40d76b0c",
+   "senderId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+   "content": "Negociação concluída. Obrigado!",
+   "createdAt": "2026-06-27T16:55:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-017",
+   "chatId": "3a237e47-babe-4205-8c27-3315ab42f036",
+   "senderId": "9809a44e-daec-4fe6-a3fb-73be6ebb6bd1",
+   "content": "Olá! Ainda posso retirar o item?",
+   "createdAt": "2026-06-28T08:01:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-018",
+   "chatId": "3a237e47-babe-4205-8c27-3315ab42f036",
+   "senderId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+   "content": "Sim, está reservado para você.",
+   "createdAt": "2026-06-28T08:04:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-019",
+   "chatId": "3a237e47-babe-4205-8c27-3315ab42f036",
+   "senderId": "9809a44e-daec-4fe6-a3fb-73be6ebb6bd1",
+   "content": "Perfeito, obrigado.",
+   "createdAt": "2026-06-28T08:08:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-020",
+   "chatId": "3a237e47-babe-4205-8c27-3315ab42f036",
+   "senderId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+   "content": "Nos vemos mais tarde.",
+   "createdAt": "2026-06-28T08:12:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-021",
+   "chatId": "3a237e47-babe-4205-8c27-3315ab42f036",
+   "senderId": "9809a44e-daec-4fe6-a3fb-73be6ebb6bd1",
+   "content": "Estou saindo agora.",
+   "createdAt": "2026-06-28T09:15:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-022",
+   "chatId": "3a237e47-babe-4205-8c27-3315ab42f036",
+   "senderId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+   "content": "Tudo certo.",
+   "createdAt": "2026-06-28T09:20:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-023",
+   "chatId": "3a237e47-babe-4205-8c27-3315ab42f036",
+   "senderId": "9809a44e-daec-4fe6-a3fb-73be6ebb6bd1",
+   "content": "Acabei de chegar.",
+   "createdAt": "2026-06-28T09:50:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-024",
+   "chatId": "3a237e47-babe-4205-8c27-3315ab42f036",
+   "senderId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+   "content": "Item entregue com sucesso.",
+   "createdAt": "2026-06-28T10:05:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-025",
+   "chatId": "174662f1-85ae-43df-b401-eeb942197571",
+   "senderId": "4219434c-a03f-4fb9-b32f-42979a25680e",
+   "content": "Olá! Podemos combinar a retirada?",
+   "createdAt": "2026-06-28T12:46:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-026",
+   "chatId": "174662f1-85ae-43df-b401-eeb942197571",
+   "senderId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+   "content": "Claro, sem problemas.",
+   "createdAt": "2026-06-28T12:49:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-027",
+   "chatId": "174662f1-85ae-43df-b401-eeb942197571",
+   "senderId": "4219434c-a03f-4fb9-b32f-42979a25680e",
+   "content": "Vou sair em alguns minutos.",
+   "createdAt": "2026-06-28T13:40:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-028",
+   "chatId": "174662f1-85ae-43df-b401-eeb942197571",
+   "senderId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+   "content": "Tudo bem.",
+   "createdAt": "2026-06-28T13:42:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-029",
+   "chatId": "174662f1-85ae-43df-b401-eeb942197571",
+   "senderId": "4219434c-a03f-4fb9-b32f-42979a25680e",
+   "content": "Tive um imprevisto e não conseguirei ir.",
+   "createdAt": "2026-06-28T14:10:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-030",
+   "chatId": "174662f1-85ae-43df-b401-eeb942197571",
+   "senderId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+   "content": "Sem problemas.",
+   "createdAt": "2026-06-28T14:12:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-031",
+   "chatId": "174662f1-85ae-43df-b401-eeb942197571",
+   "senderId": "4219434c-a03f-4fb9-b32f-42979a25680e",
+   "content": "Peço desculpas pelo transtorno.",
+   "createdAt": "2026-06-28T14:18:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-032",
+   "chatId": "174662f1-85ae-43df-b401-eeb942197571",
+   "senderId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+   "content": "Negociação cancelada.",
+   "createdAt": "2026-06-28T14:20:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-033",
+   "chatId": "947bb0d2-5cc9-4651-8850-dd3acfc269aa",
+   "senderId": "4828a8a0-e40f-4485-8795-c28e15d85726",
+   "content": "Olá! Tenho interesse no item anunciado.",
+   "createdAt": "2026-06-29T08:31:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-034",
+   "chatId": "947bb0d2-5cc9-4651-8850-dd3acfc269aa",
+   "senderId": "4a445774-5887-480f-8011-aa5a087b8710",
+   "content": "Ótimo! Ele continua disponível.",
+   "createdAt": "2026-06-29T08:34:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-035",
+   "chatId": "947bb0d2-5cc9-4651-8850-dd3acfc269aa",
+   "senderId": "4828a8a0-e40f-4485-8795-c28e15d85726",
+   "content": "Posso retirar ainda hoje?",
+   "createdAt": "2026-06-29T08:40:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-036",
+   "chatId": "947bb0d2-5cc9-4651-8850-dd3acfc269aa",
+   "senderId": "4a445774-5887-480f-8011-aa5a087b8710",
+   "content": "Sim, combinado.",
+   "createdAt": "2026-06-29T08:42:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-037",
+   "chatId": "947bb0d2-5cc9-4651-8850-dd3acfc269aa",
+   "senderId": "4828a8a0-e40f-4485-8795-c28e15d85726",
+   "content": "Estou saindo agora.",
+   "createdAt": "2026-06-29T10:10:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-038",
+   "chatId": "947bb0d2-5cc9-4651-8850-dd3acfc269aa",
+   "senderId": "4a445774-5887-480f-8011-aa5a087b8710",
+   "content": "Perfeito.",
+   "createdAt": "2026-06-29T10:15:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-039",
+   "chatId": "947bb0d2-5cc9-4651-8850-dd3acfc269aa",
+   "senderId": "4828a8a0-e40f-4485-8795-c28e15d85726",
+   "content": "Cheguei ao local.",
+   "createdAt": "2026-06-29T10:45:00.000Z",
+   "contentType": "text",
+   "read": true
+ },
+ {
+   "id": "msg-040",
+   "chatId": "947bb0d2-5cc9-4651-8850-dd3acfc269aa",
+   "senderId": "4a445774-5887-480f-8011-aa5a087b8710",
+   "content": "Entrega realizada com sucesso.",
+   "createdAt": "2026-06-29T11:00:00.000Z",
+   "contentType": "text",
+   "read": true
+ }
+  ],
+  "reviews": [
+    {
+      "id": "review-demo-001",
+      "negotiationId": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+      "reviewerUserId": "d5868497-680e-4a75-abdc-ab298005890b",
+      "reviewedUserId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+      "rating": 5,
+      "comment": "Bruno foi pontual, educado e retirou o item exatamente como combinado.",
+      "createdAt": "2026-06-18T17:05:00.000Z"
+    },
+    {
+      "id": "review-demo-002",
+      "negotiationId": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+      "reviewerUserId": "e49af4ff-babe-4abd-a539-b2efc0193e8d",
+      "reviewedUserId": "d5868497-680e-4a75-abdc-ab298005890b",
+      "rating": 5,
+      "comment": "Larissa foi muito atenciosa e a negociação ocorreu sem nenhum problema.",
+      "createdAt": "2026-06-18T17:08:00.000Z"
+    },
+    {
+   "id": "review-001",
+   "negotiationId": "c8d6c0f1-6b7f-4f43-8d2e-1f5b2f8a9001",
+   "reviewerUserId": "d5868497-680e-4a75-abdc-ab298005890b",
+   "reviewedUserId": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+   "rating": 5,
+   "comment": "Lucas foi pontual, educado e retirou o item exatamente como combinado.",
+   "createdAt": "2026-06-20T18:10:00.000Z"
+ },
+ {
+   "id": "review-002",
+   "negotiationId": "c8d6c0f1-6b7f-4f43-8d2e-1f5b2f8a9001",
+   "reviewerUserId": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+   "reviewedUserId": "d5868497-680e-4a75-abdc-ab298005890b",
+   "rating": 5,
+   "comment": "Larissa foi muito atenciosa e o item estava conforme o anúncio.",
+   "createdAt": "2026-06-20T18:15:00.000Z"
+ },
+ {
+   "id": "review-003",
+   "negotiationId": "f1a3e8b2-92d7-4b11-84d0-3c5f8a7d1002",
+   "reviewerUserId": "48585b3d-5052-4b93-8a10-a1f5111e211f",
+   "reviewedUserId": "6648f666-a0a8-4085-9743-5322ee3f6d36",
+   "rating": 5,
+   "comment": "Rodrigo compareceu no horário combinado e facilitou toda a retirada.",
+   "createdAt": "2026-06-21T14:20:00.000Z"
+ },
+ {
+   "id": "review-004",
+   "negotiationId": "f1a3e8b2-92d7-4b11-84d0-3c5f8a7d1002",
+   "reviewerUserId": "6648f666-a0a8-4085-9743-5322ee3f6d36",
+   "reviewedUserId": "48585b3d-5052-4b93-8a10-a1f5111e211f",
+   "rating": 5,
+   "comment": "Bruno foi cordial durante toda a negociação. Recomendo.",
+   "createdAt": "2026-06-21T14:25:00.000Z"
+ },
+ {
+   "id": "review-005",
+   "negotiationId": "a5b7d4c9-18a4-4cf0-a7e1-6d2c9b3f3003",
+   "reviewerUserId": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+   "reviewedUserId": "48585b3d-5052-4b93-8a10-a1f5111e211f",
+   "rating": 4,
+   "comment": "Retirada realizada com sucesso. Comunicação clara durante o processo.",
+   "createdAt": "2026-06-22T11:40:00.000Z"
+ },
+ {
+   "id": "review-006",
+   "negotiationId": "a5b7d4c9-18a4-4cf0-a7e1-6d2c9b3f3003",
+   "reviewerUserId": "48585b3d-5052-4b93-8a10-a1f5111e211f",
+   "reviewedUserId": "50b34580-fa9c-4c05-b29e-2b1e04c1e5cb",
+   "rating": 5,
+   "comment": "Lucas foi muito prestativo e manteve contato até a conclusão.",
+   "createdAt": "2026-06-22T11:45:00.000Z"
+ },
+ {
+   "id": "review-007",
+   "negotiationId": "d2f8b7a1-4e66-4c91-9b30-8f1a2d4c4004",
+   "reviewerUserId": "6648f666-a0a8-4085-9743-5322ee3f6d36",
+   "reviewedUserId": "d5868497-680e-4a75-abdc-ab298005890b",
+   "rating": 5,
+   "comment": "Item entregue conforme descrito. Excelente experiência.",
+   "createdAt": "2026-06-23T16:30:00.000Z"
+ },
+ {
+   "id": "review-008",
+   "negotiationId": "d2f8b7a1-4e66-4c91-9b30-8f1a2d4c4004",
+   "reviewerUserId": "d5868497-680e-4a75-abdc-ab298005890b",
+   "reviewedUserId": "6648f666-a0a8-4085-9743-5322ee3f6d36",
+   "rating": 5,
+   "comment": "Rodrigo foi respeitoso e cumpriu o combinado sem atrasos.",
+   "createdAt": "2026-06-23T16:35:00.000Z"
+ },
+ {
+   "id": "review-009",
+   "negotiationId": "e9c4a1d7-73b2-4e1d-8c55-9b7f3a2d5005",
+   "reviewerUserId": "48585b3d-5052-4b93-8a10-a1f5111e211f",
+   "reviewedUserId": "d5868497-680e-4a75-abdc-ab298005890b",
+   "rating": 5,
+   "comment": "Negociação tranquila e rápida. Recomendo a outros usuários.",
+   "createdAt": "2026-06-24T10:05:00.000Z"
+ },
+ {
+   "id": "review-010",
+   "negotiationId": "e9c4a1d7-73b2-4e1d-8c55-9b7f3a2d5005",
+   "reviewerUserId": "d5868497-680e-4a75-abdc-ab298005890b",
+   "reviewedUserId": "48585b3d-5052-4b93-8a10-a1f5111e211f",
+   "rating": 5,
+   "comment": "Bruno foi muito educado e concluiu a retirada sem problemas.",
+   "createdAt": "2026-06-24T10:10:00.000Z"
+ }
+
+    
+  ],
+  "catalog": {}
+}
