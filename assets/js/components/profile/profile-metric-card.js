@@ -115,7 +115,7 @@ export class ProfileMetricCard extends BaseCardComponent {
    * Cleans component resources.
    */
   destroy() {
-    this.refs.map(element=> element = null);
+    Object.keys(this.refs).forEach(element=> element = null);
 
     super.destroy();
   }
