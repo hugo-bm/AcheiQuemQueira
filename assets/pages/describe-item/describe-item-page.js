@@ -319,7 +319,7 @@ export class DescribeItemPage {
 
         this.ownerAvatar.mount(avatarContainer);
 
-        this.ownerRating = new Rating({value: Math.min(5,ReviewService.getAverageRating(this.owner.id)),readonly: true});
+        this.ownerRating = new Rating({value: Math.min(5,this.owner.reputation.averageRating),readonly: true});
 
         ratingContainer.appendChild(this.ownerRating.render());
 
