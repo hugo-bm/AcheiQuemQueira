@@ -492,3 +492,11 @@ document.addEventListener(
         new IdentityValidationPage();
     }
 );
+
+// I implemented a lifecycle invalidation for the BFCache (Back-Forward Cache)
+// feature of mobile browsers, ensuring data reactivity in history rollback events.
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+        window.location.reload(); 
+    }
+});

@@ -33,19 +33,19 @@ export class Bootstrapper {
    * @returns {Promise<void>}
    */
   static async installSeed() {
-    const dumpResponse = await fetch('assets/data/dump.json');
+    const dumpResponse = await fetch('public/data/dump.json');
     const dump = await dumpResponse.json();
 
     Object.entries(dump).forEach(([collection, data]) => {
       AQQStorage.set(collection, data);
     });
 
-    const categoriesResponse = await fetch('assets/data/categories.json');
+    const categoriesResponse = await fetch('public/data/categories.json');
     const catalog = await categoriesResponse.json();
 
     AQQStorage.set('catalog', catalog);
 
-    const citiesResponse = await fetch('assets/data/cities.json');
+    const citiesResponse = await fetch('public/data/cities.json');
     const locations = await citiesResponse.json();
 
     AQQStorage.set('locations', locations);
