@@ -262,6 +262,70 @@ AQQ - Utilities
   --bs-btn-disabled-border-color: #D86A6A;
 }
 
+.aq-btn-success {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #72AE87;
+  --bs-btn-border-color: #72AE87;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #5E936F; /* -10% Luminosidade */
+  --bs-btn-hover-border-color: #598B69;
+  --bs-btn-focus-shadow-rgb: 114, 174, 135;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #548563; /* -15% Luminosidade */
+  --bs-btn-active-border-color: #4F7D5D;
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #72AE87;
+  --bs-btn-disabled-border-color: #72AE87;
+}
+
+.aq-btn-warning {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #F09A4A;
+  --bs-btn-border-color: #F09A4A;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #D98334; /* -10% Luminosidade */
+  --bs-btn-hover-border-color: #CC7B31;
+  --bs-btn-focus-shadow-rgb: 240, 154, 74;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #C5742A; /* -15% Luminosidade */
+  --bs-btn-active-border-color: #B96C27;
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #F09A4A;
+  --bs-btn-disabled-border-color: #F09A4A;
+}
+
+.aq-btn-light {
+  --bs-btn-color: #2F3237;
+  --bs-btn-bg: #F5F1E8;
+  --bs-btn-border-color: #F5F1E8;
+  --bs-btn-hover-color: #2F3237;
+  --bs-btn-hover-bg: #DDD7C9; /* -10% Luminosidade */
+  --bs-btn-hover-border-color: #D1CAB9;
+  --bs-btn-focus-shadow-rgb: 245, 241, 232;
+  --bs-btn-active-color: #2F3237;
+  --bs-btn-active-bg: #CECAF5; /* -15% Luminosidade */
+  --bs-btn-active-border-color: #C3BEB0;
+  --bs-btn-disabled-color: #2F3237;
+  --bs-btn-disabled-bg: #F5F1E8;
+  --bs-btn-disabled-border-color: #F5F1E8;
+}
+
+.aq-btn-dark {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #2F3237;
+  --bs-btn-border-color: #2F3237;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #1B1D20; /* -10% Luminosidade */
+  --bs-btn-hover-border-color: #151719;
+  --bs-btn-focus-shadow-rgb: 47, 50, 55;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #121316; /* -15% Luminosidade */
+  --bs-btn-active-border-color: #0D0E0F;
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #2F3237;
+  --bs-btn-disabled-border-color: #2F3237;
+}
+
 .aq-btn-outline-primary {
 
   --bs-btn-color: #6F8B72;
@@ -353,6 +417,74 @@ AQQ - Utilities
   --bs-gradient: none;
 }
 
+.aq-btn-outline-success {
+  --bs-btn-color: #72AE87;
+  --bs-btn-border-color: #72AE87;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #72AE87;
+  --bs-btn-hover-border-color: #72AE87;
+  --bs-btn-focus-shadow-rgb: 114, 174, 135;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #72AE87;
+  --bs-btn-active-border-color: #72AE87;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #72AE87;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #72AE87;
+  --bs-gradient: none;
+}
+
+.aq-btn-outline-warning {
+  --bs-btn-color: #F09A4A;
+  --bs-btn-border-color: #F09A4A;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #F09A4A;
+  --bs-btn-hover-border-color: #F09A4A;
+  --bs-btn-focus-shadow-rgb: 240, 154, 74;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #F09A4A;
+  --bs-btn-active-border-color: #F09A4A;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #F09A4A;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #F09A4A;
+  --bs-gradient: none;
+}
+
+
+.aq-btn-outline-light {
+  --bs-btn-color: #F5F1E8;
+  --bs-btn-border-color: #F5F1E8;
+  --bs-btn-hover-color: #2F3237;
+  --bs-btn-hover-bg: #F5F1E8;
+  --bs-btn-hover-border-color: #F5F1E8;
+  --bs-btn-focus-shadow-rgb: 245, 241, 232;
+  --bs-btn-active-color: #2F3237;
+  --bs-btn-active-bg: #F5F1E8;
+  --bs-btn-active-border-color: #F5F1E8;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #F5F1E8;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #F5F1E8;
+  --bs-gradient: none;
+}
+
+.aq-btn-outline-dark {
+  --bs-btn-color: #2F3237;
+  --bs-btn-border-color: #2F3237;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #2F3237;
+  --bs-btn-hover-border-color: #2F3237;
+  --bs-btn-focus-shadow-rgb: 47, 50, 55;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #2F3237;
+  --bs-btn-active-border-color: #2F3237;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #2F3237;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #2F3237;
+  --bs-gradient: none;
+}
 
 .accordion-button.collapsed {
 
@@ -381,4 +513,61 @@ AQQ - Utilities
 .accordion-button:focus {
   border-color: #6F8B72;
   box-shadow: 0 0 0 0.25rem rgba(111, 139, 114, 0.25);
+}
+
+
+.aq-bg-primary-subtle {
+  background-color: rgba(111, 139, 114, 0.26) !important;
+}
+
+
+.aq-bg-secondary-subtle {
+  background-color: rgba(141, 150, 133, 0.26) !important;
+
+}
+
+
+.aq-bg-success-subtle {
+  background-color: rgba(114, 174, 135, 0.26) !important;
+
+}
+
+
+.aq-bg-info-subtle {
+  background-color: rgba(124, 154, 151, 0.26) !important;
+}
+
+
+.aq-bg-warning-subtle {
+  background-color: rgba(240, 154, 74, 0.29) !important; /* 15% pois o laranja é claro */
+}
+
+
+.aq-bg-danger-subtle {
+  background-color: rgba(216, 106, 106, 0.26) !important;
+
+}
+
+
+.aq-bg-grau1-subtle {
+  background-color: rgba(196, 69, 54, 0.12) !important;
+
+}
+
+
+.aq-bg-grau2-subtle {
+  background-color: rgba(240, 154, 74, 0.15) !important;
+
+}
+
+
+.aq-bg-grau3-subtle {
+  background-color: rgba(217, 166, 58, 0.15) !important;
+
+}
+
+
+.aq-bg-grau4-subtle {
+  background-color: rgba(79, 157, 105, 0.12) !important;
+
 }

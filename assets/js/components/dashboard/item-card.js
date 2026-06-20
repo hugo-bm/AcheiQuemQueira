@@ -61,7 +61,7 @@ export class ItemCard extends BaseCardComponent {
         return `<div class="d-flex flex-column gap-2">
                 <div data-ref="carousel"></div>
                 <div class="d-flex aq-text-soft justify-content-between">
-                    <div class="ms-2" data-ref="timer">${this.getExpirationLabel()}</div>
+                    <div class="ms-2 text-truncate" data-ref="timer">${this.getExpirationLabel()}</div>
                     <div class="me-2" data-ref="badge"></div>
                 </div>
                 <div class="d-flex flex-column gap-1" >
@@ -227,11 +227,11 @@ export class ItemCard extends BaseCardComponent {
         }
 
         if (remainingDays < 7) {
-            return `${remainingDays} dias`;
+            return `${remainingDays} dias restantes`;
         }
 
         const remainingWeeks = Math.floor(remainingDays / 7);
-        const labelSemana = remainingWeeks === 1 ? 'semana' : 'semanas';
+        const labelSemana = remainingWeeks === 1 ? 'semana restante' : 'semanas restantes';
         return `${remainingWeeks} ${labelSemana}`;
     }
 

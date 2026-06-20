@@ -168,15 +168,15 @@ export class RegisterPage {
   }
 
   handleStateChange() {
-    const selectedStateId = this.elements.state.value;
+    const selectedStateName = this.elements.state.value;
 
     this.resetSelect(this.elements.city, "Selecione a Cidade");
     this.resetSelect(this.elements.neighborhood, "Selecione o Bairro");
 
-    if (!selectedStateId) return;
+    if (!selectedStateName) return;
 
     const stateMatch = this.locationData.states.find(
-      (s) => s.id === selectedStateId,
+      (s) => s.name === selectedStateName,
     );
     if (stateMatch && stateMatch.cities) {
       this.populateSelect(
@@ -189,20 +189,20 @@ export class RegisterPage {
   }
 
   handleCityChange() {
-    const selectedStateId = this.elements.state.value;
-    const selectedCityId = this.elements.city.value;
+    const selectedStateName = this.elements.state.value;
+    const selectedCityName = this.elements.city.value;
 
     this.resetSelect(this.elements.neighborhood, "Selecione o Bairro");
 
-    if (!selectedCityId) return;
+    if (!selectedCityName) return;
 
     const stateMatch = this.locationData.states.find(
-      (s) => s.id === selectedStateId,
+      (s) => s.name === selectedStateName,
     );
-    const cityMatch = stateMatch?.cities?.find((c) => c.id === selectedCityId);
+    const cityMatch = stateMatch?.cities?.find((c) => c.name === selectedCityName);
 
     if (cityMatch && cityMatch.neighborhoods) {
-      
+
       const formattedNeighborhoods = cityMatch.neighborhoods.map((nb) => ({
         id: nb,
         name: nb,
@@ -212,33 +212,33 @@ export class RegisterPage {
     }
   }
 
-   populateSelect(selectElement, placeholderText, items) {
-        if (!selectElement) return;
+  populateSelect(selectElement, placeholderText, items) {
+    if (!selectElement) return;
 
-        selectElement.length = 0;
-
-
-        const fragment = document.createDocumentFragment();
+    selectElement.length = 0;
 
 
-        fragment.appendChild(new Option(placeholderText, ''));
+    const fragment = document.createDocumentFragment();
 
-        items.forEach(item => {
-            fragment.appendChild(new Option(item.name, item.name));
-        });
 
-        selectElement.appendChild(fragment);
-    }
+    fragment.appendChild(new Option(placeholderText, ''));
 
-    resetSelect(selectElement, placeholderText) {
-        if (!selectElement) return;
-        
-        selectElement.length = 0;
-        
-        selectElement.appendChild(new Option(placeholderText, ''));
-        
-        selectElement.disabled = true;
-    }
+    items.forEach(item => {
+      fragment.appendChild(new Option(item.name, item.name));
+    });
+
+    selectElement.appendChild(fragment);
+  }
+
+  resetSelect(selectElement, placeholderText) {
+    if (!selectElement) return;
+
+    selectElement.length = 0;
+
+    selectElement.appendChild(new Option(placeholderText, ''));
+
+    selectElement.disabled = true;
+  }
 
   async validate(data) {
     let valid = true;
@@ -472,15 +472,15 @@ export class RegisterPage {
       })),
     );
 
-    // Mantém os filhos desabilitados e limpos até que o pai sofra uma alteração
+    // Keep the children disabled and clean until the father undergoes a change.
     this.resetSelect(this.elements.city, "Selecione a Cidade");
     this.resetSelect(this.elements.neighborhood, "Selecione o Bairro");
   }
 }
 
 document.addEventListener(
-    'DOMContentLoaded',
-    () => {
-        new RegisterPage();
-    }
+  'DOMContentLoaded',
+  () => {
+    new RegisterPage();
+  }
 );

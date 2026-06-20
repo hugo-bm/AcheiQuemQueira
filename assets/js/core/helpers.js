@@ -1,9 +1,5 @@
 export const Helpers = {
 
-  uuid() {
-    return crypto.randomUUID();
-  },
-
   debounce(callback, delay = 300) {
     let timer;
 

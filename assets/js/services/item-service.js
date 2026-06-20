@@ -81,7 +81,6 @@ export class ItemService {
       }
 
       const images = data.images ?? [];
-
       if (images.length > 5) {
         return {
           success: false,

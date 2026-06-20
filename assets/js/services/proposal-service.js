@@ -91,7 +91,7 @@ export class ProposalService {
 
     let messageFinal = data.message || '';
 
-    if (data.message.length)
+    if (data.message.length === 0)
     {
       switch (item.type) {
         case ITEM_TYPES.FREE:
@@ -134,7 +134,7 @@ export class ProposalService {
     items[itemIndex] = {
       ...item,
       interestedCount:
-        (item.interestedCount ?? 0) + 1
+        (item.interestedCount || 0) + 1
     };
 
     AQQStorage.set('items', items);
@@ -145,17 +145,18 @@ export class ProposalService {
       interestedUserId: data.proposerId
     });
     if (chatResult.success) {
-      ChatService.createSystemMessage(
-        chatResult.chat.id,
-        messageFinal
-      );
+      ChatService.sendMessage({
+        chatId: chatResult.chat.id,
+        senderId: data.proposerId,
+        content: messageFinal,
+      });
     }
 
-    NotificationService.create({
+    const notification = NotificationService.create({
       userId: item.userId,
       type: NOTIFICATION_TYPES.PROPOSAL,
       title: 'Nova proposta recebida',
-      messageFinal,
+      message: messageFinal,
       referenceType: REFERENCE_TYPES.PROPOSAL,
       referenceId: proposal.id
     });

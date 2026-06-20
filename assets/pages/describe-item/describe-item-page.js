@@ -254,6 +254,9 @@ export class DescribeItemPage {
             return;
         }
 
+        const cardWrapper = document.createElement('div');
+
+        cardWrapper.className = "d-flex flex-column border-top mt-1 pt-3 gap-2"
         const card = document.createElement('div');
 
         card.className = [
@@ -262,9 +265,15 @@ export class DescribeItemPage {
             'aq-shadow-sm'
         ].join(' ');
 
+        const label = document.createElement('strong');
+
+        label.className = 'small text-secondary fw-semibold fs-6';
+  
+        label.textContent = "Anunciante";
+
         const body = document.createElement('div');
 
-        body.className = 'card-body';
+        body.className = 'card-body mb-0';
 
         const wrapper = document.createElement('div');
 
@@ -290,15 +299,17 @@ export class DescribeItemPage {
 
         const ratingContainer = document.createElement('div');
 
-        wrapper.appendChild( avatarContainer);
+        wrapper.appendChild(avatarContainer);
         wrapper.appendChild(content);
         content.appendChild(ownerName);
         content.appendChild(ratingContainer);
         body.appendChild(wrapper);
 
         card.appendChild(body);
+        cardWrapper.appendChild(label);
+        cardWrapper.appendChild(card);
 
-        this.refs.ownerSection.appendChild(card);
+        this.refs.ownerSection.appendChild(cardWrapper);
 
         this.ownerAvatar = new Avatar({
             imageUrl: this.owner.avatar,
@@ -308,7 +319,7 @@ export class DescribeItemPage {
 
         this.ownerAvatar.mount(avatarContainer);
 
-        this.ownerRating = new Rating({value: Math.min(5,ReviewService.getAverageRating(this.owner.id)),readonly: true});
+        this.ownerRating = new Rating({value: Math.min(5,this.owner.reputation.averageRating),readonly: true});
 
         ratingContainer.appendChild(this.ownerRating.render());
 
@@ -563,7 +574,8 @@ export class DescribeItemPage {
     }
 
     handleCreateProposal() {
-        const message = this.refs.proposalMessage || '';
+        const message = this.refs.proposalMessage.value || '';
+
         const result = ProposalService.createProposal({itemId: this.item.id,proposerId:this.currentUser.id, message: message });
 
         if (!result.success) {
