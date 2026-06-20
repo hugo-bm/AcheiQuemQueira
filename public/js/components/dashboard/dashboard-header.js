@@ -70,7 +70,7 @@ export class DashboardHeader extends BaseComponent {
               <i class="bi bi-list fs-4"></i>
             </button>
             <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-              <img src="/assets/icons/favicon-32.svg" width="32" height="32" alt="Logo do AQQ">
+              <img src="/public/icons/favicon-32.svg" width="32" height="32" alt="Logo do AQQ">
               <span class="d-none d-md-inline d-lg-none aq-text-logo">AQQ</span>
               <span class="d-none d-lg-inline fs-5 aq-text-logo"><div class="d-flex gap-1"><div class="fw-semibold">Achei</div> Quem <div class="fw-bold">Queira</div></div></span>
             </a>

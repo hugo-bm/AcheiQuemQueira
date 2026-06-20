@@ -63,29 +63,29 @@ export const NEGOTIATION_STATUS = {
 };
 
 export const ROUTES = {
-      'my-items': '/assets/pages/my-list-items/my-list-items-page.html',
+      'my-items': '/public/pages/my-list-items/my-list-items-page.html',
 
-      'my-chats': '/assets/pages/my-list-chats/my-list-chats-page.html',
+      'my-chats': '/public/pages/my-list-chats/my-list-chats-page.html',
 
-      'my-reviews': '/assets/pages/my-list-ratings/my-list-ratings-page.html',
+      'my-reviews': '/public/pages/my-list-ratings/my-list-ratings-page.html',
 
-      'profile': '/assets/pages/profile/profile-page.html',
+      'profile': '/public/pages/profile/profile-page.html',
 
-      'login': '/assets/pages/login/login-page.html',
+      'login': '/public/pages/login/login-page.html',
 
-      'register': '/assets/pages/register/register-page.html',
+      'register': '/public/pages/register/register-page.html',
 
-      'add-item': '/assets/pages/add-item/add-item-page.html',
+      'add-item': '/public/pages/add-item/add-item-page.html',
 
-      'describe-item':'/assets/pages/describe-item/describe-item-page.html',
+      'describe-item':'/public/pages/describe-item/describe-item-page.html',
 
-      'search':'/assets/pages/search/search-page.html',
+      'search':'/public/pages/search/search-page.html',
 
-      'dashboard':'/assets/pages/dashboard/dashboard-page.html',
+      'dashboard':'/public/pages/dashboard/dashboard-page.html',
 
-      'identity-validation': '/assets/pages/identity-validation/identity-validation.html',
+      'identity-validation': '/public/pages/identity-validation/identity-validation.html',
 
-      'phone-validation': '/assets/pages/phone-validation/phone-validation.html',
+      'phone-validation': '/public/pages/phone-validation/phone-validation.html',
 
-      'chat': '/assets/pages/chat/chat-page.html',
+      'chat': '/public/pages/chat/chat-page.html',
     };
