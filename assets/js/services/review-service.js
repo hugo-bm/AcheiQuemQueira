@@ -243,29 +243,6 @@ export class ReviewService {
   }
 
   /**
-   * Calculates the average rating received by a user.
-   *
-   * @param {string} userId - User identifier.
-   * @returns {number}
-   */
-  static getAverageRating(userId) {
-    const reviews = this.getReviewsReceived(userId);
-
-    if (reviews.length === 0) {
-      return 0;
-    }
-
-    const total = reviews.reduce(
-      (sum, review) => sum + review.rating,
-      0
-    );
-
-    return Number(
-      (total / reviews.length).toFixed(1)
-    );
-  }
-
-  /**
    * Generates a unique identifier.
    *
    * @returns {string}
