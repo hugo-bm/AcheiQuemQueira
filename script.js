@@ -1,7 +1,7 @@
 'use strict';
 
-import { ROUTES } from "./assets/js/core/constants.js";
-import { Session } from "./assets/js/core/session.js";
+import { ROUTES } from "./public/js/core/constants.js";
+import { Session } from "./public/js/core/session.js";
 
 const header = document.querySelector('.landing-header');
 

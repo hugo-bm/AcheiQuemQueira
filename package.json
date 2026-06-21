@@ -1,0 +1,23 @@
+{
+  "name": "aqq-achei-quem-queira",
+  "version": "1.0.0",
+  "description": "Uma plataforma de desapego local voltada para economia circular e reaproveitamento comunitário.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "vanilla-js",
+    "bootstrap5",
+    "mobile-first",
+    "localstorage",
+    "sustentabilidade",
+    "desapego"
+  ],
+  "author": "Hugo Batalha Moreno <batalha.hugo@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.22.2"
+  }
+}
