@@ -212,16 +212,10 @@ export class MessageBubble extends BaseComponent {
         `.trim();
     }
 
-    /**
-     * Called after component mount.
-     */
     afterMount() {
         this.registerRefs();
     }
 
-    /**
-     * Releases component resources.
-     */
     destroy() {
         this.refs = {};
 

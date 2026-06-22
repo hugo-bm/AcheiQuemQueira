@@ -9,7 +9,7 @@ import "../../models/entities.js"
  * Responsible for rendering and managing a conversation message list.
  */
 export class MessageList extends BaseComponent {
- 
+
   /**
    * Creates a new MessageList instance.
    *
@@ -189,7 +189,7 @@ export class MessageList extends BaseComponent {
     }
 
     this.clearMessages();
-   
+
     if (!this.messages.length) {
       this.createEmptyState();
       return;
@@ -221,7 +221,7 @@ export class MessageList extends BaseComponent {
   registerRefs() {
     // this.refs.list = this.element.querySelector('[data-ref="message-list"]');
     this.refs.list = this.element;
-}
+  }
 
   /**
    * Renders component markup.
@@ -235,17 +235,11 @@ export class MessageList extends BaseComponent {
             ></div>`.trim();
   }
 
-  /**
-   * Lifecycle hook executed after mount.
-   */
   afterMount() {
     this.registerRefs();
     this.renderMessages();
   }
 
-  /**
-   * Releases component resources.
-   */
   destroy() {
     this.clearMessages();
 

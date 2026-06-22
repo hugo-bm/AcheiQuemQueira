@@ -15,6 +15,8 @@ import { REFERENCE_TYPES, ROUTES } from '../../js/core/constants.js';
 class DashboardPage {
   /**
    * Creates dashboard page controller.
+   * 
+   * @returns {DashboardPage} - New instance of DashboardPage 
    */
   constructor() {
     this.currentUser = null;
@@ -57,6 +59,7 @@ class DashboardPage {
       this.currentUser =  UserService.getById(sessionUserId);
 
       if (!this.currentUser) {
+        NavStorage.clear();
         Session.logout();
 
         window.location.href = ROUTES['login'];
@@ -247,12 +250,7 @@ class DashboardPage {
    *
    * @returns {number}
    */
-  calculatePriority(
-    location,
-    neighborhood,
-    city,
-    state
-  ) {
+  calculatePriority(location, neighborhood, city, state) {
     const itemNeighborhood = (location.neighborhood || '').toLowerCase();
     const itemCity = (location.city || '').toLowerCase();
     const itemState = (location.state || '').toLowerCase();

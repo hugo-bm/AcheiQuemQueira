@@ -60,7 +60,6 @@ export class CategoryClassifierService {
     const matchedTags = this.extractTags(terms, classification.rule);
 
 
-    // --- RULE OF CONSISTENCY ---
     // If the confidence level indicates a correlation, but no actual tag has been validated,
     // we intercept the false positive and return "no suggestion".
     if (matchedTags.length === 0) {

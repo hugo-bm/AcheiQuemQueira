@@ -39,22 +39,22 @@ export class ChatPage {
         this.chatInput = null;
 
         this.loading = new Loading();
-        
+
         this.listeners = [];
-        
+
         this.headerContainer =
-        document.getElementById('chat-header-container');
-        
+            document.getElementById('chat-header-container');
+
         this.bannerContainer =
-        document.getElementById('chat-banner-container');
-        
+            document.getElementById('chat-banner-container');
+
         this.messagesContainer =
-        document.getElementById('chat-messages-container');
-        
+            document.getElementById('chat-messages-container');
+
         this.inputContainer = document.getElementById('chat-input-container');
 
         this.alert = new AlertRender(document.getElementById('alert-container'));
-        
+
         this.body = document.querySelector("body");
     }
 
@@ -65,22 +65,22 @@ export class ChatPage {
      */
     async init() {
         const context = NavStorage.get('chat-page');
-        let receivedId = {chatId: context?.chatId, proposalId: null};
+        let receivedId = { chatId: context?.chatId, proposalId: null };
         if (!receivedId.chatId) {
             receivedId.proposalId = context?.proposalId;
         }
 
         if (!receivedId.proposalId && !receivedId.chatId) {
-            this.alert.danger('Erro','Conversa não encontrada.');
-            Helpers.debounce(()=>{window.location.href = history.back()}, 2000);
+            this.alert.danger('Erro', 'Conversa não encontrada.');
+            Helpers.debounce(() => { window.location.href = history.back() }, 2000);
             return;
         }
-        
+
 
         this.currentUserID = Session.getUserId();
 
         if (!this.currentUserID) {
-            Helpers.debounce(()=>{window.location.href = ROUTES['login']},2000);
+            Helpers.debounce(() => { window.location.href = ROUTES['login'] }, 2000);
 
             return;
         }
@@ -93,7 +93,7 @@ export class ChatPage {
                 'Nenhuma conversa disponível para esta proposta.'
             );
 
-            Helpers.debounce(()=>{window.location.href = ROUTES['dashboard']},2000);
+            Helpers.debounce(() => { window.location.href = ROUTES['dashboard'] }, 2000);
 
             return;
         }
@@ -122,8 +122,7 @@ export class ChatPage {
         const keys = Object.keys(receivedId);
 
         keys.forEach((key) => {
-            if (key === 'proposalId' && receivedId[key] !== null)
-            {
+            if (key === 'proposalId' && receivedId[key] !== null) {
                 this.proposal = ProposalService.getById(receivedId.proposalId);
                 if (!this.proposal) {
                     return;
@@ -132,8 +131,7 @@ export class ChatPage {
                 if (!this.chat) {
                     return;
                 }
-            } else 
-            {
+            } else {
                 this.chat = ChatService.getById(receivedId.chatId);
                 if (!this.chat) {
                     return;
@@ -184,9 +182,7 @@ export class ChatPage {
                 avatarComponent: new Avatar({ imageUrl: otherUser.avatar, name: otherUser?.name ?? "desconhecido", size: 'md' }),
             });
 
-        this.chatHeader.mount(
-            this.headerContainer
-        );
+        this.chatHeader.mount(this.headerContainer);
 
         this.negotiationBanner = new NegotiationBanner({
             negotiation: this.negotiation,
@@ -195,26 +191,19 @@ export class ChatPage {
             adOwnerId: this._item?.ownerId
         });
 
-        this.negotiationBanner.mount(
-            this.bannerContainer
-        );
+        this.negotiationBanner.mount(this.bannerContainer);
 
         this.messageList =
             new MessageList({
                 messages: this.messages,
                 currentUserId: this.currentUserID
             });
-        
-        this.messageList.mount(
-            this.messagesContainer
-        );
 
-        this.chatInput =
-            new ChatInput();
+        this.messageList.mount(this.messagesContainer);
 
-        this.chatInput.mount(
-            this.inputContainer
-        );
+        this.chatInput = new ChatInput();
+
+        this.chatInput.mount(this.inputContainer);
     }
 
     /**
@@ -270,17 +259,17 @@ export class ChatPage {
     /**
      * Handles message sending.
      *
-     * @param {Object} payload
+     * @param {Event} payload
      */
     async handleSendMessage(payload) {
         payload.cancelBubble = true;
         if (this.chat.status !== "active") {
-          this.alert.danger(
-            "Erro",
-            "Não foi possível enviar a mensagem. O Chat está encerrado!",
-          );
+            this.alert.danger(
+                "Erro",
+                "Não foi possível enviar a mensagem. O Chat está encerrado!",
+            );
 
-          return;
+            return;
         }
         const result =
             ChatService.sendMessage({
@@ -308,12 +297,12 @@ export class ChatPage {
 
     /**
      * Handles proposal acceptance.
+     * 
+     * @returns {Promise<void>}
      */
     async handleAccept() {
         const accepted =
-            ProposalService.acceptProposal(
-                this.proposal.id
-            );
+            ProposalService.acceptProposal(this.proposal.id);
 
         if (!accepted) {
             this.alert.danger(
@@ -325,7 +314,7 @@ export class ChatPage {
         }
 
         const newNegotiation = NegotiationService.createNegotiation(this.proposal.id);
-        
+
         this.negotiation = newNegotiation;
         this.negotiationBanner.setNegotiation(newNegotiation);
         this.chatHeader.setStatus(newNegotiation.status);
@@ -338,6 +327,8 @@ export class ChatPage {
 
     /**
      * Handles proposal rejection.
+     * 
+     * @returns {Promise<void>}
      */
     async handleReject() {
         const rejected =
@@ -366,6 +357,8 @@ export class ChatPage {
 
     /**
      * Handles leaving status.
+     * 
+     * @returns {Promise<void>}
      */
     async handleLeaving() {
         const result =
@@ -392,6 +385,8 @@ export class ChatPage {
 
     /**
      * Handles arrived status.
+     * 
+     * @returns {Promise<void>}
      */
     async handleArrived() {
         const result =
@@ -418,6 +413,8 @@ export class ChatPage {
 
     /**
      * Handles completed negotiation.
+     * 
+     * @returns {Promise<void>}
      */
     async handleComplete() {
         const result =
@@ -433,7 +430,7 @@ export class ChatPage {
 
             return;
         }
-        
+
         ChatService.closeChat(this.chat.id);
 
         await this.refresh();
@@ -446,6 +443,8 @@ export class ChatPage {
 
     /**
      * Handles negotiation cancellation.
+     * 
+     * @returns {Promise<void>}
      */
     async handleCancel() {
         const result =
@@ -467,22 +466,25 @@ export class ChatPage {
         await this.refresh();
 
 
-        this.alert.success('Sucesso','Negociação cancelada.');
+        this.alert.success('Sucesso', 'Negociação cancelada.');
     }
 
     /**
      * Handles back navigation.
+     * 
+     * @returns {void}
      */
     handleBack() {
-      this.destroy();
-      NavStorage.remove("chat-page");
-      history.back();
+        this.destroy();
+        NavStorage.remove("chat-page");
+        history.back();
     }
 
     /**
      * Handles profile click.
      *
      * @param {Object} payload
+     * @returns {void}
      */
     handleUserProfile(payload) {
         NavStorage.set(
@@ -492,7 +494,7 @@ export class ChatPage {
             }
         );
         this.destroy();
-       window.location.href = ROUTES['profile'];
+        window.location.href = ROUTES['profile'];
     }
 
     /**
@@ -509,7 +511,7 @@ export class ChatPage {
         this.chatHeader.setStatus(
             this.negotiation?.status || 'open'
         );
-        
+
 
         this.negotiationBanner.setNegotiation(
             this.negotiation
@@ -529,7 +531,7 @@ export class ChatPage {
     /**
      * Returns the conversation counterpart user.
      *
-     * @returns {Object|null}
+     * @returns {User|null}
      */
     getOtherUser() {
         if (!this._item) {
@@ -538,13 +540,11 @@ export class ChatPage {
 
         const userId =
             this.currentUserID ===
-            this._item.ownerId
+                this._item.ownerId
                 ? this.proposal.proposerId
                 : this._item.ownerId;
 
-        return UserService.getById(
-            userId
-        );
+        return UserService.getById(userId);
     }
 
     /**
@@ -554,7 +554,7 @@ export class ChatPage {
      * @param {string} eventName
      * @param {Function} handler
      */
-    addChatEventListener(eventName,handler) {
+    addChatEventListener(eventName, handler) {
         Events.on(this.body, eventName, handler);
 
         this.listeners.push({
@@ -567,7 +567,7 @@ export class ChatPage {
      * Releases page resources.
      */
     destroy() {
-      const globalElement = this.body;
+        const globalElement = this.body;
         this.listeners.forEach(listener => {
             Events.off(
                 globalElement,
@@ -591,14 +591,14 @@ export class ChatPage {
     }
 }
 
-document.addEventListener("DOMContentLoaded", async() => {
-  const core = new ChatPage();
-  await core.init();
+document.addEventListener("DOMContentLoaded", async () => {
+    const core = new ChatPage();
+    await core.init();
 });
 // I implemented a lifecycle invalidation for the BFCache (Back-Forward Cache)
 // feature of mobile browsers, ensuring data reactivity in history rollback events.
 window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
-        window.location.reload(); 
+        window.location.reload();
     }
 });

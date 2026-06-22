@@ -10,6 +10,8 @@ import {
   MESSAGE_TYPES
 } from '../core/constants.js';
 
+import "../models/entities.js"
+
 /**
  * Centralizes proposal management operations.
  */
@@ -34,7 +36,7 @@ export class ProposalService {
    * @param {string} data.itemId - Item identifier.
    * @param {string} data.proposerId - User identifier.
    * @param {string} [data.message=''] - Customer-customized message.
-   * @returns {{success:boolean, proposal?:Object, error?:string}}
+   * @returns {{success:boolean, proposal?:Proposal, error?:string}}
    */
   static createProposal(data) {
     const items = AQQStorage.get('items') ?? [];
@@ -171,7 +173,7 @@ export class ProposalService {
    * Returns a proposal by identifier.
    *
    * @param {string} proposalId - Proposal identifier.
-   * @returns {Object|null}
+   * @returns {Proposal|null}
    */
   static getById(proposalId) {
     const proposals =
@@ -190,7 +192,7 @@ export class ProposalService {
    * Ordered by createdAt ascending.
    *
    * @param {string} itemId - Item identifier.
-   * @returns {Object[]}
+   * @returns {Proposal[]}
    */
   static getByItem(itemId) {
     const proposals =
@@ -213,7 +215,7 @@ export class ProposalService {
    * Ordered by createdAt descending.
    *
    * @param {string} userId - User identifier.
-   * @returns {Object[]}
+   * @returns {Proposal[]}
    */
   static getByUser(userId) {
     const proposals =
@@ -254,7 +256,7 @@ export class ProposalService {
    * Ordered by createdAt ascending.
    *
    * @param {string} itemId - Item identifier.
-   * @returns {Object[]}
+   * @returns {Proposal[]}
    */
   static getAcceptedProposals(itemId) {
     const proposals =
@@ -338,11 +340,7 @@ export class ProposalService {
    * @param {boolean} notify - Whether a notification should be created.
    * @returns {boolean}
    */
-  static updateStatus(
-    proposalId,
-    status,
-    notify
-  ) {
+  static updateStatus(proposalId, status, notify) {
     const proposals =
       AQQStorage.get('proposals') ?? [];
 

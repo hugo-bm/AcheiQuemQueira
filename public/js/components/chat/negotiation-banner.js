@@ -306,9 +306,7 @@ export class NegotiationBanner extends BaseComponent {
             </div>`.trim();
   }
 
-  /**
-   * Called after component mount.
-   */
+
   afterMount() {
     this.refs.badge = this.element.querySelector('[data-ref="badge"]');
 
@@ -376,9 +374,6 @@ export class NegotiationBanner extends BaseComponent {
     });
   }
 
-  /**
-   * Destroys component resources.
-   */
   destroy() {
     super.destroy();
     this.refs = {};

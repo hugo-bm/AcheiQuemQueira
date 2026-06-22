@@ -26,12 +26,17 @@ class MyListChatsPage {
     this.initialize();
   }
 
+  /**
+  * Orchestrates the lifecycle initialization sequence of the page.
+  *
+  * @returns {void}
+  */
   async initialize() {
     try {
       const userId = Session.getUserId();
 
       if (!userId) {
-        window.location.href =  ROUTES['login'];
+        window.location.href = ROUTES['login'];
         return;
       }
 
@@ -45,29 +50,45 @@ class MyListChatsPage {
     }
   }
 
+  /**
+  * Attaches interaction event listeners to the component's root element.
+  *
+  * @returns {void}
+  */
   bindEvents() {
     if (!this.backButton) {
       return;
     }
     Events.on(this.backButton, "click", () => {
-        window.location.href = ROUTES['dashboard'];
-      }
+      window.location.href = ROUTES['dashboard'];
+    }
     );
   }
 
+  /**
+   * Fetches the raw collection of chat conversations linked to the logged-in user.
+   *
+   * @returns {Promise<Object[]>} A promise resolving to the collection of user chat objects.
+   */
   async loadChats() {
     const userId = Session.getUserId();
 
     return ChatService.getUserChats(userId);
   }
 
+  /**
+   * Gathers data and constructs the unified visual view model payload for a chat card.
+   *
+   * @param {Object} chat - The raw chat database entity record.
+   * @returns {Promise<Object>} The compiled configuration object for the chat card component.
+   */
   async buildChatCardData(chat) {
     const currentUserId = Session.getUserId();
 
     const otherUserId = chat.participants.find(
-                            participantId =>
-                            participantId !== currentUserId
-                        );
+      participantId =>
+        participantId !== currentUserId
+    );
 
     const otherUser = UserService.getById(otherUserId);
 
@@ -91,18 +112,23 @@ class MyListChatsPage {
       firstName: this.extractFirstName(otherUser?.name),
       fullName: otherUser?.name ?? '',
       lastMessage: lastMessageText,
-      proposalStatus:  proposal?.status ?? 'pending',
+      proposalStatus: proposal?.status ?? 'pending',
       lastActivityDate: this.formatDate(activityDate),
       unreadCount,
       onClick: proposalId => this.openChat(proposalId),
     };
   }
 
+  /**
+   * Asynchronously loads the chat list and handles dynamic batch card mounting.
+   *
+   * @returns {Promise<void>}
+   */
   async renderChatList() {
     this.clearChatList();
 
     const chats = await this.loadChats();
-    if (!Array.isArray(chats) || chats.length === 0 ) {
+    if (!Array.isArray(chats) || chats.length === 0) {
       this.renderEmptyState();
       return;
     }
@@ -127,20 +153,31 @@ class MyListChatsPage {
     this.chatListContainer.appendChild(fragment);
   }
 
+  /**
+   * Instantiates and appends the empty placeholder component when no conversations exist.
+   *
+   * @returns {void}
+   */
   renderEmptyState() {
-    const emptyState =  new EmptyState({
-        icon: 'bi-chat-dots',
-        title: 'Nenhuma conversa encontrada',
-        description: 'Você ainda não iniciou nenhuma negociação.',
-        actionText: 'Explorar anúncios',
-        actionCallback: () => {
-          window.location.href = ROUTES['dashboard'];
-        }
-      });
+    const emptyState = new EmptyState({
+      icon: 'bi-chat-dots',
+      title: 'Nenhuma conversa encontrada',
+      description: 'Você ainda não iniciou nenhuma negociação.',
+      actionText: 'Explorar anúncios',
+      actionCallback: () => {
+        window.location.href = ROUTES['dashboard'];
+      }
+    });
 
     this.chatListContainer.appendChild(emptyState.render());
   }
 
+  /**
+   * Persists the proposal ID to navigation storage and diverts to the chat page view.
+   *
+   * @param {string|number} proposalId - The unique identifier of the target proposal.
+   * @returns {void}
+   */
   openChat(proposalId) {
     NavStorage.set('chat-page',
       {
@@ -151,6 +188,12 @@ class MyListChatsPage {
     window.location.href = ROUTES['chat'];
   }
 
+  /**
+   * Extracts and isolates the first name token from a full name string.
+   *
+   * @param {string|null} name - The raw full name string to evaluate.
+   * @returns {string} The first name string token, or an empty string as a fallback.
+   */
   extractFirstName(name) {
     if (!name) {
       return '';
@@ -159,6 +202,12 @@ class MyListChatsPage {
     return name.trim().split(' ')[0];
   }
 
+  /**
+   * Formats a date string into relative terms ('Hoje', 'Ontem') or a short date pattern ('DD/MM').
+   *
+   * @param {string|null} dateString - The raw ISO date timestamp string to evaluate.
+   * @returns {string} The relative string representation, formatted date, or an empty string as a fallback.
+   */
   formatDate(dateString) {
     if (!dateString) {
       return '';
@@ -189,8 +238,13 @@ class MyListChatsPage {
     return `${day}/${month}`;
   }
 
+  /**
+   * Purges all active chat cards and empties the visual container element from the DOM.
+   *
+   * @returns {void}
+   */
   clearChatList() {
-    this.chatCards.forEach(card =>card.destroy());
+    this.chatCards.forEach(card => card.destroy());
 
     this.chatCards = [];
 
@@ -199,20 +253,23 @@ class MyListChatsPage {
     }
   }
 
+  /**
+   * Releases page resources
+   */
   destroy() {
     this.chatCards.forEach(card =>
       card.destroy()
     );
 
     Events.off(this.backButton, "click", () => {
-        window.location.href = ROUTES['dashboard'];
-      }
+      window.location.href = ROUTES['dashboard'];
+    }
     );
 
     this.chatCards = [];
 
     if (this.backButton) {
-      const clone =this.backButton.cloneNode(true);
+      const clone = this.backButton.cloneNode(true);
 
       this.backButton.replaceWith(clone);
     }
@@ -233,7 +290,7 @@ document.addEventListener(
 // I implemented a lifecycle invalidation for the BFCache (Back-Forward Cache)
 // feature of mobile browsers, ensuring data reactivity in history rollback events.
 window.addEventListener('pageshow', (event) => {
-    if (event.persisted) {
-        window.location.reload(); 
-    }
+  if (event.persisted) {
+    window.location.reload();
+  }
 });

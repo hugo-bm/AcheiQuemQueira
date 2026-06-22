@@ -31,8 +31,6 @@ export class ItemService {
   /**
    * Creates an item.
    *
-   * @typedef {"grau-1"|"grau-2"|"grau-3"|"grau-4"} ItemQuality
-   *
    * @typedef {Object} ItemCreate
    *
    * @property {string} ownerId
@@ -145,8 +143,7 @@ export class ItemService {
   /**
    * Updates an item.
    *
-   * @param {string} itemId - Item identifier.
-   * @typedef {"grau-1"|"grau-2"|"grau-3"|"grau-4"} ItemQuality
+   * @param {string} itemId
    *
    * @typedef {Object} ItemUpdate
    *

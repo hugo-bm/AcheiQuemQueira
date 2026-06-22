@@ -64,7 +64,7 @@ export const CLASSIFICATION_RULES = [
       "gesso",
       "argamassa",
       "vaso",
-      "pia"
+      "pia",
     ],
   },
   {
@@ -388,7 +388,13 @@ export const CLASSIFICATION_RULES = [
       "trena",
       "maleta",
       "reforma",
-      "conserto","enxada", "pá", "ancinho", "foice", "picareta", "serrote"
+      "conserto",
+      "enxada",
+      "pá",
+      "ancinho",
+      "foice",
+      "picareta",
+      "serrote",
     ],
   },
   {

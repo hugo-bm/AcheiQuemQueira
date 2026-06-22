@@ -13,6 +13,8 @@ import { ProfileMetricCard } from '../../js/components/profile/profile-metric-ca
 
 import { AlertRender } from '../../js/components/ui/alert-render.js';
 
+import "../../js/models/entities.js"
+
 class ProfilePage {
   constructor() {
     this.alertRender = new AlertRender("#alert-container");
@@ -34,6 +36,11 @@ class ProfilePage {
     this.initialize();
   }
 
+  /**
+  * Orchestrates the lifecycle initialization sequence of the page.
+  *
+  * @returns {void} 
+  */
   initialize() {
     this.currentUserId = Session.getUserId();
     if (!this.currentUserId) {
@@ -57,6 +64,11 @@ class ProfilePage {
     this.bindEvents();
   }
 
+  /**
+   * Loads the active profile user data record from state storage or the core user service layer.
+   *
+   * @returns {User|null} The resolved user profile object record, or null if loading fails.
+   */
   loadProfile() {
     const navigationData = NavStorage.get("profile-page");
     const profileUserId = navigationData?.userId;
@@ -69,6 +81,11 @@ class ProfilePage {
     return null;
   }
 
+  /**
+   * Renders the primary profile identification card, including the avatar, name, and action layout.
+   *
+   * @returns {void}
+   */
   renderProfile() {
     const container = this.refs.profileContainer;
     if (!container) return;
@@ -133,6 +150,11 @@ class ProfilePage {
     container.appendChild(card);
   }
 
+  /**
+   * Builds the structured grid layout wrapper containing public contact and geolocation fields.
+   *
+   * @returns {HTMLDivElement} The compiled DOM container element with the profile data.
+   */
   buildPublicData() {
     const wrapper = document.createElement("div");
     wrapper.className = "w-100 row g-3 text-start m-0";
@@ -177,6 +199,13 @@ class ProfilePage {
     return wrapper;
   }
 
+  /**
+   * Generates a structured visual card containing labeled metadata fields arranged in a responsive grid.
+   *
+   * @param {string} titleText - The section heading text.
+   * @param {Array<{label: string, value: ?string}>} fields - The list of key-value pairs to render inside the block.
+   * @returns {HTMLDivElement} The compiled bootstrap card element container.
+   */
   createDataBlock(titleText, fields) {
     const card = document.createElement("div");
     card.className = "card w-100 aq-card-surface border-0";
@@ -214,6 +243,11 @@ class ProfilePage {
     return card;
   }
 
+  /**
+   * Instantiates and injects the horizontal row of statistical profile metric cards.
+   *
+   * @returns {void}
+   */
   renderMetrics() {
     if (!this.refs.metricsContainer) return;
     this.refs.metricsContainer.textContent = "";
@@ -256,6 +290,11 @@ class ProfilePage {
     });
   }
 
+  /**
+   * Renders the list of text testimonials and user reviews received by the profile owner.
+   *
+   * @returns {void}
+   */
   renderReviews() {
     if (!this.refs.reviewsContainer) return;
     this.refs.reviewsContainer.textContent = "";
@@ -307,6 +346,11 @@ class ProfilePage {
     this.refs.reviewsContainer.appendChild(fragment);
   }
 
+  /**
+   * Instantiates and appends the empty placeholder component when no conversations exist.
+   *
+   * @returns {void}
+   */
   renderEmptyState() {
     const wrapper = document.createElement("div");
     wrapper.className = "w-100 text-center py-3";
@@ -319,6 +363,12 @@ class ProfilePage {
     wrapper.appendChild(this.emptyState.render());
     return wrapper;
   }
+
+  /**
+  * Attaches interaction event listeners to the component's root element.
+  *
+  * @returns {void}
+  */
   bindEvents() {
     if (this.refs.backButton) {
       this.refs.backButton.addEventListener("click", () => {
@@ -361,6 +411,13 @@ class ProfilePage {
         });
       });
   }
+
+  /**
+   * Formats an ISO date string into a standard DD/MM/YYYY string.
+   *
+   * @param {string} dateString - The raw date timestamp or ISO string to be formatted.
+   * @returns {string} The formatted date string in DD/MM/YYYY pattern.
+   */
   formatDate(dateString) {
     const date = new Date(dateString);
     const day = String(date.getDate()).padStart(2, "0");
@@ -369,6 +426,9 @@ class ProfilePage {
     return `${day}/${month}/${year}`;
   }
 
+  /**
+   * Releases page resources
+   */
   destroy() {
     this.avatarComponent?.destroy();
     this.metricComponents.forEach((component) => component.destroy());
@@ -381,12 +441,12 @@ class ProfilePage {
   }
 }
 
-document.addEventListener('DOMContentLoaded',() => new ProfilePage());
+document.addEventListener('DOMContentLoaded', () => new ProfilePage());
 
 // I implemented a lifecycle invalidation for the BFCache (Back-Forward Cache)
 // feature of mobile browsers, ensuring data reactivity in history rollback events.
 window.addEventListener('pageshow', (event) => {
-    if (event.persisted) {
-        window.location.reload(); 
-    }
+  if (event.persisted) {
+    window.location.reload();
+  }
 });
