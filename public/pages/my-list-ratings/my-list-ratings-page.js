@@ -30,8 +30,10 @@ class MyListRatingsPage {
   }
 
   /**
-   * Initializes page.
-   */
+    * Orchestrates the lifecycle initialization sequence of the page.
+    *
+    * @returns {void} 
+    */
   initialize() {
     this.currentUserId = Session.getUserId();
 
@@ -212,6 +214,8 @@ class MyListRatingsPage {
 
   /**
    * Renders empty state.
+   * 
+   * @returns {void} 
    */
   renderEmptyState() {
     const emptyState =
@@ -229,7 +233,9 @@ class MyListRatingsPage {
   }
 
   /**
-   * Registers events.
+   * Attaches interaction event listeners to the component's root element.
+   * 
+   * @returns {void} 
    */
   bindEvents() {
     if (!this.backButton) {
@@ -250,6 +256,8 @@ class MyListRatingsPage {
 
   /**
    * Clears container.
+   * 
+   * @returns {void}
    */
   clearContainer() {
     while (this.ratingsContainer && this.ratingsContainer.firstChild) {

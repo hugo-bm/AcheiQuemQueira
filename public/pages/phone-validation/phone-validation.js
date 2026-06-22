@@ -66,6 +66,11 @@ export class PhoneValidationPage {
         this.initialize();
     }
 
+    /**
+    * Orchestrates the lifecycle initialization sequence of the page.
+    *
+    * @returns {void} 
+    */
     initialize() {
         this.alertRender = new AlertRender('#alert-container');
 
@@ -82,9 +87,7 @@ export class PhoneValidationPage {
         this.user = UserService.getById(context.userId);
 
         if (!this.user) {
-            this.showError(
-                'Usuário não encontrado.'
-            );
+            this.showError('Usuário não encontrado.');
 
             window.location.href = ROUTES['register'];
 
@@ -98,26 +101,26 @@ export class PhoneValidationPage {
         this.registerEvents();
     }
 
+    /**
+    * Caches required DOM element references for the phone validation interface.
+    *
+    * @returns {void}
+    */
     captureElements() {
-        this.elements.content =
-            document.getElementById(
-                'validation-content'
-            );
+        this.elements.content = document.getElementById('validation-content');
 
-        this.elements.maskedPhone =
-            document.getElementById(
-                'masked-phone'
-            );
+        this.elements.maskedPhone = document.getElementById('masked-phone');
 
-        this.elements.sendCodeButton =
-            document.getElementById(
-                'send-code-button'
-            );
+        this.elements.sendCodeButton = document.getElementById('send-code-button');
     }
 
+    /**
+    * Attaches interaction event listeners to the component's root element.
+    *
+    * @returns {void}
+    */
     registerEvents() {
-        const sendHandler =
-            this.handleSendCode.bind(this);
+        const sendHandler = this.handleSendCode.bind(this);
 
         Events.on(this.elements.sendCodeButton, "click", sendHandler);
 
@@ -129,10 +132,15 @@ export class PhoneValidationPage {
     }
 
     renderInitialState() {
-        this.elements.maskedPhone.textContent =
-            this.maskPhone(this.user.phone);
+        this.elements.maskedPhone.textContent = this.maskPhone(this.user.phone);
     }
 
+    /**
+     * Obfuscates the phone number string, leaving only the last four digits visible.
+     *
+     * @param {string|number} phone - The raw phone number to be masked.
+     * @returns {string} The formatted and masked phone string pattern.
+     */
     maskPhone(phone) {
         const digits = String(phone).replace(/\D/g, '');
 
@@ -141,24 +149,38 @@ export class PhoneValidationPage {
         return `(**) *****-${suffix}`;
     }
 
+    /**
+     * Requests a new phone verification token from the service layer and returns it.
+     *
+     * @returns {string|null} The generated verification token code, or null if the request fails.
+     */
     generateCode() {
 
         const data = UserService.requestPhoneVerification(this.user.id);
-        if(!data.success){
-            this.alertRender.danger("Erro ao gerar o código de validação",data.error, 2000);
+        if (!data.success) {
+            this.alertRender.danger("Erro ao gerar o código de validação", data.error, 2000);
         }
-        return  data.code;
+        return data.code;
     }
 
+    /**
+     * Dispatches the dispatch logic payload to trigger and send the verification SMS token.
+     *
+     * @returns {void}
+     */
     handleSendCode() {
-        this.generatedCode =
-            this.generateCode();
+        this.generatedCode = this.generateCode();
 
         this.openSmsModal();
 
         this.renderValidationMode();
     }
 
+    /**
+     * Instantiates and reveals the native Bootstrap modal dialog containing the SMS token form.
+     *
+     * @returns {void}
+     */
     openSmsModal() {
         if (this.smsModal) {
             this.smsModal.destroy();
@@ -169,9 +191,7 @@ export class PhoneValidationPage {
                 this.generatedCode
             );
 
-        const ele =this.smsModal.mount(
-            document.body
-        );
+        const ele = this.smsModal.mount(document.body);
 
         this.smsModal.open();
 
@@ -181,6 +201,11 @@ export class PhoneValidationPage {
 
     }
 
+    /**
+     * Toggles the interface layout mode to transition to the code entry validation stage.
+     *
+     * @returns {void}
+     */
     renderValidationMode() {
         const container =
             this.elements.content;
@@ -201,7 +226,7 @@ export class PhoneValidationPage {
             description
         );
 
-        const input =  document.createElement('input');
+        const input = document.createElement('input');
 
         input.type = 'text';
 
@@ -219,7 +244,7 @@ export class PhoneValidationPage {
 
         container.appendChild(feedback);
 
-        const validateButton =  document.createElement('button');
+        const validateButton = document.createElement('button');
 
         validateButton.type = 'button';
 
@@ -235,7 +260,7 @@ export class PhoneValidationPage {
 
         resendButton.type = 'button';
 
-        resendButton.id ='resend-code-button';
+        resendButton.id = 'resend-code-button';
 
         resendButton.className = 'btn btn-link aq-text-primary w-100 mt-3';
 
@@ -251,7 +276,7 @@ export class PhoneValidationPage {
 
         this.elements.resendButton = resendButton;
 
-        const validateHandler =  this.handleValidate.bind(this);
+        const validateHandler = this.handleValidate.bind(this);
 
         const resendHandler = this.handleResend.bind(this);
 
@@ -259,7 +284,7 @@ export class PhoneValidationPage {
 
         Events.on(resendButton, "click", resendHandler);
 
-         Events.on(input, "past", (event) => {
+        Events.on(input, "past", (event) => {
             event.preventDefault();
             this.alertRender.warning('Não é permitido colar informações neste campo.')
         });
@@ -268,9 +293,9 @@ export class PhoneValidationPage {
             element: input,
             event: 'past',
             handler: (event) => {
-            event.preventDefault();
-            this.alertRender.warning('Não é permitido colar informações neste campo.')
-        }
+                event.preventDefault();
+                this.alertRender.warning('Não é permitido colar informações neste campo.')
+            }
         });
 
         this.listeners.push({
@@ -288,15 +313,18 @@ export class PhoneValidationPage {
         this.startResendCountdown();
     }
 
+    /**
+     * Initiates the numerical countdown ticker interval for SMS code retransmission.
+     *
+     * @returns {void}
+     */
     startResendCountdown() {
         this.remainingSeconds = 30;
 
         this.updateResendButton();
 
         if (this.timerId) {
-            clearInterval(
-                this.timerId
-            );
+            clearInterval(this.timerId);
         }
 
         this.timerId = setInterval(() => {
@@ -311,46 +339,51 @@ export class PhoneValidationPage {
 
                 this.timerId = null;
 
-                this.elements.resendButton.disabled =
-                    false;
+                this.elements.resendButton.disabled = false;
 
-                this.elements.resendButton.textContent =
-                    'Reenviar código';
+                this.elements.resendButton.textContent = 'Reenviar código';
             }
         }, 1000);
     }
 
+    /**
+     * Updates the resend button label text with the active remaining countdown seconds.
+     *
+     * @returns {void}
+     */
     updateResendButton() {
-        this.elements.resendButton.textContent =
-            `Reenviar código em ${this.remainingSeconds}s`;
+        this.elements.resendButton.textContent = `Reenviar código em ${this.remainingSeconds}s`;
     }
 
+    /**
+    * Regenerates the SMS token, opens the delivery notification, and triggers the retry countdown.
+    *
+    * @returns {void}
+    */
     handleResend() {
-        this.generatedCode =
-            this.generateCode();
+        this.generatedCode = this.generateCode();
 
         this.openSmsModal();
 
-        this.elements.resendButton.disabled =
-            true;
+        this.elements.resendButton.disabled = true;
 
         this.startResendCountdown();
     }
 
+    /**
+     * Validate the submitted SMS code.
+     *
+     * @returns {void}
+     */
     handleValidate() {
-        const value =
-            this.elements.codeInput.value.trim();
+        const value = this.elements.codeInput.value.trim();
 
         this.clearCodeError();
 
         if (value !== this.generatedCode) {
-            this.showCodeError(
-                'Código inválido.'
-            );
+            this.showCodeError('Código inválido.');
 
-            this.showError(
-                'Não foi possível validar o código informado.'
-            );
+            this.showError('Não foi possível validar o código informado.');
 
             return;
         }
@@ -378,15 +411,23 @@ export class PhoneValidationPage {
         }, 1000);
     }
 
+    /**
+     * Applies validation error styles and displays a custom error message for the SMS code input.
+     *
+     * @param {string} message - The validation error message text to display.
+     * @returns {void}
+     */
     showCodeError(message) {
-        this.elements.codeInput.classList.add(
-            'is-invalid'
-        );
+        this.elements.codeInput.classList.add('is-invalid');
 
-        this.elements.codeError.textContent =
-            message;
+        this.elements.codeError.textContent = message;
     }
 
+    /**
+     * Clears validation error styles and messages from the SMS code input field.
+     *
+     * @returns {void}
+     */
     clearCodeError() {
         if (!this.elements.codeInput) {
             return;
@@ -404,17 +445,18 @@ export class PhoneValidationPage {
         this.alertRender.danger(message);
     }
 
+    /**
+     * Releases page resources
+     */
     destroy() {
         this.listeners.forEach(listener => {
-            Events.off(listener.element,listener.event, listener.handler);
+            Events.off(listener.element, listener.event, listener.handler);
         });
 
         this.listeners = [];
 
         if (this.timerId) {
-            clearInterval(
-                this.timerId
-            );
+            clearInterval(this.timerId);
         }
 
         if (this.smsModal) {
@@ -434,6 +476,6 @@ document.addEventListener(
 // feature of mobile browsers, ensuring data reactivity in history rollback events.
 window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
-        window.location.reload(); 
+        window.location.reload();
     }
 });

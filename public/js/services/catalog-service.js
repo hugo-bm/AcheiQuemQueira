@@ -1,18 +1,5 @@
-import { AQQStorage } from '../core/aqq-storage.js'; // Ajuste o caminho se necessário
-
-/**
- * @typedef {Object} Category
- * @property {string} id - Unique identifier for the category.
- * @property {string} name - Display name of the category.
- * @property {string} icon - Bootstrap icon class name.
- */
-
-/**
- * @typedef {Object} Subcategory
- * @property {string} id - Unique identifier for the subcategory.
- * @property {string} categoryId - Foreign key linking to the parent category.
- * @property {string} name - Display name of the subcategory.
- */
+import { AQQStorage } from '../core/aqq-storage.js';
+import "../models/entities.js"
 
 /**
  * @typedef {Object} CatalogStructure
@@ -34,7 +21,7 @@ import { AQQStorage } from '../core/aqq-storage.js'; // Ajuste o caminho se nece
 
 /**
  * @typedef {Object} ServiceResponse
- * @property {Object|null} data - The payload returned by the operation.
+ * @property {SubcategoryContext|CategoryWithSubcategories|null} data - The payload returned by the operation.
  * @property {Error|null} error - The captured exception or null on success.
  */
 
@@ -126,7 +113,7 @@ export class CatalogService {
         return { data: null, error: null };
       }
 
-      // Localiza o nó pai imediato através do id indexado
+      // Locates the immediate parent node using the indexed ID.
       const category = catalog.categories.find(cat => cat && cat.id === subcategory.categoryId);
 
       if (!category) {

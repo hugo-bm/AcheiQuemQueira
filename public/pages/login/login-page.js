@@ -34,6 +34,8 @@ export class LoginPage {
 
     /**
      * Initializes page resources.
+     * 
+     * @returns {void} 
      */
     initialize() {
         this.captureElements();
@@ -43,23 +45,23 @@ export class LoginPage {
 
     /**
      * Captures DOM elements.
+     * 
+     * @returns {void} 
      */
     captureElements() {
-        this.emailInput =
-            document.getElementById('email');
+        this.emailInput = document.getElementById('email');
 
-        this.passwordInput =
-            document.getElementById('password');
+        this.passwordInput = document.getElementById('password');
 
-        this.loginButton =
-            document.getElementById('login-button');
+        this.loginButton = document.getElementById('login-button');
 
-        this.forgotPasswordLink =
-            document.getElementById('forgot-password-link');
+        this.forgotPasswordLink = document.getElementById('forgot-password-link');
     }
 
     /**
      * Creates alert renderer.
+     * 
+     * @returns {void} 
      */
     createAlert() {
         this.alert = new AlertRender('#alert-container');
@@ -67,10 +69,11 @@ export class LoginPage {
 
     /**
      * Registers page events.
+     * 
+     * @returns {void} 
      */
     registerEvents() {
-        const loginHandler =
-            this.handleLogin.bind(this);
+        const loginHandler = this.handleLogin.bind(this);
 
         const enterHandler =
             this.handlePasswordKeyDown.bind(this);
@@ -144,6 +147,8 @@ export class LoginPage {
 
     /**
      * Handles login flow.
+     * 
+     * @returns {Promise<void>} 
      */
     async handleLogin() {
         this.clearValidationErrors();
@@ -153,15 +158,13 @@ export class LoginPage {
         const password = this.passwordInput.value;
 
 
-        const validation =
-            this.validate(email, password);
+        const validation = this.validate(email, password);
 
         if (!validation.valid) {
             validation.firstInvalidField?.focus();
             return;
         }
-        const result =
-        await AuthService.login(email, password);
+        const result = await AuthService.login(email, password);
         
         if (!result?.success) {
             this.passwordInput.value = '';
@@ -169,8 +172,7 @@ export class LoginPage {
 
             this.alert.danger(
                 'Erro',
-                result?.error ??
-                'Email ou senha inválidos.',
+                result?.error ?? 'Email ou senha inválidos.',
                 5000
             );
 
@@ -208,9 +210,7 @@ export class LoginPage {
                 emailErrMsg[resultEmailValidation.error]
             );
 
-            firstInvalidField =
-                firstInvalidField ||
-                this.emailInput;
+            firstInvalidField = firstInvalidField || this.emailInput;
         }
 
         if (!TextValidator.validateRequired(password).valid) {
@@ -219,9 +219,7 @@ export class LoginPage {
                 'Senha é obrigatória.'
             );
 
-            firstInvalidField =
-                firstInvalidField ||
-                this.passwordInput;
+            firstInvalidField =  firstInvalidField || this.passwordInput;
         }
 
         return {
@@ -239,10 +237,7 @@ export class LoginPage {
     showFieldError(field, message) {
         field.classList.add('is-invalid');
 
-        const feedback =
-            document.querySelector(
-                `[data-error-for="${field.id}"]`
-            );
+        const feedback = document.querySelector(`[data-error-for="${field.id}"]`);
 
         if (feedback) {
             feedback.textContent = message;
@@ -251,6 +246,8 @@ export class LoginPage {
 
     /**
      * Clears all validation errors.
+     * 
+     * @returns {void} 
      */
     clearValidationErrors() {
         [
@@ -269,6 +266,8 @@ export class LoginPage {
 
     /**
      * Releases page resources.
+     * 
+     * @returns {void} 
      */
     destroy() {
         this.listeners.forEach(

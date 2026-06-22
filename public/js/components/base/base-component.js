@@ -159,7 +159,7 @@ export class BaseComponent {
   }
 
   /**
-   * Destroys the component.
+   * Releases component resources
    */
   destroy() {
     this.listeners.forEach(listener => {

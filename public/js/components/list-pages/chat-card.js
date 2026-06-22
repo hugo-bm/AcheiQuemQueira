@@ -4,17 +4,7 @@ import { Events } from "../../core/events.js"
 
 /**
  * Represents a Proposal item component or controller.
- * @extends {BaseCardComponent} // Replace 'Object' with the actual base class name if known (e.g., HTMLElement, Component)
- * 
- * @property {string|number} proposalId - The unique identifier for the proposal.
- * @property {string|null} avatarUrl - The URL of the user's avatar image.
- * @property {string} firstName - The first name of the user.
- * @property {string} fullName - The full name of the user.
- * @property {string} lastMessage - The last message content or a fallback message.
- * @property {string} proposalStatus - The current status of the proposal ('pending', 'accepted', etc.).
- * @property {string} lastActivityDate - The ISO string or formatted date of the last activity.
- * @property {number} unreadCount - The number of unread messages.
- * @property {Function|null} onClick - The callback function triggered on click events.
+ * @extends {BaseCardComponent} 
  */
 export class ChatCard extends BaseCardComponent {
     /**
@@ -97,14 +87,14 @@ export class ChatCard extends BaseCardComponent {
 
     renderBody() {
         if (this.variant === 'proposal') {
-        return this.renderProposalBody();
+            return this.renderProposalBody();
+        }
+
+        return this.renderChatBody();
+
     }
 
-    return this.renderChatBody();
-        
-    }
-
-    renderChatBody () {
+    renderChatBody() {
         return `
         <div class="d-flex align-items-center gap-3">
             <div data-ref="avatar"></div>
@@ -125,7 +115,7 @@ export class ChatCard extends BaseCardComponent {
     }
 
     renderProposalBody() {
-    return `
+        return `
 <div class="d-flex align-items-center gap-3">
     <div data-ref="avatar"></div>
     <div class="flex-grow-1 min-w-0">
@@ -143,7 +133,7 @@ export class ChatCard extends BaseCardComponent {
         </div>
     </div>
 </div>`.trim();
-}
+    }
 
     afterMount() {
         this.registerRefs();
@@ -155,6 +145,11 @@ export class ChatCard extends BaseCardComponent {
         this.updateStatus(this.proposalStatus);
     }
 
+    /**
+     * Caches and registers essential component DOM references.
+     *
+     * @returns {void}
+     */
     registerRefs() {
         this.registerRef(
             'avatar',
@@ -177,6 +172,11 @@ export class ChatCard extends BaseCardComponent {
         );
     }
 
+    /**
+     * Instantiates and mounts the user Avatar child component into its placeholder.
+     *
+     * @returns {void}
+     */
     mountAvatar() {
         const avatarContainer = this.getRef('avatar');
 
@@ -185,41 +185,46 @@ export class ChatCard extends BaseCardComponent {
         }
 
         this.avatar = new Avatar({
-                imageUrl: this.avatarUrl,
-                name: this.fullName,
-                size: 'md'
-            });
+            imageUrl: this.avatarUrl,
+            name: this.fullName,
+            size: 'md'
+        });
 
         this.avatar.mount(avatarContainer);
 
         if (this.avatar.element) {
-            this.avatar.element.setAttribute('aria-hidden','true');
+            this.avatar.element.setAttribute('aria-hidden', 'true');
         }
     }
 
+    /**
+     * Attaches interaction event listeners to the component's root element.
+     *
+     * @returns {void}
+     */
     bindEvents() {
         Events.on(this.element, "click", this.handleClick);
         Events.on(this.element, 'keydown', this.handleKeyboard);
-        this.listeners.push( {
-            element:this.element,
+        this.listeners.push({
+            element: this.element,
             eventName: "click",
             handler: this.handleClick
         });
         this.listeners.push({
-            element:this.element,
+            element: this.element,
             eventName: "keydown",
             handler: this.handleKeyboard
         });
     }
 
     handleClick() {
-        if (typeof this.onClick === 'function' ) {
+        if (typeof this.onClick === 'function') {
             this.onClick(this.proposalId);
         }
     }
 
     handleKeyboard(event) {
-        if (event.key !== 'Enter' &&event.key !== ' ') {
+        if (event.key !== 'Enter' && event.key !== ' ') {
             return;
         }
 
@@ -282,6 +287,12 @@ export class ChatCard extends BaseCardComponent {
         this.registerRef('unread-badge', badge);
     }
 
+    /**
+     * Updates the component's last message text.
+     *
+     * @param {string|null} message - The raw message content to apply.
+     * @returns {void}
+     */
     updateLastMessage(message) {
         const content = message?.trim() || 'Nenhuma mensagem enviada.';
 
@@ -296,6 +307,12 @@ export class ChatCard extends BaseCardComponent {
         messageElement.textContent = content;
     }
 
+    /**
+     * Updates the internal proposal status value.
+     *
+     * @param {string} status - The new status string to apply.
+     * @returns {void}
+     */
     updateStatus(status) {
         this.proposalStatus = status;
 
@@ -310,6 +327,12 @@ export class ChatCard extends BaseCardComponent {
         statusElement.textContent = this.getStatusLabel();
     }
 
+    /**
+     * Retrieves the CSS class value for the current proposal status.
+     *
+     * @returns {string} The formatted status label, or 'Desconhecido' as a fallback.
+     * @private
+     */
     getStatusVariant() {
         const STATUS_STYLING = {
             pending: 'warning',
@@ -321,8 +344,13 @@ export class ChatCard extends BaseCardComponent {
         return STATUS_STYLING[this.proposalStatus] || 'secondary';
     }
 
+    /**
+     * Retrieves the localized display label for the current proposal status.
+     *
+     * @returns {string} The formatted status label, or 'Desconhecido' as a fallback.
+     */
     getStatusLabel() {
-       const STATUS_LABELS = {
+        const STATUS_LABELS = {
             pending: 'Pendente',
             accepted: 'Aceita',
             rejected: 'Recusada',
@@ -333,12 +361,26 @@ export class ChatCard extends BaseCardComponent {
         return STATUS_LABELS[this.proposalStatus] ?? 'Desconhecido';
     }
 
+    /**
+     * Extracts the last name from the full name string.
+     *
+     * @returns {string} The last name token, or an empty string if it does not exist.
+     */
     getLastName() {
         const parts = this.fullName.trim().split(/\s+/);
 
         return parts.length > 1 ? parts[parts.length - 1] : '';
     }
 
+    /**
+  * Updates the component's structural variant dynamically at runtime.
+  * 
+  * This method alters the card's theme or layout configuration (e.g., standard chat vs 
+  * incoming item proposal view), triggering necessary internal updates to match the context.
+  *
+  * @param {('chat'|'proposal')} [variant='chat'] - The target visual variant layout identifier.
+  * @returns {void}
+  */
     setVariant(variant = 'chat') {
         this.variant =
             variant === 'proposal'

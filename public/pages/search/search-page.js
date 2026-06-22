@@ -47,6 +47,11 @@ export class SearchPage {
         this.init();
     }
 
+    /**
+     * Orchestrates the lifecycle initialization sequence of the page.
+     *
+     * @returns {void}
+     */
     init() {
         if (!Session.isAuthenticated()) {
             NavStorage.remove('search-page');
@@ -71,12 +76,22 @@ export class SearchPage {
        }
     }
 
+    /**
+     * Caches required DOM element references for the search page.
+     *
+     * @returns {void}
+    */
     cacheElements() {
         this.refs.headerContainer = document.getElementById('search-header');
         this.refs.filterContainer = document.getElementById('search-filter-container');
         this.refs.resultsContainer = document.getElementById('results-container');
     }
 
+    /**
+     * Retrieves and restores the cached search query text and filter states from navigation storage.
+     *
+     * @returns {void}
+     */
     loadSearchState() {
         const state = NavStorage.get('search-page');
 
@@ -91,6 +106,12 @@ export class SearchPage {
         }
     }
 
+    /**
+     * Persists the current text query and active filters state into navigation cache storage.
+     *
+     * @returns {void}
+
+     */
     saveSearchState() {
         NavStorage.set('search-page',
             {
@@ -100,9 +121,11 @@ export class SearchPage {
         );
     }
 
-     /**
-   * Creates page header.
-   */
+    /**
+     * Creates page header.
+     * 
+     * @returns {void}
+     */
     renderHeader() {
         const header = this.refs.headerContainer;
         header.replaceChildren();
@@ -205,6 +228,11 @@ export class SearchPage {
         this.addListener(searchInput, 'keydown', this.handleSearchKeyDown);
     }
 
+    /**
+     * Instantiates and mounts the dynamic SearchFilterPanel component into its placeholder.
+     *
+     * @returns {void}
+     */
     renderFilters() {
         if (!this.refs.filterContainer) 
         {
@@ -218,10 +246,21 @@ export class SearchPage {
         this.searchFilterPanel.mount(this.refs.filterContainer);
     }
 
+    /**
+     * Executes local resource cleanup and diverts the viewport back to the dashboard route.
+     *
+     * @returns {void}
+     */
     handleBack() {
         window.location.href = ROUTES['dashboard'];
     }
 
+    /**
+     * Intercepts keyboard inputs to trigger the search workflow exclusively when the Enter key is pressed.
+     *
+     * @param {KeyboardEvent} event - The native keyboard interaction event.
+     * @returns {void}
+     */
     handleSearchKeyDown(event) {
         if (event.key !== 'Enter') {
             return;
@@ -231,6 +270,11 @@ export class SearchPage {
         this.handleSearch();
     }
 
+    /**
+     * Extends text search logic by capturing the query, resetting filters, and refreshing results.
+     *
+     * @returns {void}
+     */
     handleSearch() {
         this.term = this.refs.searchInput?.value?.trim() || '';
 
@@ -255,6 +299,12 @@ export class SearchPage {
         this.executeSearch();
     }
 
+    /**
+     * Handles the filter panel change event to update, synchronize, and persist the new criteria state.
+     *
+     * @param {Object} filters - The new dictionary object containing the active filter properties.
+     * @returns {void}
+     */
     handleFilterChange(filters) {
         if (this.isResettingFilters) {
             return;
@@ -266,6 +316,12 @@ export class SearchPage {
 
         this.executeSearch();
     }
+
+    /**
+     * Executes the main search pipeline by scoring matching items, applying active filters, and sorting results.
+     *
+     * @returns {void}
+     */
     executeSearch() {
         const items = ItemService.getActiveItems();
         const results = [];
@@ -312,6 +368,14 @@ export class SearchPage {
         this.renderResults(filteredResults);
     }
 
+    /**
+     * Calculates a matching relevance score for an item based on search term weights.
+     *
+     * @param {Object} item - The item entity record to evaluate.
+     * @param {string} categoryName - The string name of the item's main category.
+     * @param {string} subcategoryName - The string name of the item's subcategory.
+     * @returns {number} The cumulative relevance integer score.
+     */
     calculateScore(item, categoryName, subcategoryName) {
         if (!this.term) {
             return 1;
@@ -348,10 +412,22 @@ export class SearchPage {
         return score;
     }
 
+    /**
+     * Normalizes a text string by forcing lowercase, trimming whitespace, and stripping accents.
+     *
+     * @param {string|null} value - The raw string input to sanitize.
+     * @returns {string} The normalized and safe plain text string token.
+     */
     normalizeText(value) {
         return String(value ?? '').toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     }
 
+    /**
+     * Filters the items collection against structural, catalog, and geographical parameters.
+     *
+     * @param {Array<Object>} items - The collection of search entry records to filter.
+     * @returns {Array<Object>} The filtered subset array of items.
+     */
     applyFilters(items) {
          if (!Array.isArray(items)) return [];
 
@@ -386,6 +462,12 @@ export class SearchPage {
         });
     }
 
+    /**
+     * Sorts a shallow copy of the item array chronologically or financially based on active criteria.
+     *
+     * @param {Array<Object>} items - The list of hydrated item records to sort.
+     * @returns {Array<Object>} A new sorted instance containing the item records.
+     */
     applySorting(items) {
         const results = [...items];
 
@@ -409,10 +491,12 @@ export class SearchPage {
         }
         return results;
     }
+
     /**
  * Renders search results.
  *
  * @param {Object[]} items
+ * @returns {void}
  */
     renderResults(items) {
         if (!this.refs.resultsContainer) {
@@ -453,6 +537,7 @@ export class SearchPage {
      * Handles item click.
      *
      * @param {Object} item
+     * @returns {void}
      */
     handleItemClick(item) {
         NavStorage.set('describe-item-page', { itemId: item.id });
@@ -462,6 +547,8 @@ export class SearchPage {
    
     /**
      * Mounts filter panel.
+     * 
+     * @returns {void}
      */
     renderFilterPanel() {
         if (!this.filterContainer) {
@@ -486,6 +573,8 @@ export class SearchPage {
 
     /**
      * Registers page events.
+     * 
+     * @returns {void}
      */
     bindEvents() {
         this.addListener(this.refs.backButton, 'click', this.handleBackClick);
@@ -495,6 +584,8 @@ export class SearchPage {
 
     /**
      * Removes page events.
+     * 
+     * @returns {void}
      */
     unbindEvents() {
         this.removeListener(this.refs.backButton, 'click', this.handleBackClick);
@@ -508,6 +599,7 @@ export class SearchPage {
      * @param {HTMLElement|Document|Window} element
      * @param {string} eventName
      * @param {Function} handler
+     * @returns {void}
      */
     addListener(element, eventName, handler) {
         Events.on(element, eventName, handler);
@@ -525,6 +617,7 @@ export class SearchPage {
      * @param {HTMLElement|Document|Window} element
      * @param {string} eventName
      * @param {Function} handler
+     * @returns {void}
      */
     removeListener(element, eventName, handler) {
         Events.off(element, eventName, handler);
@@ -541,6 +634,8 @@ export class SearchPage {
 
     /**
      * Handles back navigation.
+     * 
+     * @returns {void}
      */
     handleBackClick() {
         this.destroy();
@@ -549,6 +644,8 @@ export class SearchPage {
 
     /**
      * Handles search button click.
+     * 
+     * @returns {void}
      */
     handleSearchClick() {
         this.handleSearch(this.refs.searchInput.value);
@@ -558,6 +655,7 @@ export class SearchPage {
      * Handles Enter/Search key.
      *
      * @param {KeyboardEvent} event
+     * @returns {void}
      */
     handleSearchKeydown(event) {
         if (event.key !== 'Enter') {

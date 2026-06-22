@@ -12,6 +12,7 @@ import { ROUTES } from "../../js/core/constants.js";
 
 import { ItemValidator } from "../../js/validation/item.js";
 import { Validator } from "../../js/validation/validator.js";
+import "../../js/models/entities.js"
 
 export class AddItemPage {
   constructor() {
@@ -36,6 +37,11 @@ export class AddItemPage {
     this.boundHandlers = {};
   }
 
+  /**
+   * Orchestrates the asynchronous lifecycle initialization sequence of the page.
+   *
+   * @returns {Promise<void>} A promise that resolves when initialization completes.
+   */
   async init() {
     this.validateSession();
     this.cacheDom();
@@ -44,6 +50,11 @@ export class AddItemPage {
     this.updateImageCounter();
   }
 
+  /**
+  * Validates the current user session and diverts to login if unauthenticated.
+  *
+  * @returns {void}
+  */
   validateSession() {
     const userId = Session.getUserId();
 
@@ -55,6 +66,11 @@ export class AddItemPage {
     this.userId = userId;
   }
 
+  /**
+   * Caches required DOM element references for the add item form.
+   *
+   * @returns {void}
+   */
   cacheDom() {
     this.refs.backButton = document.getElementById("back-button");
 
@@ -83,7 +99,7 @@ export class AddItemPage {
     );
 
     this.refs.imagesCounter = document.getElementById("images-counter");
-    
+
     this.refs.imagesCard = document.getElementById("images-card");
 
     this.refs.saveButton = document.getElementById("save-item-button");
@@ -95,6 +111,11 @@ export class AddItemPage {
     this.content = document.getElementById("card-conteiner");
   }
 
+  /**
+  * Fetches the database catalog and triggers the category select options population.
+  *
+  * @returns {void}
+  */
   loadCatalog() {
     const { data } = CatalogService.getAllCatalog();
 
@@ -126,8 +147,8 @@ export class AddItemPage {
 
     const subcategories = categoryId
       ? this.catalog.subcategories.filter(
-          (item) => item.categoryId === categoryId,
-        )
+        (item) => item.categoryId === categoryId,
+      )
       : this.catalog.subcategories;
 
     subcategories.forEach((subcategory) => {
@@ -140,10 +161,15 @@ export class AddItemPage {
     });
   }
 
+  /**
+   * Attaches interaction event listeners to the component's root element.
+   *
+   * @returns {void}
+   */
   bindEvents() {
-    this.boundHandlers.back = () => { 
-      this.destroy(); 
-      history.back(); 
+    this.boundHandlers.back = () => {
+      this.destroy();
+      history.back();
     };
 
     this.boundHandlers.titleBlur = () => this.suggestCategory();
@@ -175,6 +201,16 @@ export class AddItemPage {
     );
   }
 
+  /**
+  * Evaluates the current input title to predict, classify, and auto-populate 
+  * the most accurate category and subcategory selectors.
+  * 
+  * This method triggers on title entry, calling the matching classifier service, 
+  * updating the primary category dropdown, dynamically rebuilding the dependent 
+  * subcategory options list, and setting the predicted subcategory value.
+  *
+  * @returns {void}
+  */
   suggestCategory() {
     const title = this.refs.title.value.trim();
 
@@ -195,6 +231,12 @@ export class AddItemPage {
     this.refs.subcategory.value = result.subcategoryId;
   }
 
+  /**
+  * Processes file input selection and appends files up to a strict 5-image limit.
+  *
+  * @param {Event} event - The native change event from the file input.
+  * @returns {void}
+  */
   handleImageSelection(event) {
     const files = Array.from(event.target.files);
 
@@ -209,6 +251,12 @@ export class AddItemPage {
     event.target.value = "";
   }
 
+  /**
+  * Normalizes the image path, updates the data array, and renders the square preview block.
+  *
+  * @param {File} file - The raw image file object selected by the user.
+  * @returns {void}
+  */
   addImage(file) {
     const path = this.normalizeImagePath(file.name);
 
@@ -245,18 +293,31 @@ export class AddItemPage {
     this.updateImageCounter();
   }
 
+  /**
+   * Sanitizes the file path string and returns a standardized public relative image URL.
+   *
+   * @param {string} path - The raw file path or filename to be normalized.
+   * @returns {string} The formatted public asset relative path string.
+   */
   normalizeImagePath(path) {
     const normalized = String(path).replace(/\\/g, "/");
 
-    const index = normalized.indexOf("assets/images");
+    const index = normalized.indexOf("public/images");
 
     if (index >= 0) {
       return `/${normalized.substring(index)}`;
     }
 
-    return `/assets/images/${normalized}`;
+    return `/public/images/${normalized}`;
   }
 
+  /**
+   * Removes an image from the data array and deletes its preview block from the DOM.
+   *
+   * @param {HTMLElement} preview - The visual preview element to be removed.
+   * @param {string} path - The normalized path of the image to extract from the collection.
+   * @returns {void}
+   */
   removeImage(preview, path) {
     const index = this.images.indexOf(path);
 
@@ -276,17 +337,23 @@ export class AddItemPage {
 
   updateImageEmptyState() {
     if (this.images.length > 0) {
-        this.refs.emptyImagesState.classList.remove("d-flex");
-        this.refs.emptyImagesState.classList.add("d-none");
-        this.refs.addImageButton.classList.add("mt-3");
+      this.refs.emptyImagesState.classList.remove("d-flex");
+      this.refs.emptyImagesState.classList.add("d-none");
+      this.refs.addImageButton.classList.add("mt-3");
     }
     else {
-        this.refs.emptyImagesState.classList.remove("d-none");
-        this.refs.emptyImagesState.classList.add("d-flex");
-        this.refs.addImageButton.classList.remove("mt-3");
+      this.refs.emptyImagesState.classList.remove("d-none");
+      this.refs.emptyImagesState.classList.add("d-flex");
+      this.refs.addImageButton.classList.remove("mt-3");
     }
   }
 
+  /**
+   * Formats the raw numeric input into a BRL currency string format in real-time.
+   *
+   * @param {Event} event - The native input event from the price field.
+   * @returns {void}
+   */
   maskPrice(event) {
     let value = event.target.value.replace(/\D/g, "");
 
@@ -407,11 +474,11 @@ export class AddItemPage {
     }
 
     const typeReqVal = Validator.required(this.refs.type.value);
-    const typeVal = ["free", "sale","disposal"].includes(this.refs.type.value);
+    const typeVal = ["free", "sale", "disposal"].includes(this.refs.type.value);
 
     if (!typeReqVal || !typeVal) {
-        let errorMsgType = "INVALID_TYPE";
-        if (!typeReqVal) errorMsgType = "REQUIRED";
+      let errorMsgType = "INVALID_TYPE";
+      if (!typeReqVal) errorMsgType = "REQUIRED";
       this.showFieldError(
         this.refs.type,
         errorMessages.type[errorMsgType],
@@ -432,9 +499,15 @@ export class AddItemPage {
     return isValid;
   }
 
+  /**
+   * Sanitizes raw form inputs and structures the final ad item data payload.
+   *
+   * @returns {Object} The formatted data payload object for the new item.
+   * @private
+   */
   createPayload() {
     let price = this.refs.basePrice.value.replace(".", "").replace(",", ".");
-    
+
     price = price === '' ? "0.0" : price;
 
     return {
@@ -461,26 +534,29 @@ export class AddItemPage {
       item_duration: this.refs.duration.value,
     };
   }
-/** 
- * Visually injects the error classes and inserts the descriptive string.
- */
-showFieldError(fieldElement, message, isImageField= false) { 
+
+  /** 
+   * Visually injects the error classes and inserts the descriptive string.
+   * 
+   * @returns {void}
+   */
+  showFieldError(fieldElement, message, isImageField = false) {
     if (!fieldElement) return;
-    if (isImageField) 
-    {
-        fieldElement.classList.add("border-danger");
+    if (isImageField) {
+      fieldElement.classList.add("border-danger");
     }
-    fieldElement.classList.add("is-invalid");        
+    fieldElement.classList.add("is-invalid");
     const feedbackElement = this.content.querySelector(`[data-error-for="${fieldElement.id}"]`);
-    if (feedbackElement) 
-    {
-        feedbackElement.textContent = message;
-    } 
-}
-/**
- * Scans the DOM tree to purge visual indicators of previous failures.
- */
-clearValidationErrors() {
+    if (feedbackElement) {
+      feedbackElement.textContent = message;
+    }
+  }
+  /**
+   * Scans the DOM tree to purge visual indicators of previous failures.
+   * 
+   * @returns {void}
+   */
+  clearValidationErrors() {
     const fields = [
       this.refs.title,
       this.refs.category,
@@ -499,18 +575,22 @@ clearValidationErrors() {
     feedbacks.forEach((feedback) => {
       feedback.textContent = "";
     });
-    if (this.refs.imagesCard) {this.refs.imagesCard.classList.remove("border-danger")}
-}
-  
-saveItem() {
+    if (this.refs.imagesCard) { this.refs.imagesCard.classList.remove("border-danger") }
+  }
+
+  /**
+   * Validates the form data, builds the payload, and submits the new ad item.
+   *
+   * @returns {void}
+   */
+  saveItem() {
     if (!this.validateForm()) {
-        this.alert.danger("Por favor, corrija os erros do formulário.");
-        return;
+      this.alert.danger("Por favor, corrija os erros do formulário.");
+      return;
     }
     this.loading.show(document.body);
 
     const payload = this.createPayload();
-    console.log(payload)
 
     const result = ItemService.createItem(payload);
 
@@ -529,6 +609,9 @@ saveItem() {
     }, 800);
   }
 
+  /**
+  * Releases page resources
+  */
   destroy() {
     Object.entries(this.boundHandlers).forEach(([key, handler]) => {
       switch (key) {
@@ -575,7 +658,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // I implemented a lifecycle invalidation for the BFCache (Back-Forward Cache)
 // feature of mobile browsers, ensuring data reactivity in history rollback events.
 window.addEventListener('pageshow', (event) => {
-    if (event.persisted) {
-        window.location.reload(); 
-    }
+  if (event.persisted) {
+    window.location.reload();
+  }
 });

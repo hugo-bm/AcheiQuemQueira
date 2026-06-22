@@ -168,7 +168,7 @@ export class UserService {
   /**
    *  Updates an existing user.
    *
-   * @param {string} userId - User identifier.
+   * @param {string} userId
    *
    * @typedef {Object} UserUpdate
    *

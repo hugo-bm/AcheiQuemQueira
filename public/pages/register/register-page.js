@@ -32,6 +32,11 @@ export class RegisterPage {
     this.init();
   }
 
+  /**
+  * Orchestrates the lifecycle initialization sequence of the page.
+  *
+  * @returns {void}
+  */
   init() {
     this.alertRender = new AlertRender("#alert-container");
 
@@ -40,6 +45,11 @@ export class RegisterPage {
     this.initializeLocationDropdowns();
   }
 
+  /**
+  * Caches required DOM element references for the register  interface.
+  *
+  * @returns {void}
+  */
   captureElements() {
     this.elements = {
       cpfCnpj: document.getElementById("cpf-cnpj"),
@@ -60,6 +70,11 @@ export class RegisterPage {
     };
   }
 
+  /**
+  * Attaches interaction event listeners to the component's root element.
+  *
+  * @returns {void}
+  */
   registerEvents() {
     this.elements.saveButton.addEventListener("click", this.boundSave);
 
@@ -75,6 +90,11 @@ export class RegisterPage {
     this.elements.city.addEventListener("change", this.boundCityChange);
   }
 
+  /**
+   * Handles the form submission workflow to asynchronously validate and register a new user.
+   *
+   * @returns {Promise<void>} A promise that resolves when the save operation completes.
+   */
   async handleSave() {
     this.clearErrors();
 
@@ -123,12 +143,23 @@ export class RegisterPage {
     }
   }
 
+  /**
+   * Manages the submission workflow of the registration form payload.
+   *
+   * @param {Event} event - The native submit interaction event.
+   * @returns {void}
+   */
   handleLogin(event) {
     event.preventDefault();
 
     window.location.href = ROUTES['login'];
   }
 
+/**
+ * Handles the blur event on the email input to execute validation constraints.
+ *
+ * @returns {void}
+ */
   handleEmailBlur() {
     const email = this.elements.email.value.trim();
 
@@ -139,6 +170,11 @@ export class RegisterPage {
     }
   }
 
+  /**
+   * Handles the blur event on the phone input to apply the standard mask.
+   *
+   * @returns {void}
+   */
   handlePhoneBlur() {
     const phone = this.elements.phone.value.trim();
 
@@ -153,6 +189,11 @@ export class RegisterPage {
     this.elements.phone.value = this.formatPhone(phone);
   }
 
+  /**
+   * Handles the blur event on the CPF/CNPJ input to format and validate the entry.
+   *
+   * @returns {void}
+   */
   handleCpfCnpjBlur() {
     const value = this.elements.cpfCnpj.value.trim();
 
@@ -167,6 +208,12 @@ export class RegisterPage {
     }
   }
 
+
+  /**
+   * Handles the state dropdown change event to clear and repopulate dependent cities.
+   *
+   * @returns {void}
+   */
   handleStateChange() {
     const selectedStateName = this.elements.state.value;
 
@@ -188,6 +235,11 @@ export class RegisterPage {
     }
   }
 
+  /**
+   * Handles the city dropdown change event to repopulate corresponding neighborhoods.
+   *
+   * @returns {void}
+   */
   handleCityChange() {
     const selectedStateName = this.elements.state.value;
     const selectedCityName = this.elements.city.value;
@@ -212,14 +264,20 @@ export class RegisterPage {
     }
   }
 
+ /**
+ * Populates a dropdown selector with a new set of data items and removes the disabled state.
+ *
+ * @param {HTMLSelectElement} selectElement - The target dropdown DOM element.
+ * @param {string} placeholderText - The default placeholder option text.
+ * @param {Array<{id: string, name: string}>} items - The collection of options to append.
+ * @returns {void}
+ */
   populateSelect(selectElement, placeholderText, items) {
     if (!selectElement) return;
 
     selectElement.length = 0;
 
-
     const fragment = document.createDocumentFragment();
-
 
     fragment.appendChild(new Option(placeholderText, ''));
 
@@ -230,6 +288,13 @@ export class RegisterPage {
     selectElement.appendChild(fragment);
   }
 
+/**
+ * Resets a select element to its default option and forces the disabled state.
+ *
+ * @param {HTMLSelectElement} selectElement - The target dropdown DOM element.
+ * @param {string} placeholderText - The default option text to display.
+ * @returns {void}
+ */
   resetSelect(selectElement, placeholderText) {
     if (!selectElement) return;
 
@@ -317,6 +382,13 @@ export class RegisterPage {
     return valid;
   }
 
+/**
+ * Evaluates a field validation result and updates its visual state accordingly.
+ *
+ * @param {string} fieldId - The target input field identifier.
+ * @param {{success: boolean, error?: string}} result - The validation check payload.
+ * @returns {boolean} True if the field is valid, false otherwise.
+ */
   validateField(fieldId, result) {
     if (result.valid) {
       return true;
@@ -368,6 +440,11 @@ export class RegisterPage {
     return false;
   }
 
+  /**
+   * Extracts and structures the sanitized form input data into a unified object.
+   *
+   * @returns {Object} The dictionary containing all trimmed registration field entries.
+   */
   getFormData() {
     return {
       cpfCnpj: this.elements.cpfCnpj.value.trim(),
@@ -392,6 +469,11 @@ export class RegisterPage {
     };
   }
 
+  /**
+   * Clears all error states and validation messages from the registration form.
+   *
+   * @returns {void}
+   */
   clearErrors() {
     document.querySelectorAll(".is-invalid").forEach((element) => {
       element.classList.remove("is-invalid");
@@ -402,6 +484,13 @@ export class RegisterPage {
     });
   }
 
+  /**
+   * Displays a validation error message under the specified form field.
+   *
+   * @param {string} fieldId - The identifier of the form input field.
+   * @param {string} message - The error validation text to be shown.
+   * @returns {void}
+   */
   showError(fieldId, message) {
     const field = document.getElementById(fieldId);
 
@@ -416,10 +505,22 @@ export class RegisterPage {
     }
   }
 
+  /**
+   * Formats a raw 11-digit string into a standardized CPF mask (XXX.XXX.XXX-XX).
+   *
+   * @param {string} value - The raw numeric CPF string.
+   * @returns {string} The formatted CPF string.
+   */
   formatCPF(value) {
     return value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
   }
 
+  /**
+   * Formats a raw 14-digit string into a standardized CNPJ mask (XX.XXX.XXX/XXXX-XX).
+   *
+   * @param {string} value - The raw numeric CNPJ string.
+   * @returns {string} The formatted CNPJ string.
+   */
   formatCNPJ(value) {
     return value.replace(
       /(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/,
@@ -427,6 +528,13 @@ export class RegisterPage {
     );
   }
 
+/**
+ * Formats a raw string into a standard landline (10 digits) or mobile (11 digits) Brazilian phone mask.
+ *
+ * @param {string} value - The raw phone alphanumeric or numeric string.
+ * @returns {string} The formatted phone string in (XX) XXXX-XXXX or (XX) XXXXX-XXXX pattern.
+ * @private
+ */
   formatPhone(value) {
     const digits = value.replace(/\D/g, "");
 
@@ -437,6 +545,9 @@ export class RegisterPage {
     return digits.replace(/(\d{2})(\d{4})(\d{4})/, "($1) $2-$3");
   }
 
+  /**
+   * Releases page resources
+   */
   destroy() {
     this.elements.saveButton?.removeEventListener("click", this.boundSave);
 
@@ -460,6 +571,11 @@ export class RegisterPage {
     this.boundEmailBlur = null;
   }
 
+  /**
+   * Fetches geographical data and initializes the state, city, and neighborhood dropdown selectors.
+   *
+   * @returns {void}
+   */
   initializeLocationDropdowns() {
     this.locationData = LocationService.getAllLocations();
 

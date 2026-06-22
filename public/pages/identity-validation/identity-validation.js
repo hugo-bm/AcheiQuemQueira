@@ -26,6 +26,11 @@ export class IdentityValidationPage {
         this.initialize();
     }
 
+    /**
+    * Orchestrates the lifecycle initialization sequence of the page.
+    *
+    * @returns {void}
+    */
     initialize() {
         this.prepareUserTrigger();
 
@@ -40,6 +45,12 @@ export class IdentityValidationPage {
             this.handleBeforeUnload
         );
     }
+
+    /**
+     * Prepares and enables the user action triggers for the validation sequence.
+     *
+     * @returns {void}
+     */
     prepareUserTrigger() {
         this.clearStatus();
 
@@ -101,7 +112,12 @@ export class IdentityValidationPage {
         Events.on(triggerButton, 'click', this.boundStartCameraTrigger);
     }
 
-
+    /**
+     * Caches required DOM element references for the validation interface.
+     *
+     * @returns {void}
+     * @private
+     */
     captureElements() {
         this.elements.video = document.getElementById('camera-preview');
 
@@ -119,6 +135,11 @@ export class IdentityValidationPage {
         this.elements.cardConteiner = document.getElementById('card-conteiner');
     }
 
+    /**
+     * Requests media permissions and boots the asynchronous video stream source.
+     *
+     * @returns {Promise<void>}
+     */
     async initializeCamera() {
         this.stopCamera();
         if (this.elements.video) {
@@ -176,6 +197,11 @@ export class IdentityValidationPage {
         }
     }
 
+    /**
+     * Initiates the identity validation pipeline and handles state transitions.
+     *
+     * @returns {void}
+     */
     startValidationFlow() {
         this.clearAllTimers();
         this.updateMessage(
@@ -215,12 +241,12 @@ export class IdentityValidationPage {
                 const data = NavStorage.get("identity-validation-page");
                 if (!data.userId) {
                     this.alertRender.danger("Error ao enviar imagem!", "Não foi possível enviar a imagem. Tente novamente mais tarde.")
-                    setTimeout(()=>this.navigateToLogin(),4000);   
+                    setTimeout(() => this.navigateToLogin(), 4000);
                 }
                 const result = UserService.verifyIdentity(data.userId);
                 if (!result.success) {
                     this.alertRender.danger("Error ao enviar imagem!", "Não foi possível enviar a imagem. Tente novamente mais tarde.")
-                    setTimeout(()=>this.navigateToLogin(),4000);                    
+                    setTimeout(() => this.navigateToLogin(), 4000);
                 }
             }
         );
@@ -241,21 +267,21 @@ export class IdentityValidationPage {
         );
     }
 
+    /**
+     * Captures the current video frame and freezes the canvas display.
+     *
+     * @returns {void}
+     */
     freezeFrame() {
-        const video =
-            this.elements.video;
+        const video = this.elements.video;
 
-        const canvas =
-            this.elements.canvas;
+        const canvas = this.elements.canvas;
 
-        const context =
-            canvas.getContext('2d');
+        const context = canvas.getContext('2d');
 
-        canvas.width =
-            video.videoWidth || 640;
+        canvas.width = video.videoWidth || 640;
 
-        canvas.height =
-            video.videoHeight || 480;
+        canvas.height = video.videoHeight || 480;
 
         context.drawImage(
             video,
@@ -265,92 +291,73 @@ export class IdentityValidationPage {
             canvas.height
         );
 
-        video.classList.add(
-            'd-none'
-        );
+        video.classList.add('d-none');
 
-        canvas.classList.remove(
-            'd-none'
-        );
+        canvas.classList.remove('d-none');
 
         this.stopCamera();
     }
 
+
+    /**
+    * Clears previous states and appends a visual spinner loader to indicate identity validation.
+    *
+    * @returns {void}
+    */
     showLoadingState() {
         this.clearStatus();
 
-        const wrapper =
-            document.createElement('div');
+        const wrapper = document.createElement('div');
 
-        wrapper.className =
-            'd-flex flex-column align-items-center gap-3';
+        wrapper.className = 'd-flex flex-column align-items-center gap-3';
 
-        const spinner =
-            document.createElement('div');
+        const spinner = document.createElement('div');
 
-        spinner.className =
-            'spinner-border text-primary';
+        spinner.className = 'spinner-border text-primary';
 
-        spinner.style.width =
-            '4rem';
+        spinner.style.width = '4rem';
 
-        spinner.style.height =
-            '4rem';
+        spinner.style.height = '4rem';
 
-        const text =
-            document.createElement('div');
+        const text = document.createElement('div');
 
-        text.textContent =
-            'Validando identidade...';
+        text.textContent = 'Validando identidade...';
 
-        wrapper.appendChild(
-            spinner
-        );
+        wrapper.appendChild(spinner);
 
-        wrapper.appendChild(
-            text
-        );
+        wrapper.appendChild(text);
 
-        this.elements.status.appendChild(
-            wrapper
-        );
+        this.elements.status.appendChild(wrapper);
     }
 
+
+    /**
+     * Clears previous states and renders a successful identity validation success block.
+     *
+     * @returns {void}
+     */
     showSuccessState() {
         this.clearStatus();
 
-        const wrapper =
-            document.createElement('div');
+        const wrapper = document.createElement('div');
 
-        wrapper.className =
-            'd-flex flex-column align-items-center gap-3 text-success';
+        wrapper.className = 'd-flex flex-column align-items-center gap-3 text-success';
 
-        const icon =
-            document.createElement('i');
+        const icon = document.createElement('i');
 
-        icon.className =
-            'bi bi-patch-check-fill';
+        icon.className = 'bi bi-patch-check-fill';
 
-        icon.style.fontSize =
-            '4rem';
+        icon.style.fontSize = '4rem';
 
-        const text =
-            document.createElement('div');
+        const text = document.createElement('div');
 
-        text.textContent =
-            'Identidade validada com sucesso';
+        text.textContent = 'Identidade validada com sucesso';
 
-        wrapper.appendChild(
-            icon
-        );
+        wrapper.appendChild(icon);
 
-        wrapper.appendChild(
-            text
-        );
+        wrapper.appendChild(text);
 
-        this.elements.status.appendChild(
-            wrapper
-        );
+        this.elements.status.appendChild(wrapper);
     }
 
     updateMessage(message) {
@@ -370,16 +377,24 @@ export class IdentityValidationPage {
         );
     }
 
+    /**
+     * Purges all active child nodes and visual containers inside the status placeholder.
+     *
+     * @returns {void}
+     */
     clearStatus() {
-        while (
-            this.elements.status.firstChild
-        ) {
+        while (this.elements.status.firstChild) {
             this.elements.status.removeChild(
                 this.elements.status.firstChild
             );
         }
     }
 
+    /**
+     * Clears all active timeout references and resets the timers tracking array.
+     *
+     * @returns {void}
+     */
     clearAllTimers() {
         this.timers.forEach(timer => {
             clearTimeout(timer);
@@ -388,6 +403,11 @@ export class IdentityValidationPage {
         this.timers = [];
     }
 
+    /**
+     * Clears previous states and renders a Fallback message block.
+     *
+     * @returns {void}
+     */
     showFallback() {
         this.stopCamera();
 
@@ -407,6 +427,11 @@ export class IdentityValidationPage {
         );
     }
 
+    /**
+     * Stops all active video hardware tracks and cuts off the camera stream source safely.
+     *
+     * @returns {void}
+     */
     stopCamera() {
         if (!this.stream) {
             return;
@@ -421,12 +446,24 @@ export class IdentityValidationPage {
         this.stream = null;
     }
 
+    /**
+     * Redirects the browser viewport directly to the login authentication route.
+     *
+     * @returns {void}
+     */
     navigateToLogin() {
         this.stopCamera();
 
         window.location.href = ROUTES['login'];
     }
 
+    /**
+     * Instantiates a new timeout tracker and pushes its reference to the active timers array.
+     *
+     * @param {number} delay - The execution wait window time in milliseconds.
+     * @param {Function} callback - The execution logic closure to run after the delay.
+     * @returns {void}
+     */
     createTimer(delay, callback) {
         const timer =
             setTimeout(
@@ -437,10 +474,21 @@ export class IdentityValidationPage {
         this.timers.push(timer);
     }
 
+    /**
+     * Handles the page teardown tasks immediately before the window unloads.
+     *
+     * @returns {void}
+     */
     handleBeforeUnload() {
         this.stopCamera();
     }
 
+    /**
+     * Handles the asynchronous trigger sequence to initialize and boot the camera stream.
+     *
+     * @param {Event} event - The triggering action or interaction event.
+     * @returns {Promise<void>}
+     */
     async handleStartCameraTrigger(event) {
         if (event && event.target) {
             event.target.removeEventListener('click', this.boundStartCameraTrigger);
@@ -449,6 +497,11 @@ export class IdentityValidationPage {
         await this.initializeCamera();
     }
 
+    /**
+    * Handles the UI state transition when switching the active camera device.
+    *
+    * @returns {void}
+    */
     handleToggleCamera() {
         this.currentFacingMode = this.currentFacingMode === 'user' ? 'environment' : 'user';
 
@@ -456,6 +509,11 @@ export class IdentityValidationPage {
         this.initializeCamera();
     }
 
+    /**
+     * Attaches interaction event listeners to the camera toggle controls.
+     *
+     * @returns {void}
+     */
     registerToggleEvent() {
         if (this.elements.toggleCameraButton) {
             this.elements.toggleCameraButton.removeEventListener('click', this.boundToggleCamera);
@@ -463,6 +521,9 @@ export class IdentityValidationPage {
         }
     }
 
+    /**
+     * Releases page resources
+     */
     destroy() {
         this.stopCamera();
 
@@ -497,6 +558,6 @@ document.addEventListener(
 // feature of mobile browsers, ensuring data reactivity in history rollback events.
 window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
-        window.location.reload(); 
+        window.location.reload();
     }
 });
