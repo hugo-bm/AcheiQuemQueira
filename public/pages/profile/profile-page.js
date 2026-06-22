@@ -255,11 +255,10 @@ class ProfilePage {
     const reviews = this.profileUser.reputation.reviewsCount.toFixed(0);
     const averageRating = this.profileUser.reputation.averageRating.toFixed(2);
     const negotiations = this.profileUser.reputation.completedDeals.toFixed(0);
-    console.log(reviews, averageRating, negotiations)
     const metrics = [
       {
         icon: "bi-chat-square-text",
-        value: reviews.length,
+        value: reviews,
         label: "Avaliações",
       },
       {
@@ -269,7 +268,7 @@ class ProfilePage {
       },
       {
         icon: "bi-check-circle",
-        value: negotiations.length,
+        value: negotiations,
         label: "Negociações",
       },
     ];
