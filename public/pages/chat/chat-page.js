@@ -69,6 +69,7 @@ export class ChatPage {
         if (!receivedId.chatId) {
             receivedId.proposalId = context?.proposalId;
         }
+        console.log(context.proposalId,receivedId)
 
         if (!receivedId.proposalId && !receivedId.chatId) {
             this.alert.danger('Erro', 'Conversa não encontrada.');
@@ -93,7 +94,7 @@ export class ChatPage {
                 'Nenhuma conversa disponível para esta proposta.'
             );
 
-            Helpers.debounce(() => { window.location.href = ROUTES['dashboard'] }, 2000);
+            //Helpers.debounce(() => { window.location.href = ROUTES['dashboard'] }, 2000);
 
             return;
         }
@@ -144,6 +145,7 @@ export class ChatPage {
         });
 
         try {
+            console.log(this.proposal)
             this._item = ItemService.getById(this.proposal?.itemId);
 
             this.negotiation = NegotiationService.getProposalNegotiation(this.proposal.id);
@@ -161,12 +163,12 @@ export class ChatPage {
      * Renders page components.
      */
     render() {
-        const otherUser =
-            this.getOtherUser();
+        const otherUser = this.getOtherUser();
 
         if (!otherUser) {
             this.alert.danger("Usuário não encontrado!")
-            window.location.href = ROUTES['dashboard']
+            console.log(otherUser)
+            // window.location.href = ROUTES['dashboard']
         }
         let status = "open";
         if (this.negotiation) {
@@ -534,6 +536,7 @@ export class ChatPage {
      * @returns {User|null}
      */
     getOtherUser() {
+        console.log(this._item)
         if (!this._item) {
             return null;
         }
@@ -543,7 +546,6 @@ export class ChatPage {
                 this._item.ownerId
                 ? this.proposal.proposerId
                 : this._item.ownerId;
-
         return UserService.getById(userId);
     }
 
